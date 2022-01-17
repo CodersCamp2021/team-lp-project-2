@@ -90,7 +90,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Population of Earth is now at almost 2 years of pandemic and constant lockdowns. Prices are at all-time high, inflation is skyrocketing, noone is happy.
 There is one group of people that's particularly unhappy and opressed - gamers. The world-wide cryptocurrency boom feels like it's been lasting forever
-with PC parts costing a fortune (Graphics Cards being leading example).
+with PC parts costing a fortune (Graphics Cards being prime example).
 
 ## Project Assumptions
 
