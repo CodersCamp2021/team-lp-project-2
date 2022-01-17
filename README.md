@@ -86,6 +86,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+
+# [Shop logo placeholder]
+
+
 ## Overview
 
 Population of Earth is now at almost 2 years of pandemic and constant lockdowns. Prices are at all-time high, inflation is skyrocketing, noone is happy.
