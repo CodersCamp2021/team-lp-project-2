@@ -1,3 +1,20 @@
+# CodersCamp 2021 - Team: Łukasz Powązka
+
+## Project 2: React.js
+
+**Mentor**: [Łukasz Powązka](https://github.com/lukiq)
+
+**Team members**:
+
+- [Patryk Brodziak](https://github.com/patrykbrodziak1)
+- [Jakub Czerwiński](https://github.com/kubaczerwinski77)
+- [Huber Grobelny](https://github.com/Burbinox)
+- [Maciej Jankowski](https://github.com/macjank)
+- [Krzysztof Prońko](https://github.com/Ruud1990)
+- [Paweł Stępień](https://github.com/pastepi)
+
+## How to Use
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +85,28 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Overview
+
+Population of Earth is now at almost 2 years of pandemic and constant lockdowns. Prices are at all-time high, inflation is skyrocketing, noone is happy.
+There is one group of people that's particularly unhappy and opressed - gamers. The world-wide cryptocurrency boom feels like it's been lasting forever
+with PC parts costing a fortune (Graphics Cards being leading example).
+
+## Project Assumptions
+
+[wymagania]
+
+## Additional Features
+
+[nice-to-have]
+
+## Technologies
+
+- React
+- React Router
+- Chakra UI
+- Firebase/Firestore
+- Jest (React Testing Library)
+- Cypress
+- Figma
+- Trello
