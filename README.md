@@ -107,6 +107,10 @@ The amount of electronics produced (as well as the demand for them) ended up bei
 
 [nice-to-have]
 
+- user account handling,
+- personal cart service,
+- end-to-end tests.
+
 ## Technologies
 
 - React
