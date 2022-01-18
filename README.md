@@ -86,15 +86,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
 # [Shop logo placeholder]
-
 
 ## Overview
 
 Population of Earth is now at almost 2 years of pandemic and constant lockdowns. Prices are at all-time high, inflation is skyrocketing, noone is happy.
-There is one group of people that's particularly unhappy and opressed - gamers. The world-wide cryptocurrency boom feels like it's been lasting forever
-with PC parts costing a fortune (Graphics Cards being prime example).
+There is one group of people that's particularly unhappy and opressed - gamers. The cryptocurrency boom feels like it's been lasting forever
+with PC parts costing a fortune (graphics cards being prime example). Worldwide microchips shortages are definitely playing a big part in it and there's no obvious solution in sight.
+The story would end here... **HOWEVER!**
+
+One day a rift has opened in a certain part of Poland, near Wrocław. It was discovered to contain a massive deposits of **silicon** and was promptly turned into a mine. As to what the place was called, a term **Silicon Alley** was coined by an anonymous entity and seemingly the PC part crisis was solved... or was it?
+
+The amount of electronics produced (as well as the demand for them) ended up being so gigantic that all the stores couldn't handle every consumer order and a need for yet another electronics store arose. And that is how this project came to be.
 
 ## Project Assumptions
 
