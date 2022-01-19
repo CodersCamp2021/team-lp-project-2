@@ -102,6 +102,12 @@ The amount of electronics produced (as well as the demand for them) ended up bei
 ## Project Assumptions
 The main assumption of the project is to create an application through the appropriate use of the React knowledge acquired during the course. 
 
+A six-person design group, under the guidance of a mentor, who is also a customer of the product, decided on the subject of the store. The store contains computer components.
+
+The store has several categories with components for computers that the user can add to the cart and complete the transaction.
+
+The customer who makes the purchase can also filter the products, including by price.
+
 ## Additional Features
 
 [nice-to-have]
