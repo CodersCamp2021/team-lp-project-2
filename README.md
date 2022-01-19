@@ -108,6 +108,8 @@ The store has several categories with components for computers that the user can
 
 The customer who makes the purchase can also filter the products, including by price.
 
+The store project is just an example of how an actual store works. It allows us to consolidate the previously acquired knowledge and apply it in practice.
+
 ## Additional Features
 
 [nice-to-have]
