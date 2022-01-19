@@ -112,11 +112,10 @@ The store project is just an example of how an actual store works. It allows us 
 
 ## Additional Features
 
-[nice-to-have]
-
 - user account handling,
 - personal cart service,
-- end-to-end tests.
+- end-to-end tests,
+- login users.
 
 ## Technologies
 
