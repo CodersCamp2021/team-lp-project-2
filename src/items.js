@@ -3,7 +3,7 @@ import app from './firebase';
 
 const addProduct = () => {
   const products = [
-    /*
+    /**
      * AMD CPU
      */
     {
@@ -76,7 +76,7 @@ const addProduct = () => {
         processorCount: 8,
       },
     },
-    /*
+    /**
      * INTEL CPU
      */
     {
@@ -149,7 +149,7 @@ const addProduct = () => {
         processorCount: 4,
       },
     },
-    /*
+    /**
      * GPU Cards
      */
     {
@@ -162,7 +162,70 @@ const addProduct = () => {
         ramSize: 8,
         memoryClockSpeed: 19000,
         gpuClockSpeed: 1830,
-        displayMaxRes: '7680 x 4320 Pixels',
+      },
+    },
+    {
+      name: 'MSI GeForce RTX 3070',
+      price: 1180.99,
+      images: [],
+      details: {
+        brand: 'MSI',
+        ramType: 'GDDR6',
+        ramSize: 8,
+        memoryClockSpeed: 1845,
+        gpuClockSpeed: 1845,
+      },
+    },
+    /**
+     * RAM CHIPS
+     */
+    {
+      name: 'Corsair CMW16GX4M2C3200C16 Vengeance',
+      price: 67.61,
+      images: [],
+      details: {
+        brand: 'Corsair',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 16,
+        memorySpeed: 3200,
+      },
+    },
+    {
+      name: 'HyperX Fury HX426C16FB3AK2',
+      price: 115.91,
+      images: [],
+      details: {
+        brand: 'HyperX',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 16,
+        memorySpeed: 2666,
+      },
+    },
+    /**
+     * MOTHERBOARDS
+     */
+    {
+      name: 'ROG STRIX B550-F GAMING',
+      price: 144.99,
+      images: [],
+      details: {
+        brand: 'ASUS',
+        cpuSocket: 'Socket AM4',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'AMD B550',
+        series: 'ROG STRIX B550-F GAMING',
+      },
+    },
+    {
+      name: 'ROG Maximus XIII Hero',
+      price: 353.43,
+      images: [],
+      details: {
+        brand: 'ASUS',
+        cpuSocket: 'LGA 1200',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'AMD A55',
+        series: '90MB15X0-M0EAY0',
       },
     },
   ];
@@ -173,7 +236,6 @@ const addProduct = () => {
 
   // const db = getFirestore(app);
   // const productRef = collection(db, 'products');
-
   // products.forEach(product => {
   //   addDoc(productRef, product)
   // })
