@@ -100,8 +100,7 @@ One day a rift has opened in a certain part of Poland, near Wrocław. It was dis
 The amount of electronics produced (as well as the demand for them) ended up being so gigantic that all the stores couldn't handle every consumer order and a need for yet another electronics store arose. And that is how this project came to be.
 
 ## Project Assumptions
-
-[wymagania]
+The main assumption of the project is to create an application through the appropriate use of the React knowledge acquired during the course. 
 
 ## Additional Features
 
