@@ -76,6 +76,20 @@ const addProduct = () => {
         processorCount: 8,
       },
     },
+    {
+      name: 'AMD Ryzen 5 5600X Processor',
+      price: 288.89,
+      images: [],
+      details: {
+        brand: 'AMD',
+        model: 'Ryzen 5 5600X',
+        cpuSpeed: 4.6,
+        cpuSocket: 'Socket AM4',
+        wattage: 65,
+        cacheSize: 35,
+        processorCount: 6,
+      },
+    },
     /**
      * INTEL CPU
      */
@@ -149,6 +163,20 @@ const addProduct = () => {
         processorCount: 4,
       },
     },
+    {
+      name: 'Intel Core i5-10400F Processor',
+      price: 151.0,
+      images: [],
+      details: {
+        brand: 'Intel',
+        model: 'Core i5 Family',
+        cpuSpeed: 2.9,
+        cpuSocket: 'LGA 1200',
+        wattage: 65,
+        cacheSize: 12,
+        processorCount: 6,
+      },
+    },
     /**
      * GPU Cards
      */
@@ -176,6 +204,42 @@ const addProduct = () => {
         gpuClockSpeed: 1845,
       },
     },
+    {
+      name: 'ASUS Cerberus GeForce GTX 1050 Ti',
+      price: 399.0,
+      images: [],
+      details: {
+        brand: 'ASUS',
+        ramType: 'GDDR5',
+        ramSize: 4,
+        memoryClockSpeed: 7008,
+        gpuClockSpeed: 1341,
+      },
+    },
+    {
+      name: 'MSI GeForce GTX 1060',
+      price: 539.0,
+      images: [],
+      details: {
+        brand: 'MSI',
+        ramType: 'GDDR5',
+        ramSize: 6,
+        memoryClockSpeed: 8192,
+        gpuClockSpeed: 1594,
+      },
+    },
+    {
+      name: 'ZOTAC GeForce RTX 3060',
+      price: 849.0,
+      images: [],
+      details: {
+        brand: 'ZOTAC',
+        ramType: 'GDDR6',
+        ramSize: 12,
+        memoryClockSpeed: 15000,
+        gpuClockSpeed: 1807,
+      },
+    },
     /**
      * RAM CHIPS
      */
@@ -199,6 +263,28 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 2666,
+      },
+    },
+    {
+      name: 'Crucial CT16G4SFD824A SODIMM',
+      price: 72.99,
+      images: [],
+      details: {
+        brand: 'Crucial',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 16,
+        memorySpeed: 2400,
+      },
+    },
+    {
+      name: 'Patriot Viper 4 PV48G300C6K',
+      price: 39.99,
+      images: [],
+      details: {
+        brand: 'Patriot Memory',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 8,
+        memorySpeed: 3000,
       },
     },
     /**
@@ -226,6 +312,30 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD A55',
         series: '90MB15X0-M0EAY0',
+      },
+    },
+    {
+      name: 'ASUS Prime H410M-A',
+      price: 84.99,
+      images: [],
+      details: {
+        brand: 'Asus',
+        cpuSocket: 'LGA 1200',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'Intel H410',
+        series: 'PRIME H410M-A/CSM',
+      },
+    },
+    {
+      name: 'ASUS Prime B560-PLUS',
+      price: 119.99,
+      images: [],
+      details: {
+        brand: 'Asus',
+        cpuSocket: 'LGA 1200',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'Intel B560',
+        series: 'PRIME B560-PLUS',
       },
     },
   ];
