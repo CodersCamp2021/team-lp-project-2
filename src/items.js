@@ -124,6 +124,40 @@ const addProduct = () => {
      * INTEL CPU
      */
     {
+      name: 'Intel Core i7-11700K',
+      type: 'cpu',
+      price: 1649,
+      images: [
+        'Intel Core i7-11700K%2F1.jpg',
+        'Intel Core i7-11700K%2F2.jpg',
+        'Intel Core i7-11700K%2F3.jpg',
+      ],
+      details: {
+        brand: 'Intel',
+        model: 'Core i7',
+        cpuSpeed: 3.6,
+        cpuSocket: 'LGA 1200',
+        wattage: 125,
+        cacheSize: 16,
+        processorCount: 8,
+      },
+    },
+    {
+      name: 'Intel Core i7-12700K',
+      type: 'cpu',
+      price: 382.99,
+      images: ['Intel Core i7-12700K%2F1.jpg'],
+      details: {
+        brand: 'Intel',
+        model: 'Core i7',
+        cpuSpeed: 5,
+        cpuSocket: 'LGA 1700',
+        wattage: 125,
+        cacheSize: 16,
+        processorCount: 12,
+      },
+    },
+    {
       name: 'Intel Core i9-9900K',
       type: 'cpu',
       price: 384.41,
@@ -250,6 +284,40 @@ const addProduct = () => {
       },
     },
     {
+      name: 'Gigabyte GeForce RTX 3080',
+      type: 'gpu',
+      price: 1300.0,
+      images: [
+        'Gigabyte GeForce RTX 3080%2F1.jpg',
+        'Gigabyte GeForce RTX 3080%2F2.jpg',
+        'Gigabyte GeForce RTX 3080%2F3.jpg',
+      ],
+      details: {
+        brand: 'Gigabyte',
+        ramType: 'GDDR6X',
+        ramSize: 10,
+        memoryClockSpeed: 19000,
+        gpuClockSpeed: 1800,
+      },
+    },
+    {
+      name: 'MSI RTX 2080 Ti',
+      type: 'gpu',
+      price: 1000.0,
+      images: [
+        'MSI RTX 2080 Ti%2F1.jpg',
+        'MSI RTX 2080 Ti%2F2.jpg',
+        'MSI RTX 2080 Ti%2F3.jpg',
+      ],
+      details: {
+        brand: 'MSI',
+        ramType: 'GDDR6X',
+        ramSize: 11,
+        memoryClockSpeed: 14000,
+        gpuClockSpeed: 1000,
+      },
+    },
+    {
       name: 'MSI GeForce RTX 3070',
       type: 'gpu',
       price: 1180.99,
@@ -334,6 +402,38 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 3200,
+      },
+    },
+    {
+      name: 'Hyperx FURY HX436C17FB3K2',
+      type: 'ram',
+      price: 590.0,
+      images: [
+        'Hyperx FURY HX436C17FB3K2%2F1.jpg',
+        'Hyperx FURY HX436C17FB3K2%2F2.jpg',
+        'Hyperx FURY HX436C17FB3K2%2F3.jpg',
+      ],
+      details: {
+        brand: 'HyperX',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 16,
+        memorySpeed: 3600,
+      },
+    },
+    {
+      name: 'Kingston KVR24S17D8',
+      type: 'ram',
+      price: 529.0,
+      images: [
+        'Kingston KVR24S17D8%2F1.jpg',
+        'Kingston KVR24S17D8%2F2.jpg',
+        'Kingston KVR24S17D8%2F3.jpg',
+      ],
+      details: {
+        brand: 'Kingston',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 16,
+        memorySpeed: 2400,
       },
     },
     {
