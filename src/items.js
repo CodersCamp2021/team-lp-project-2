@@ -10,7 +10,11 @@ const addProduct = () => {
       name: 'AMD Ryzen 5 3600',
       type: 'cpu',
       price: 263,
-      images: [],
+      images: [
+        'AMD Ryzen 5 3600%2F1.png',
+        'AMD Ryzen 5 3600%2F2.png',
+        'AMD Ryzen 5 3600%2F3.png',
+      ],
       details: {
         brand: 'AMD',
         model: 'Ryzen 5 3600',
@@ -44,7 +48,11 @@ const addProduct = () => {
       name: 'AMD Ryzen 3 3200G',
       type: 'cpu',
       price: 189.99,
-      images: [],
+      images: [
+        'AMD Ryzen 3 3200G%2F1.jpg',
+        'AMD Ryzen 3 3200G%2F2.jpg',
+        'AMD Ryzen 3 3200G%2F3.jpg',
+      ],
       details: {
         brand: 'AMD',
         model: 'Ryzen 3 3200G',
@@ -59,7 +67,11 @@ const addProduct = () => {
       name: 'AMD Ryzen 5 3600X',
       type: 'cpu',
       price: 321.18,
-      images: [],
+      images: [
+        'AMD Ryzen 5 3600X%2F1.jpg',
+        'AMD Ryzen 5 3600X%2F2.jpg',
+        'AMD Ryzen 5 3600X%2F3.jpg',
+      ],
       details: {
         brand: 'AMD',
         model: 'Ryzen 5 3600X',
@@ -74,7 +86,11 @@ const addProduct = () => {
       name: 'AMD Ryzen 7 5800X',
       type: 'cpu',
       price: 329.78,
-      images: [],
+      images: [
+        'AMD Ryzen 7 5800X%2F1.jpg',
+        'AMD Ryzen 7 5800X%2F2.jpg',
+        'AMD Ryzen 7 5800X%2F3.jpg',
+      ],
       details: {
         brand: 'AMD',
         model: 'Ryzen 7 5800X',
@@ -89,7 +105,11 @@ const addProduct = () => {
       name: 'AMD Ryzen 5 5600X',
       type: 'cpu',
       price: 288.89,
-      images: [],
+      images: [
+        'AMD Ryzen 5 5600X%2F1.jpg',
+        'AMD Ryzen 5 5600X%2F2.jpg',
+        'AMD Ryzen 5 5600X%2F3.jpg',
+      ],
       details: {
         brand: 'AMD',
         model: 'Ryzen 5 5600X',
@@ -216,7 +236,11 @@ const addProduct = () => {
       name: 'Gigabyte GeForce RTX 3070 Ti',
       type: 'gpu',
       price: 1180.99,
-      images: [],
+      images: [
+        'Gigabyte GeForce RTX 3070 Ti%2F1.jpg',
+        'Gigabyte GeForce RTX 3070 Ti%2F2.jpg',
+        'Gigabyte GeForce RTX 3070 Ti%2F3.jpg',
+      ],
       details: {
         brand: 'Gigabyte',
         ramType: 'GDDR6X',
@@ -229,7 +253,11 @@ const addProduct = () => {
       name: 'MSI GeForce RTX 3070',
       type: 'gpu',
       price: 1180.99,
-      images: [],
+      images: [
+        'MSI GeForce RTX 3070%2F1.jpg',
+        'MSI GeForce RTX 3070%2F2.jpg',
+        'MSI GeForce RTX 3070%2F3.jpg',
+      ],
       details: {
         brand: 'MSI',
         ramType: 'GDDR6',
@@ -242,7 +270,11 @@ const addProduct = () => {
       name: 'ASUS Cerberus GeForce GTX 1050 Ti',
       type: 'gpu',
       price: 399.0,
-      images: [],
+      images: [
+        'ASUS Cerberus GeForce GTX 1050 Ti%2F1.jpg',
+        'ASUS Cerberus GeForce GTX 1050 Ti%2F2.jpg',
+        'ASUS Cerberus GeForce GTX 1050 Ti%2F3.jpg',
+      ],
       details: {
         brand: 'ASUS',
         ramType: 'GDDR5',
@@ -255,7 +287,11 @@ const addProduct = () => {
       name: 'MSI GeForce GTX 1060',
       type: 'cpu',
       price: 539.0,
-      images: [],
+      images: [
+        'MSI GeForce GTX 1060%2F1.jpg',
+        'MSI GeForce GTX 1060%2F2.jpg',
+        'MSI GeForce GTX 1060%2F3.jpg',
+      ],
       details: {
         brand: 'MSI',
         ramType: 'GDDR5',
@@ -268,7 +304,11 @@ const addProduct = () => {
       name: 'ZOTAC GeForce RTX 3060',
       type: 'cpu',
       price: 849.0,
-      images: [],
+      images: [
+        'ZOTAC GeForce RTX 3060%2F1.jpg',
+        'ZOTAC GeForce RTX 3060%2F2.jpg',
+        'ZOTAC GeForce RTX 3060%2F3.jpg',
+      ],
       details: {
         brand: 'ZOTAC',
         ramType: 'GDDR6',
@@ -284,7 +324,11 @@ const addProduct = () => {
       name: 'Corsair CMW16GX4M2C3200C16 Vengeance',
       type: 'ram',
       price: 67.61,
-      images: [],
+      images: [
+        'Corsair CMW16GX4M2C3200C16 Vengeance%2F1.jpg',
+        'Corsair CMW16GX4M2C3200C16 Vengeance%2F2.jpg',
+        'Corsair CMW16GX4M2C3200C16 Vengeance%2F3.jpg',
+      ],
       details: {
         brand: 'Corsair',
         ramMemoryTechnology: 'DDR4',
@@ -296,7 +340,11 @@ const addProduct = () => {
       name: 'HyperX Fury HX426C16FB3AK2',
       type: 'ram',
       price: 115.91,
-      images: [],
+      images: [
+        'HyperX Fury HX426C16FB3AK2%2F1.jpg',
+        'HyperX Fury HX426C16FB3AK2%2F2.jpg',
+        'HyperX Fury HX426C16FB3AK2%2F3.jpg',
+      ],
       details: {
         brand: 'HyperX',
         ramMemoryTechnology: 'DDR4',
@@ -308,7 +356,11 @@ const addProduct = () => {
       name: 'Crucial CT16G4SFD824A SODIMM',
       type: 'ram',
       price: 72.99,
-      images: [],
+      images: [
+        'Crucial CT16G4SFD824A SODIMM%2F1.jpg',
+        'Crucial CT16G4SFD824A SODIMM%2F2.jpg',
+        'Crucial CT16G4SFD824A SODIMM%2F3.jpg',
+      ],
       details: {
         brand: 'Crucial',
         ramMemoryTechnology: 'DDR4',
@@ -320,7 +372,11 @@ const addProduct = () => {
       name: 'Patriot Viper 4 PV48G300C6K',
       type: 'ram',
       price: 39.99,
-      images: [],
+      images: [
+        'Patriot Viper 4 PV48G300C6K%2F1.jpg',
+        'Patriot Viper 4 PV48G300C6K%2F2.jpg',
+        'Patriot Viper 4 PV48G300C6K%2F3.jpg',
+      ],
       details: {
         brand: 'Patriot Memory',
         ramMemoryTechnology: 'DDR4',
