@@ -107,7 +107,11 @@ const addProduct = () => {
       name: 'Intel Core i9-9900K',
       type: 'cpu',
       price: 384.41,
-      images: [],
+      images: [
+        'Intel Core i9-9900K%2F1.jpg',
+        'Intel Core i9-9900K%2F2.jpg',
+        'Intel Core i9-9900K%2F3.jpg',
+      ],
       details: {
         brand: 'Intel',
         model: 'Core i9',
@@ -122,7 +126,7 @@ const addProduct = () => {
       name: 'Intel Core i9-9900KF',
       type: 'cpu',
       price: 276.32,
-      images: [],
+      images: ['Intel Core i9-9900KF%2F1.jpg', 'Intel Core i9-9900KF%2F2.jpg'],
       details: {
         brand: 'Intel',
         model: 'A8-7600',
@@ -137,7 +141,7 @@ const addProduct = () => {
       name: 'Intel Core I5-9600K',
       type: 'cpu',
       price: 202.02,
-      images: [],
+      images: ['Intel Core I5-9600K%2F1.jpg', 'Intel Core I5-9600K%2F2.jpg'],
       details: {
         brand: 'Intel',
         model: 'Core i5 Family',
@@ -152,7 +156,11 @@ const addProduct = () => {
       name: 'Intel Core i7-9700F',
       type: 'cpu',
       price: 289.39,
-      images: [],
+      images: [
+        'Intel Core i7-9700F%2F1.jpg',
+        'Intel Core i7-9700F%2F2.jpg',
+        'Intel Core i7-9700F%2F3.jpg',
+      ],
       details: {
         brand: 'Intel',
         model: 'Core i7 Family',
@@ -167,7 +175,11 @@ const addProduct = () => {
       name: 'Intel Core i3-9100F',
       type: 'cpu',
       price: 141.44,
-      images: [],
+      images: [
+        'Intel Core i3-9100F%2F1.jpg',
+        'Intel Core i3-9100F%2F2.jpg',
+        'Intel Core i3-9100F%2F3.jpg',
+      ],
       details: {
         brand: 'Intel',
         model: '5X86',
@@ -182,7 +194,11 @@ const addProduct = () => {
       name: 'Intel Core i5-10400F',
       type: 'cpu',
       price: 151.0,
-      images: [],
+      images: [
+        'Intel Core i5-10400F%2F1.jpg',
+        'Intel Core i5-10400F%2F2.jpg',
+        'Intel Core i5-10400F%2F3.jpg',
+      ],
       details: {
         brand: 'Intel',
         model: 'Core i5 Family',
@@ -319,7 +335,11 @@ const addProduct = () => {
       name: 'ROG STRIX B550-F GAMING',
       type: 'motherboard',
       price: 144.99,
-      images: [],
+      images: [
+        'ROG STRIX B550-F GAMING%2F1.jpg',
+        'ROG STRIX B550-F GAMING%2F2.jpg',
+        'ROG STRIX B550-F GAMING%2F3.jpg',
+      ],
       details: {
         brand: 'ASUS',
         cpuSocket: 'Socket AM4',
@@ -332,7 +352,11 @@ const addProduct = () => {
       name: 'ROG Maximus XIII Hero',
       type: 'motherboard',
       price: 353.43,
-      images: [],
+      images: [
+        'ROG Maximus XIII Hero%2F1.jpg',
+        'ROG Maximus XIII Hero%2F2.jpg',
+        'ROG Maximus XIII Hero%2F3.jpg',
+      ],
       details: {
         brand: 'ASUS',
         cpuSocket: 'LGA 1200',
@@ -345,7 +369,11 @@ const addProduct = () => {
       name: 'ASUS ROG Crosshair VIII Formula',
       type: 'motherboard',
       price: 96.99,
-      images: [],
+      images: [
+        'ASUS ROG Crosshair VIII Formula%2F1.jpg',
+        'ASUS ROG Crosshair VIII Formula%2F2.jpg',
+        'ASUS ROG Crosshair VIII Formula%2F3.jpg',
+      ],
       details: {
         brand: 'ASUS',
         cpuSocket: 'Socket AM4',
@@ -357,7 +385,11 @@ const addProduct = () => {
       name: 'ASUS TUF Gaming B450M-PLUS II',
       type: 'motherboard',
       price: 83.95,
-      images: [],
+      images: [
+        'ASUS TUF Gaming B450M-PLUS II%2F1.jpg',
+        'ASUS TUF Gaming B450M-PLUS II%2F2.jpg',
+        'ASUS TUF Gaming B450M-PLUS II%2F3.jpg',
+      ],
       details: {
         brand: 'ASUS',
         cpuSocket: 'Socket AM4',
@@ -370,7 +402,11 @@ const addProduct = () => {
       name: 'ASUS Prime H410M-A',
       type: 'motherboard',
       price: 84.99,
-      images: [],
+      images: [
+        'ASUS Prime H410M-A%2F1.jpg',
+        'ASUS Prime H410M-A%2F2.jpg',
+        'ASUS Prime H410M-A%2F3.jpg',
+      ],
       details: {
         brand: 'Asus',
         cpuSocket: 'LGA 1200',
@@ -383,7 +419,11 @@ const addProduct = () => {
       name: 'ASUS Prime B560-PLUS',
       type: 'motherboard',
       price: 119.99,
-      images: [],
+      images: [
+        'ASUS Prime B560-PLUS%2F1.jpg',
+        'ASUS Prime B560-PLUS%2F2.jpg',
+        'ASUS Prime B560-PLUS%2F3.jpg',
+      ],
       details: {
         brand: 'Asus',
         cpuSocket: 'LGA 1200',
