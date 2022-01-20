@@ -7,7 +7,7 @@ const addProduct = () => {
      * AMD CPU
      */
     {
-      name: 'AMD Ryzen 5 3600 Processor',
+      name: 'AMD Ryzen 5 3600',
       type: 'cpu',
       price: 263,
       images: [],
@@ -22,10 +22,14 @@ const addProduct = () => {
       },
     },
     {
-      name: 'AMD Ryzen 7 3800X Processor',
+      name: 'AMD Ryzen 7 3800X',
       type: 'cpu',
       price: 258,
-      images: [],
+      images: [
+        'AMD Ryzen 7 3800X%2F1.jpg',
+        'AMD Ryzen 7 3800X%2F2.jpg',
+        'AMD Ryzen 7 3800X%2F3.jpg',
+      ],
       details: {
         brand: 'AMD',
         model: 'Ryzen 7 3800X',
@@ -37,7 +41,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'AMD Ryzen 3 3200G Processor',
+      name: 'AMD Ryzen 3 3200G',
       type: 'cpu',
       price: 189.99,
       images: [],
@@ -52,7 +56,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'AMD Ryzen 5 3600X Processor',
+      name: 'AMD Ryzen 5 3600X',
       type: 'cpu',
       price: 321.18,
       images: [],
@@ -67,7 +71,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'AMD Ryzen 7 5800X Processor',
+      name: 'AMD Ryzen 7 5800X',
       type: 'cpu',
       price: 329.78,
       images: [],
@@ -82,7 +86,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'AMD Ryzen 5 5600X Processor',
+      name: 'AMD Ryzen 5 5600X',
       type: 'cpu',
       price: 288.89,
       images: [],
@@ -100,7 +104,7 @@ const addProduct = () => {
      * INTEL CPU
      */
     {
-      name: 'Intel Core i9-9900K Processor',
+      name: 'Intel Core i9-9900K',
       type: 'cpu',
       price: 384.41,
       images: [],
@@ -115,7 +119,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'Intel Core i9-9900KF Processor',
+      name: 'Intel Core i9-9900KF',
       type: 'cpu',
       price: 276.32,
       images: [],
@@ -130,7 +134,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'Intel Core I5-9600K Processor',
+      name: 'Intel Core I5-9600K',
       type: 'cpu',
       price: 202.02,
       images: [],
@@ -145,7 +149,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'Intel Core i7-9700F Processor',
+      name: 'Intel Core i7-9700F',
       type: 'cpu',
       price: 289.39,
       images: [],
@@ -160,7 +164,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'Intel Core i3-9100F Processor',
+      name: 'Intel Core i3-9100F',
       type: 'cpu',
       price: 141.44,
       images: [],
@@ -175,7 +179,7 @@ const addProduct = () => {
       },
     },
     {
-      name: 'Intel Core i5-10400F Processor',
+      name: 'Intel Core i5-10400F',
       type: 'cpu',
       price: 151.0,
       images: [],
