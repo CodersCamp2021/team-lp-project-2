@@ -8,6 +8,7 @@ const addProduct = () => {
      */
     {
       name: 'AMD Ryzen 5 3600 Processor',
+      type: 'cpu',
       price: 263,
       images: [],
       details: {
@@ -22,6 +23,7 @@ const addProduct = () => {
     },
     {
       name: 'AMD Ryzen 7 3800X Processor',
+      type: 'cpu',
       price: 258,
       images: [],
       details: {
@@ -36,6 +38,7 @@ const addProduct = () => {
     },
     {
       name: 'AMD Ryzen 3 3200G Processor',
+      type: 'cpu',
       price: 189.99,
       images: [],
       details: {
@@ -50,6 +53,7 @@ const addProduct = () => {
     },
     {
       name: 'AMD Ryzen 5 3600X Processor',
+      type: 'cpu',
       price: 321.18,
       images: [],
       details: {
@@ -64,6 +68,7 @@ const addProduct = () => {
     },
     {
       name: 'AMD Ryzen 7 5800X Processor',
+      type: 'cpu',
       price: 329.78,
       images: [],
       details: {
@@ -81,6 +86,7 @@ const addProduct = () => {
      */
     {
       name: 'Intel Core i9-9900K Processor',
+      type: 'cpu',
       price: 384.41,
       images: [],
       details: {
@@ -95,6 +101,7 @@ const addProduct = () => {
     },
     {
       name: 'Intel Core i9-9900KF Processor',
+      type: 'cpu',
       price: 276.32,
       images: [],
       details: {
@@ -109,6 +116,7 @@ const addProduct = () => {
     },
     {
       name: 'Intel Core I5-9600K Processor',
+      type: 'cpu',
       price: 202.02,
       images: [],
       details: {
@@ -123,6 +131,7 @@ const addProduct = () => {
     },
     {
       name: 'Intel Core i7-9700F Processor',
+      type: 'cpu',
       price: 289.39,
       images: [],
       details: {
@@ -137,6 +146,7 @@ const addProduct = () => {
     },
     {
       name: 'Intel Core i3-9100F Processor',
+      type: 'cpu',
       price: 141.44,
       images: [],
       details: {
@@ -154,6 +164,7 @@ const addProduct = () => {
      */
     {
       name: 'Gigabyte GeForce RTX 3070 Ti',
+      type: 'gpu',
       price: 1180.99,
       images: [],
       details: {
@@ -166,6 +177,7 @@ const addProduct = () => {
     },
     {
       name: 'MSI GeForce RTX 3070',
+      type: 'gpu',
       price: 1180.99,
       images: [],
       details: {
@@ -181,6 +193,7 @@ const addProduct = () => {
      */
     {
       name: 'Corsair CMW16GX4M2C3200C16 Vengeance',
+      type: 'ram',
       price: 67.61,
       images: [],
       details: {
@@ -192,6 +205,7 @@ const addProduct = () => {
     },
     {
       name: 'HyperX Fury HX426C16FB3AK2',
+      type: 'ram',
       price: 115.91,
       images: [],
       details: {
@@ -206,6 +220,7 @@ const addProduct = () => {
      */
     {
       name: 'ROG STRIX B550-F GAMING',
+      type: 'motherboard',
       price: 144.99,
       images: [],
       details: {
@@ -218,6 +233,7 @@ const addProduct = () => {
     },
     {
       name: 'ROG Maximus XIII Hero',
+      type: 'motherboard',
       price: 353.43,
       images: [],
       details: {
@@ -226,6 +242,31 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD A55',
         series: '90MB15X0-M0EAY0',
+      },
+    },
+    {
+      name: 'ASUS ROG Crosshair VIII Formula',
+      type: 'motherboard',
+      price: 96.99,
+      images: [],
+      details: {
+        brand: 'ASUS',
+        cpuSocket: 'Socket AM4',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'X570',
+      },
+    },
+    {
+      name: 'ASUS TUF Gaming B450M-PLUS II',
+      type: 'motherboard',
+      price: 83.95,
+      images: [],
+      details: {
+        brand: 'ASUS',
+        cpuSocket: 'Socket AM4',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'AMD B450',
+        series: 'TUF GAMING B450M-PLUS II',
       },
     },
   ];
