@@ -588,6 +588,108 @@ const addProduct = () => {
         series: 'PRIME B560-PLUS',
       },
     },
+    /**
+     * MONITORS
+     */
+     {
+      name: 'HP 24mh FHD Monitor',
+      type: 'monitor',
+      price: 226.99,
+      images: [
+        'HP 24mh FHD Monitor.jpg',
+        'HP 24mh FHD Monitor2.jpg',
+      ],
+      details: {
+        brand: 'HP',
+        displayMaximumResolution: '1920 x 1080',
+        resolutionStandard: 'FHD',
+        displaySize: '23.8',
+        refreshRate: '75 Hz',
+      },
+    },
+    {
+      name: 'Sceptre Curved 27" 75Hz LED Monitor',
+      type: 'monitor',
+      price: 179.97,
+      images: [
+        'Sceptre Curved 27 75Hz LED Monitor.jpg',
+        'Sceptre Curved 27 75Hz LED Monitor2.jpg',
+      ],
+      details: {
+        brand: 'Sceptre',
+        displayMaximumResolution: '1920 x 1080',
+        resolutionStandard: 'VGA',
+        displaySize: '27',
+        refreshRate: '75 Hz',
+      },
+    },
+    {
+      name: 'SAMSUNG 23.5” CF396 Curved Computer Monitor',
+      type: 'monitor',
+      price: 169.99,
+      images: [
+        'SAMSUNG 23.5” CF396 Curved Computer Monitor.jpg',
+        'SAMSUNG 23.5” CF396 Curved Computer Monitor2.jpg',
+        'SAMSUNG 23.5” CF396 Curved Computer Monitor3.jpg',
+        
+      ],
+      details: {
+        brand: 'Samsung',
+        displayMaximumResolution: '1920 x 1080',
+        resolutionStandard: 'QHD',
+        displaySize: '23.5',
+        refreshRate: '60 Hz',
+      },
+    },
+    {
+      name: 'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor',
+      type: 'monitor',
+      price: 348.99,
+      images: [
+        'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor.jpg',
+        'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor2.jpg',
+        'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor3.jpg',
+      ],
+      details: {
+        brand: 'Dell',
+        displayMaximumResolution: '1920 x 1080',
+        resolutionStandard: 'FHD',
+        displaySize: '32',
+        refreshRate: '75 Hz',
+      },
+    },
+    {
+      name: 'ASUS TUF Gaming 27" 2K HDR Gaming Monitor',
+      type: 'monitor',
+      price: 337.55,
+      images: [
+        'ASUS TUF Gaming 27 2K HDR Gaming Monitor.jpg',
+        'ASUS TUF Gaming 27 2K HDR Gaming Monitor2.jpg',
+      ],
+      details: {
+        brand: 'Asus',
+        displayMaximumResolution: '2560 x 1440',
+        resolutionStandard: 'WQHD',
+        displaySize: '27',
+        refreshRate: '165 Hz',
+      },
+    },
+    {
+      name: 'LG 32GN650-B Ultragear Gaming Monitor 32” QHD',
+      type: 'monitor',
+      price: 296.99,
+      images: [
+        'LG 32GN650-B Ultragear Gaming Monitor 32” QHD.jpg',
+        'LG 32GN650-B Ultragear Gaming Monitor 32” QHD.jpg2',
+      ],
+      details: {
+        brand: 'LG',
+        displayMaximumResolution: '2560 x 1440',
+        resolutionStandard: 'QHD',
+        displaySize: '32',
+        refreshRate: '165 Hz',
+      },
+    },
   ];
 
   /*
