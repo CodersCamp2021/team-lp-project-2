@@ -83,6 +83,7 @@ const addProduct = () => {
     },
     {
       name: 'AMD Ryzen 5 5600X Processor',
+      type: 'cpu',
       price: 288.89,
       images: [],
       details: {
@@ -175,6 +176,7 @@ const addProduct = () => {
     },
     {
       name: 'Intel Core i5-10400F Processor',
+      type: 'cpu',
       price: 151.0,
       images: [],
       details: {
@@ -218,6 +220,7 @@ const addProduct = () => {
     },
     {
       name: 'ASUS Cerberus GeForce GTX 1050 Ti',
+      type: 'gpu',
       price: 399.0,
       images: [],
       details: {
@@ -230,6 +233,7 @@ const addProduct = () => {
     },
     {
       name: 'MSI GeForce GTX 1060',
+      type: 'cpu',
       price: 539.0,
       images: [],
       details: {
@@ -242,6 +246,7 @@ const addProduct = () => {
     },
     {
       name: 'ZOTAC GeForce RTX 3060',
+      type: 'cpu',
       price: 849.0,
       images: [],
       details: {
@@ -281,6 +286,7 @@ const addProduct = () => {
     },
     {
       name: 'Crucial CT16G4SFD824A SODIMM',
+      type: 'ram',
       price: 72.99,
       images: [],
       details: {
@@ -292,6 +298,7 @@ const addProduct = () => {
     },
     {
       name: 'Patriot Viper 4 PV48G300C6K',
+      type: 'ram',
       price: 39.99,
       images: [],
       details: {
@@ -357,6 +364,7 @@ const addProduct = () => {
     },
     {
       name: 'ASUS Prime H410M-A',
+      type: 'motherboard',
       price: 84.99,
       images: [],
       details: {
@@ -369,6 +377,7 @@ const addProduct = () => {
     },
     {
       name: 'ASUS Prime B560-PLUS',
+      type: 'motherboard',
       price: 119.99,
       images: [],
       details: {
