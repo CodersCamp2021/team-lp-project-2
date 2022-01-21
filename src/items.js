@@ -484,6 +484,54 @@ const addProduct = () => {
         memorySpeed: 3000,
       },
     },
+    {
+      name: 'Patriot Viper 4 PVS416G440C9K',
+      type: 'ram',
+      price: 121.0,
+      images: [
+        'Patriot Viper 4 PVS416G440C9K%2F1.jpg',
+        'Patriot Viper 4 PVS416G440C9K%2F2.jpg',
+        'Patriot Viper 4 PVS416G440C9K%2F3.jpg',
+      ],
+      details: {
+        brand: 'Patriot Memory',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 16,
+        memorySpeed: 4400,
+      },
+    },
+    {
+      name: 'Corsair CMW32GX4M2E3200C16',
+      type: 'ram',
+      price: 157.0,
+      images: [
+        'Corsair CMW32GX4M2E3200C16%2F1.jpg',
+        'Corsair CMW32GX4M2E3200C16%2F2.jpg',
+        'Corsair CMW32GX4M2E3200C16%2F3.jpg',
+      ],
+      details: {
+        brand: 'Corsair',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 32,
+        memorySpeed: 3200,
+      },
+    },
+    {
+      name: 'Crucial Ballistix BL2K8G32C16U4B',
+      type: 'ram',
+      price: 70.0,
+      images: [
+        'Crucial Ballistix BL2K8G32C16U4B%2F1.jpg',
+        'Crucial Ballistix BL2K8G32C16U4B%2F2.jpg',
+        'Crucial Ballistix BL2K8G32C16U4B%2F3.jpg',
+      ],
+      details: {
+        brand: 'Crucial',
+        ramMemoryTechnology: 'DDR4',
+        memorySize: 16,
+        memorySpeed: 3200,
+      },
+    },
     /**
      * MOTHERBOARDS
      */
@@ -588,17 +636,65 @@ const addProduct = () => {
         series: 'PRIME B560-PLUS',
       },
     },
+    {
+      name: 'MSI MEG X570 UNIFY',
+      type: 'motherboard',
+      price: 119.99,
+      images: [
+        'MSI MEG X570 UNIFY%2F1.jpg',
+        'MSI MEG X570 UNIFY%2F2.jpg',
+        'MSI MEG X570 UNIFY%2F3.jpg',
+      ],
+      details: {
+        brand: 'MSI',
+        cpuSocket: 'Socket AM4',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'AMD X570',
+        series: 'MEG X570 UNIFY',
+      },
+    },
+    {
+      name: 'MSI AMD X570-A PRO D4 ATX Motherboard',
+      type: 'motherboard',
+      price: 158.0,
+      images: [
+        'MSI AMD X570-A PRO D4 ATX Motherboard%2F1.jpg',
+        'MSI AMD X570-A PRO D4 ATX Motherboard%2F2.jpg',
+        'MSI AMD X570-A PRO D4 ATX Motherboard%2F3.jpg',
+      ],
+      details: {
+        brand: 'MSI',
+        cpuSocket: 'Socket AM4',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'AMD X570',
+        series: 'AMD X570-A PRO',
+      },
+    },
+    {
+      name: 'MSI B550 7C91-002R',
+      type: 'motherboard',
+      price: 218.0,
+      images: [
+        'MSI B550 7C91-002R%2F1.jpg',
+        'MSI B550 7C91-002R%2F2.jpg',
+        'MSI B550 7C91-002R%2F3.jpg',
+      ],
+      details: {
+        brand: 'MSI',
+        cpuSocket: 'Socket AM4',
+        ramMemoryTechnology: 'DDR4',
+        chipsetType: 'AMD B550',
+        series: 'B550 ',
+      },
+    },
     /**
      * MONITORS
      */
-     {
+    {
       name: 'HP 24mh FHD Monitor',
       type: 'monitor',
       price: 226.99,
-      images: [
-        'HP 24mh FHD Monitor%2F.jpg',
-        'HP 24mh FHD Monitor%2F2.jpg',
-      ],
+      images: ['HP 24mh FHD Monitor%2F.jpg', 'HP 24mh FHD Monitor%2F2.jpg'],
       details: {
         brand: 'HP',
         displayMaximumResolution: '1920 x 1080',
@@ -631,7 +727,6 @@ const addProduct = () => {
         'SAMSUNG 23.5” CF396 Curved Computer Monitor%2F.jpg',
         'SAMSUNG 23.5” CF396 Curved Computer Monitor%2F2.jpg',
         'SAMSUNG 23.5” CF396 Curved Computer Monitor%2F3.jpg',
-        
       ],
       details: {
         brand: 'Samsung',
