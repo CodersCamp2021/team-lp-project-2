@@ -694,7 +694,8 @@ const addProduct = () => {
       name: 'HP 24mh FHD Monitor',
       type: 'monitor',
       price: 226.99,
-      images: ['HP 24mh FHD Monitor%2F.jpg', 'HP 24mh FHD Monitor%2F2.jpg'],
+      images: ['HP 24mh FHD Monitor%2F1.jpg', 
+      'HP 24mh FHD Monitor%2F2.jpg'],
       details: {
         brand: 'HP',
         displayMaximumResolution: '1920 x 1080',
@@ -708,7 +709,7 @@ const addProduct = () => {
       type: 'monitor',
       price: 179.97,
       images: [
-        'Sceptre Curved 27 75Hz LED Monitor%2F.jpg',
+        'Sceptre Curved 27 75Hz LED Monitor%2F1.jpg',
         'Sceptre Curved 27 75Hz LED Monitor%2F2.jpg',
       ],
       details: {
@@ -724,7 +725,7 @@ const addProduct = () => {
       type: 'monitor',
       price: 169.99,
       images: [
-        'SAMSUNG 23.5” CF396 Curved Computer Monitor%2F.jpg',
+        'SAMSUNG 23.5” CF396 Curved Computer Monitor%2F1.jpg',
         'SAMSUNG 23.5” CF396 Curved Computer Monitor%2F2.jpg',
         'SAMSUNG 23.5” CF396 Curved Computer Monitor%2F3.jpg',
       ],
@@ -741,7 +742,7 @@ const addProduct = () => {
       type: 'monitor',
       price: 348.99,
       images: [
-        'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor%2F.jpg',
+        'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor%2F1.jpg',
         'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor%2F2.jpg',
         'Dell S3222HN 32-inch FHD 1920 x 1080 at 75Hz Curved Monitor%2F3.jpg',
       ],
@@ -758,7 +759,7 @@ const addProduct = () => {
       type: 'monitor',
       price: 337.55,
       images: [
-        'ASUS TUF Gaming 27 2K HDR Gaming Monitor%2F.jpg',
+        'ASUS TUF Gaming 27 2K HDR Gaming Monitor%2F1.jpg',
         'ASUS TUF Gaming 27 2K HDR Gaming Monitor%2F2.jpg',
       ],
       details: {
@@ -774,7 +775,7 @@ const addProduct = () => {
       type: 'monitor',
       price: 296.99,
       images: [
-        'LG 32GN650-B Ultragear Gaming Monitor 32” QHD%2F.jpg',
+        'LG 32GN650-B Ultragear Gaming Monitor 32” QHD%2F1.jpg',
         'LG 32GN650-B Ultragear Gaming Monitor 32” QHD%2F2.jpg',
       ],
       details: {
