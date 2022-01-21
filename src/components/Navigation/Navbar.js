@@ -1,8 +1,9 @@
 import { Box, Flex, Link, Stack } from '@chakra-ui/react';
 import React from 'react';
 import Logo from './Logo';
-import SearchBar from './SearchBar';
-import { FaShoppingCart } from 'react-icons/fa';
+import MenuLinks from './MenuLinks';
+import StoreActions from './StoreActions';
+
 
 const Navbar = () => {
   return (
@@ -17,20 +18,8 @@ const Navbar = () => {
       height="80px"
     >
       <Logo />
-      <Stack direction="row" gap="30px">
-        <Link href="/" fontSize="xl">
-          Home
-        </Link>
-        <Link href="/" fontSize="xl">
-          Store
-        </Link>
-      </Stack>
-      <Stack direction="row" align="center">
-        <SearchBar />
-        <Box>
-          <FaShoppingCart size="30px" />
-        </Box>
-      </Stack>
+      <MenuLinks />
+      <StoreActions />
     </Flex>
   );
 };
