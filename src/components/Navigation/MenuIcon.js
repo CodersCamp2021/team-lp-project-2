@@ -4,7 +4,7 @@ import React from 'react';
 
 const MenuIcon = ({ isMenuOpen, toggleMenu }) => {
   return (
-    <Box onClick={toggleMenu}>
+    <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>
       {isMenuOpen ? (
         <CloseIcon boxSize="25px" />
       ) : (
