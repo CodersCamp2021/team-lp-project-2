@@ -5,16 +5,18 @@ import {
   Container,
   VStack,
   StackDivider,
-  Heading,
+  Link,
 } from '@chakra-ui/react';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { FaAngleRight, FaDesktop, FaMemory } from 'react-icons/fa';
+import { BsCpu, BsCpuFill } from 'react-icons/bs';
+import { TiThSmall } from 'react-icons/ti';
 
 export default function Categories() {
   return (
-    <Container maxW="15%">
-      <Heading mb={1} size="lg">
+    <Container maxW="12%">
+      <Text fontWeight="bold" pl="2%" fontSize="1.5vw">
         Products
-      </Heading>
+      </Text>
       <VStack
         divider={<StackDivider borderColor="gray.200" />}
         spacing={1}
@@ -22,20 +24,39 @@ export default function Categories() {
         w="100%"
       >
         <Flex h="2.5vw" pl="2%" align="center">
-          <ChevronRightIcon />
-          <Text>All Products</Text>
+          <TiThSmall size="1.5rem" />
+          <Link fontSize="1.2rem" pl="3%" pr="3%" href="/store">
+            All products
+          </Link>
+          <FaAngleRight />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
-          <ChevronRightIcon />
-          <Text>CPU</Text>
+          <BsCpu size="1.5rem" />
+          <Link fontSize="1.2rem" pl="3%" pr="3%" href="/store?cat=cpu">
+            CPUs
+          </Link>
+          <FaAngleRight />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
-          <ChevronRightIcon />
-          <Text>GPU</Text>
+          <FaMemory size="1.5rem" />
+          <Link fontSize="1.2rem" pl="3%" pr="3%" href="/store?cat=ram">
+            Memory
+          </Link>
+          <FaAngleRight />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
-          <ChevronRightIcon />
-          <Text>Motherboards</Text>
+          <FaDesktop size="1.5rem" />
+          <Link fontSize="1.2rem" pl="3%" pr="3%" href="/store?cat=monitor">
+            Monitors
+          </Link>
+          <FaAngleRight />
+        </Flex>
+        <Flex h="2.5vw" pl="2%" align="center">
+          <BsCpuFill size="1.5rem" />
+          <Link fontSize="1.2rem" pl="3%" pr="3%" href="/store?cat=gpu">
+            Graphics Cards
+          </Link>
+          <FaAngleRight />
         </Flex>
       </VStack>
     </Container>
