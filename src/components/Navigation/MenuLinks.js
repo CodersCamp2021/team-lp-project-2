@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Link, Box, Flex } from '@chakra-ui/react';
+import { Stack, Link, Flex } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 
 const MenuLinks = ({ isMenuOpen }) => {

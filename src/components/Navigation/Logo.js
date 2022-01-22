@@ -1,12 +1,12 @@
-import { Text, Link, Image, Box } from '@chakra-ui/react';
+import { Link, Image } from '@chakra-ui/react';
 import React from 'react';
-import logo from '../../assets/shoppy.png'
+import logo from '../../assets/shoppy.png';
 
 const Logo = () => {
-  return(
-  <Link href="/" fontSize="xl">
-    <Image src={logo} alt='Logo' width='100px' minWidth='100px'/>
-  </Link>
+  return (
+    <Link href="/" fontSize="xl">
+      <Image src={logo} alt="Logo" width="100px" minWidth="100px" />
+    </Link>
   );
 };
 

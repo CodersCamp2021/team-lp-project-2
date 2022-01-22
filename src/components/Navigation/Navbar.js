@@ -1,5 +1,5 @@
-import { Box, Flex, Link, Stack } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import { Flex } from '@chakra-ui/react';
+import React, { useState } from 'react';
 import Logo from './Logo';
 import MenuIcon from './MenuIcon';
 import MenuLinks from './MenuLinks';
