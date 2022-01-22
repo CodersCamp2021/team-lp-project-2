@@ -1,7 +1,11 @@
+import { Center } from '@chakra-ui/react';
+
 const DummyHome = () => {
   return (
-    <div style={{ color: 'blue', fontSize: '3rem', background: 'aquamarine' }}>
-      Dummy Homepage
+    <div>
+      <Center bg="teal" h="100px" color="white" fontSize="5xl">
+        Dummy Homepage
+      </Center>
     </div>
   );
 };

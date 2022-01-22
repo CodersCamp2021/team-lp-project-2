@@ -1,7 +1,19 @@
+import { Center } from '@chakra-ui/react';
+import { Routes, Route } from 'react-router-dom';
+import DummyProductList from './DummyProductList';
+import DummyProductDisplay from './DummyProductDisplay';
+
 const DummyStore = () => {
   return (
-    <div style={{ color: 'red', fontSize: '3rem', background: 'orange' }}>
-      Dummy Store
+    <div>
+      <Center bg="tomato" h="100px" color="white" fontSize="5xl">
+        Dummy Store
+      </Center>
+
+      <Routes>
+        <Route path="/" element={<DummyProductList />} />
+        <Route path=":productId" element={<DummyProductDisplay />} />
+      </Routes>
     </div>
   );
 };
