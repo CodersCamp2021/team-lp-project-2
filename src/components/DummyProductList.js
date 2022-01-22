@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 const DummyProductList = () => {
   const [products, setProducts] = useState(TEST_ITEMS);
   let { category } = useParams();
-  console.log(category);
 
   useEffect(() => {
     if (category) {
@@ -16,7 +15,7 @@ const DummyProductList = () => {
         ),
       );
     }
-  }, []);
+  }, [category]);
 
   return (
     <Flex mt={10} justifyContent="center">
@@ -28,7 +27,7 @@ const DummyProductList = () => {
         alignItems="center"
       >
         {products.map((product) => (
-          <Link key={product.name} to={`product/${product.name}`}>
+          <Link key={product.name} to={`/store/product/${product.name}`}>
             <Box bg="teal.300" width="200px" height="160px" textAlign="center">
               <Text>{product.name}</Text>
               <Text>${product.price}</Text>
