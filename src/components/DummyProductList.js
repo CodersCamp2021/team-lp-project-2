@@ -1,8 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { SimpleGrid, Box, Text, Flex } from '@chakra-ui/react';
 import { TEST_ITEMS } from '../DummyItems';
+import { useEffect, useState } from 'react';
 
 const DummyProductList = () => {
+  const [products, setProducts] = useState(TEST_ITEMS);
+  let { category } = useParams();
+  console.log(category);
+
+  useEffect(() => {
+    if (category) {
+      setProducts(
+        products.filter(
+          (product) => product.type.toLowerCase() === category.toLowerCase(),
+        ),
+      );
+    }
+  }, []);
+
   return (
     <Flex mt={10} justifyContent="center">
       <SimpleGrid
@@ -12,14 +27,9 @@ const DummyProductList = () => {
         justifyItems="center"
         alignItems="center"
       >
-        {TEST_ITEMS.map((product) => (
-          <Link key={product.name} to={product.name}>
-            <Box
-              bg="aquamarine"
-              width="200px"
-              height="160px"
-              textAlign={['left', 'center']}
-            >
+        {products.map((product) => (
+          <Link key={product.name} to={`product/${product.name}`}>
+            <Box bg="teal.300" width="200px" height="160px" textAlign="center">
               <Text>{product.name}</Text>
               <Text>${product.price}</Text>
               <Text>{product.brand}</Text>

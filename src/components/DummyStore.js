@@ -12,7 +12,8 @@ const DummyStore = () => {
 
       <Routes>
         <Route path="/" element={<DummyProductList />} />
-        <Route path=":productId" element={<DummyProductDisplay />} />
+        <Route path="/:category" element={<DummyProductList />} />
+        <Route path="/product/:productId" element={<DummyProductDisplay />} />
       </Routes>
     </div>
   );

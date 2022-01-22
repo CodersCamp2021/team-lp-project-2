@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Center>
-        <Breadcrumb separator={false}>
+        <Breadcrumb separator={false} fontSize="40px" color="gray.500">
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} to="/">
               Home
