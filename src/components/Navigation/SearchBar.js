@@ -1,4 +1,4 @@
-import { Flex, Input } from '@chakra-ui/react';
+import { Button, Flex, FormControl, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
 import React from 'react';
@@ -35,19 +35,24 @@ const SearchBar = ({ isMenuOpen }) => {
       pb={{ base: '40px', md: '0' }}
     >
       <form onSubmit={handleSubmit}>
-        <Input
-          maxWidth="500px"
-          minWidth="100px"
-          borderColor="blackAlpha.500"
-          focusBorderColor="blackAlpha.900"
-        />
+        <FormControl display="flex">
+          <Input
+            maxWidth="500px"
+            minWidth="100px"
+            borderColor="blackAlpha.500"
+            focusBorderColor="blackAlpha.900"
+            borderRadius="20px"
+          />
+          <Button
+            type="submit"
+            bg="none"
+            _hover={{ bg: 'inherit' }}
+            _active={{ bg: 'inherit' }}
+          >
+            <SearchIcon boxSize="25px" />
+          </Button>
+        </FormControl>
       </form>
-      <SearchIcon
-        cursor="pointer"
-        position="relative"
-        right="36px"
-        boxSize="25px"
-      />
     </Flex>
   );
 };
