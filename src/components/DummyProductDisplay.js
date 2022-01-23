@@ -17,7 +17,7 @@ const DummyProduct = () => {
 
   return (
     <div style={{ width: '80vw' }}>
-      <Box p={5} shadow="md" borderWidth="1px" maxWidth="240px">
+      <Box mt={20} p={5} shadow="md" borderWidth="1px" maxWidth="240px">
         <Heading fontSize="xl">{displayItem.name}</Heading>
         <Text fontSize="md">Price: ${displayItem.price}</Text>
         <Text fontSize="md">Brand: {displayItem.brand}</Text>
