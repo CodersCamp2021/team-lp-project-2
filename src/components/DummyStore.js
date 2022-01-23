@@ -1,6 +1,6 @@
 import { Center, Stack, Flex, Button } from '@chakra-ui/react';
 import { Routes, Route, NavLink } from 'react-router-dom';
-import DummyProductList from './DummyProductList';
+import ProductList from './ProductList';
 import DummyProductDisplay from './DummyProductDisplay';
 import { useState, createContext } from 'react';
 
@@ -29,8 +29,8 @@ const DummyStore = () => {
 
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
-            <Route path="/" element={<DummyProductList />} />
-            <Route path="/:category" element={<DummyProductList />} />
+            <Route path="/" element={<ProductList />} />
+            <Route path="/:category" element={<ProductList />} />
             <Route
               path="/product/:productId"
               element={<DummyProductDisplay />}
