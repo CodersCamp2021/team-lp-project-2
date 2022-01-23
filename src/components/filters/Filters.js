@@ -8,10 +8,6 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
   Divider,
-  NumberInput,
-  NumberInputField,
-  FormControl,
-  FormLabel,
 } from '@chakra-ui/react';
 
 export default function Filters({ products, category }) {
@@ -56,7 +52,7 @@ export default function Filters({ products, category }) {
       <Text pl="3%">Minimum price: {minPrice}</Text>
       <Text pl="3%">Maximum price: {maxPrice}</Text>
       <Divider />
-      <Options props={category} />
+      <Options category={category} />
     </Flex>
   );
 }
