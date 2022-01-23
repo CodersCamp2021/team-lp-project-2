@@ -1,19 +1,26 @@
 import { Link, useParams } from 'react-router-dom';
 import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
 import { TEST_ITEMS } from '../DummyItems';
+import { useContext, useEffect } from 'react';
+import { CategoryContext } from './DummyStore';
 
 const DummyProductList = () => {
   let { category } = useParams();
+  const updateCategory = useContext(CategoryContext);
 
-  const categoryFilter = (cat) => {
-    if (cat) {
+  const categoryFilter = () => {
+    if (category) {
       return TEST_ITEMS.filter(
-        (product) => product.type.toLowerCase() === cat.toLowerCase(),
+        (product) => product.type.toLowerCase() === category.toLowerCase(),
       );
     } else {
       return TEST_ITEMS;
     }
   };
+
+  useEffect(() => {
+    updateCategory(category);
+  }, [category]);
 
   return (
     <Flex mt={10} justifyContent="center">
@@ -24,7 +31,7 @@ const DummyProductList = () => {
         justifyItems="center"
         alignItems="center"
       >
-        {categoryFilter(category).map((product) => (
+        {categoryFilter().map((product) => (
           <Link key={product.name} to={`/store/product/${product.name}`}>
             <Box
               p={5}
