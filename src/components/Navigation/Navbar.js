@@ -16,10 +16,10 @@ const Navbar = () => {
       align="center"
       justify="space-between"
       gap="20px"
-      pl="80px"
-      pr="80px"
+      px={{ base: '30px', md: '80px' }}
       width="100%"
       height="80px"
+      mb={{ base: '100px', md: '0' }}
     >
       <Logo />
       <SearchBar isMenuOpen={isMenuOpen} />

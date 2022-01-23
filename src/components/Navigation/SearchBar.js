@@ -18,6 +18,7 @@ const SearchBar = ({ isMenuOpen }) => {
 
   return (
     <Flex
+      flexGrow="2"
       display={{ base: isMenuOpen ? 'none' : 'flex', md: 'flex' }}
       align="center"
       justify="center"
@@ -30,15 +31,13 @@ const SearchBar = ({ isMenuOpen }) => {
         md: 'auto',
       }}
       top="80px"
-      left="12px"
+      left="0"
       pt={{ base: '40px', md: '0' }}
       pb={{ base: '40px', md: '0' }}
     >
-      <form onSubmit={handleSubmit}>
-        <FormControl display="flex">
+      <form onSubmit={handleSubmit} style={{ width: '90%' }}>
+        <FormControl display="flex" mx="auto" maxWidth="600px">
           <Input
-            maxWidth="500px"
-            minWidth="100px"
             borderColor="blackAlpha.500"
             focusBorderColor="blackAlpha.900"
             borderRadius="20px"
