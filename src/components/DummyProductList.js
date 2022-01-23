@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { SimpleGrid, Box, Text, Flex } from '@chakra-ui/react';
+import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
 import { TEST_ITEMS } from '../DummyItems';
 
 const DummyProductList = () => {
@@ -26,10 +26,17 @@ const DummyProductList = () => {
       >
         {categoryFilter(category).map((product) => (
           <Link key={product.name} to={`/store/product/${product.name}`}>
-            <Box bg="teal.300" width="200px" height="160px" textAlign="center">
-              <Text>{product.name}</Text>
-              <Text>${product.price}</Text>
-              <Text>{product.brand}</Text>
+            <Box
+              p={5}
+              shadow="md"
+              borderWidth="1px"
+              width="200px"
+              height="160px"
+              textAlign="center"
+            >
+              <Heading fontSize="md">{product.name}</Heading>
+              <Text fontSize="md">${product.price}</Text>
+              <Text fontSize="md">{product.brand}</Text>
             </Box>
           </Link>
         ))}

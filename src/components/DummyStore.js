@@ -9,20 +9,20 @@ const DummyStore = () => {
       <Center bg="tomato" h="100px" color="white" fontSize="5xl">
         Dummy Store
       </Center>
-      <Flex>
-        <Stack>
+      <Flex justifyContent="space-around">
+        <Stack mt={20}>
           <NavLink to=".">All products</NavLink>
           <NavLink to="./CPU">CPU</NavLink>
           <NavLink to="./GPU">GPU</NavLink>
           <NavLink to="./Monitor">Monitor</NavLink>
         </Stack>
-      </Flex>
 
-      <Routes>
-        <Route path="/" element={<DummyProductList />} />
-        <Route path="/:category" element={<DummyProductList />} />
-        <Route path="/product/:productId" element={<DummyProductDisplay />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<DummyProductList />} />
+          <Route path="/:category" element={<DummyProductList />} />
+          <Route path="/product/:productId" element={<DummyProductDisplay />} />
+        </Routes>
+      </Flex>
     </div>
   );
 };

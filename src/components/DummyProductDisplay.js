@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Text } from '@chakra-ui/react';
+import { Text, Box, Heading } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { TEST_ITEMS } from '../DummyItems';
 
@@ -16,11 +16,13 @@ const DummyProduct = () => {
   }, [productId]);
 
   return (
-    <div>
-      <Text fontSize="lg">Product Name:{displayItem.name}</Text>
-      <Text fontSize="lg">Price: ${displayItem.price}</Text>
-      <Text fontSize="lg">Brand: {displayItem.brand}</Text>
-      <Text fontSize="lg">Product ID: {productId}</Text>
+    <div style={{ width: '80vw' }}>
+      <Box p={5} shadow="md" borderWidth="1px" maxWidth="240px">
+        <Heading fontSize="xl">{displayItem.name}</Heading>
+        <Text fontSize="md">Price: ${displayItem.price}</Text>
+        <Text fontSize="md">Brand: {displayItem.brand}</Text>
+        <Text fontSize="md">Product ID: {productId}</Text>
+      </Box>
     </div>
   );
 };
