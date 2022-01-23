@@ -18,7 +18,8 @@ export default function Filters({ products, category }) {
 
   return (
     <Flex
-      w="15%"
+      p={5}
+      w="20%"
       bg="#f1f1f1"
       direction="column"
       justify="center"
@@ -52,7 +53,7 @@ export default function Filters({ products, category }) {
       <Text pl="3%">Minimum price: {minPrice}</Text>
       <Text pl="3%">Maximum price: {maxPrice}</Text>
       <Divider />
-      <Options category={category} />
+      <Options category={category} pricing={[minPrice, maxPrice]} />
     </Flex>
   );
 }

@@ -10,6 +10,7 @@ export default function Group({ title, options, callback }) {
       <CheckboxGroup onChange={callback}>
         {options.map((option) => (
           <Checkbox
+            key={option}
             size="lg"
             colorScheme="red"
             pl="5%"
