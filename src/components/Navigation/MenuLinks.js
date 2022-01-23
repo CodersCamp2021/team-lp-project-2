@@ -1,8 +1,12 @@
 import React from 'react';
 import { Stack, Link, Flex } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { useMatch } from 'react-router-dom';
 
 const MenuLinks = ({ isMenuOpen }) => {
+  const match = useMatch('/*');
+  const currentPath = match.pathname;
+
   return (
     <Stack
       display={{ base: isMenuOpen ? 'flex' : 'none', md: 'flex' }}
@@ -25,10 +29,14 @@ const MenuLinks = ({ isMenuOpen }) => {
       pt={{ base: '40px', md: '0' }}
       pb={{ base: '40px', md: '0' }}
     >
-      <Link href="/" fontSize="xl">
+      <Link href="/" fontSize="xl" color={currentPath === '/' && 'blue.400'}>
         Home
       </Link>
-      <Link href="/" fontSize="xl">
+      <Link
+        href="/store"
+        fontSize="xl"
+        color={currentPath === '/store' && 'blue.400'}
+      >
         Store
       </Link>
       <Flex justify="center">
