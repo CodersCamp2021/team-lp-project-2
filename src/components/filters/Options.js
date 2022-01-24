@@ -63,7 +63,6 @@ export default function Options({ category, pricing }) {
         ></Group>
       );
     }
-
     default: {
       return <></>;
     }

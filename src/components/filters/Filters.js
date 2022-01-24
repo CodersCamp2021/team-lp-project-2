@@ -14,7 +14,7 @@ export default function Filters({ products, category }) {
 
   return (
     <Flex
-      p={5}
+      p={3}
       w="20%"
       bg="#f1f1f1"
       direction="column"
@@ -28,7 +28,9 @@ export default function Filters({ products, category }) {
         Price
       </Text>
 
-      <Text pl="3%">Minimum price:</Text>
+      <Text pl="3%" color="gray.500">
+        Minimum price:
+      </Text>
       <NumberInput
         onChange={(val) => {
           setMinPrice(val === '' ? 0 : val);
@@ -41,7 +43,9 @@ export default function Filters({ products, category }) {
         <NumberInputField />
       </NumberInput>
 
-      <Text pl="3%">Maximum price:</Text>
+      <Text pl="3%" color="gray.500">
+        Maximum price:
+      </Text>
       <NumberInput
         onChange={(val) => {
           setMaxPrice(val === '' ? 0 : val);
