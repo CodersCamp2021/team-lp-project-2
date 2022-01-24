@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
+import { BsCheckAll } from 'react-icons/bs';
 import Options from './Options';
+import { useNavigate } from 'react-router-dom';
 import {
   Flex,
   Text,
   Divider,
   NumberInput,
   NumberInputField,
+  Button,
 } from '@chakra-ui/react';
 
 export default function Filters({ products, category }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1500);
+  const navigate = useNavigate();
+
+  const handleSubmit = (state) => {
+    console.log('click');
+  };
 
   return (
     <Flex
@@ -37,7 +45,7 @@ export default function Filters({ products, category }) {
         }}
         defaultValue={0}
         min={0}
-        max={1500}
+        max={maxPrice}
         size="sm"
       >
         <NumberInputField />
@@ -60,6 +68,16 @@ export default function Filters({ products, category }) {
 
       <Divider />
       <Options category={category} pricing={[minPrice, maxPrice]} />
+      <Button
+        m={3}
+        alignSelf="center"
+        variant="outline"
+        colorScheme="red"
+        rightIcon={<BsCheckAll />}
+        onClick={handleSubmit}
+      >
+        Apply
+      </Button>
     </Flex>
   );
 }
