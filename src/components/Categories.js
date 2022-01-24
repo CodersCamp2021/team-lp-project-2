@@ -99,3 +99,5 @@ export default function Categories({ category }) {
     </Box>
   );
 }
+
+
