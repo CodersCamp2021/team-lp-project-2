@@ -23,16 +23,31 @@ test('Render Store MenuLinks component corectly', () => {
 });
 
 test('store Link changes url', () => {
-  global.window = { location: { pathname: '/' } };
+  global.window = { location: { pathname: null } };
 
   render(
     <BrowserRouter>
       <MenuLinks />
     </BrowserRouter>,
   );
-  const store = screen.getByTestId('store');
+  const store = screen.getByText('Store');
 
   fireEvent.click(store);
 
   expect(global.window.location.pathname).toEqual('/store');
+});
+
+test('home Link changes url', () => {
+  global.window = { location: { pathname: null } };
+
+  render(
+    <BrowserRouter>
+      <MenuLinks />
+    </BrowserRouter>,
+  );
+  const home = screen.getByText('Home');
+
+  fireEvent.click(home);
+
+  expect(global.window.location.pathname).toEqual('/');
 });

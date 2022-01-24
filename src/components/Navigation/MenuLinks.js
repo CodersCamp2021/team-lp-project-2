@@ -42,7 +42,6 @@ const MenuLinks = ({ isMenuOpen }) => {
         to="/store"
         fontSize="xl"
         color={currentPath === '/store' && 'blue.400'}
-        data-testid="store"
       >
         Store
       </ChakraLink>
