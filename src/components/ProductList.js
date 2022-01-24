@@ -1,13 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
-import { useState, useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { CategoryContext } from './DummyStore';
-// import queryString from 'query-string';
 
 const ProductList = ({ products }) => {
   let { category } = useParams();
   const updateCategory = useContext(CategoryContext);
-  // const queryParams = queryString.parse(window.location.search); // list of all query params as {key: value}
 
   const categoryFilter = () => {
     if (category) {
