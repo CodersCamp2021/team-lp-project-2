@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
 import { useContext, useEffect } from 'react';
 import { CategoryContext } from './DummyStore';
@@ -6,8 +6,9 @@ import { CategoryContext } from './DummyStore';
 const ProductList = ({ products }) => {
   let { category } = useParams();
   const updateCategory = useContext(CategoryContext);
+  let [searchParams] = useSearchParams();
 
-  const categoryFilter = () => {
+  const applyCategory = () => {
     if (category) {
       return products.filter(
         (product) => product.type.toLowerCase() === category.toLowerCase(),
@@ -15,6 +16,38 @@ const ProductList = ({ products }) => {
     } else {
       return products;
     }
+  };
+
+  const applyFilters = (categoryProducts) => {
+    const filters = {
+      minPrice: searchParams.get('minPrice'),
+      maxPrice: searchParams.get('maxPrice'),
+      brand: searchParams
+        .get('brand')
+        ?.split(',')
+        .map((name) => name.toLowerCase()),
+    };
+
+    const activeFilters = Object.entries(filters).filter(
+      ([key, value]) => !!value,
+    );
+    if (activeFilters.length < 1) return categoryProducts;
+
+    if (filters.minPrice && filters.maxPrice) {
+      categoryProducts = categoryProducts.filter((product) => {
+        return (
+          parseFloat(product.price) >= parseFloat(filters.minPrice) &&
+          parseFloat(product.price) <= parseFloat(filters.maxPrice)
+        );
+      });
+    }
+    if (filters.brand) {
+      categoryProducts = categoryProducts.filter((product) =>
+        filters.brand.includes(product.details.brand.toLowerCase()),
+      );
+    }
+    console.log(categoryProducts);
+    return categoryProducts;
   };
 
   useEffect(() => {
@@ -31,7 +64,7 @@ const ProductList = ({ products }) => {
         alignItems="center"
       >
         {products.length > 0
-          ? categoryFilter().map((product) => (
+          ? applyFilters(applyCategory()).map((product) => (
               <Link key={product.name} to={`/store/product/${product.id}`}>
                 <Box
                   p={5}
