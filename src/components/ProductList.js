@@ -46,7 +46,7 @@ const ProductList = ({ products }) => {
         filters.brand.includes(product.details.brand.toLowerCase()),
       );
     }
-    console.log(categoryProducts);
+
     return categoryProducts;
   };
 
