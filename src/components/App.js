@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Text>Hello world</Text>
-      <Categories />
+      <Categories category={'monitor'} />
     </>
   );
 }

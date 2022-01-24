@@ -1,32 +1,29 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { Text, Flex, Box, VStack, StackDivider, Link } from '@chakra-ui/react';
 import { FaAngleRight, FaDesktop, FaMemory } from 'react-icons/fa';
 import { BsCpu, BsCpuFill } from 'react-icons/bs';
 import { TiThSmall } from 'react-icons/ti';
+import { MdDeveloperBoard } from 'react-icons/md';
 
-export default function Categories() {
-  const [searchParams] = useSearchParams();
-  const cat = searchParams.get('cat');
-
+export default function Categories({ category }) {
   return (
-    <Box w="15%" bg="#f1f1f1">
-      <Text fontWeight="bold" pl="2%" fontSize="1.5vw">
+    <Box w="20%" bg="#f1f1f1" p={3}>
+      <Text fontWeight="bold" mb={2} pl="2%" fontSize="2xl">
         Products
       </Text>
       <VStack
         divider={<StackDivider borderColor="gray.200" />}
-        spacing={1}
+        spacing={2}
         align="stretch"
         w="100%"
       >
         <Flex h="2.5vw" pl="2%" align="center">
-          <TiThSmall size="1.5vw" />
+          <TiThSmall size="2.2vw" />
           <Link
-            fontSize="1.2vw"
+            fontSize="1.5vw"
             pl="3%"
             pr="3%"
-            fontWeight={cat ? 'regular' : 'bold'}
+            fontWeight={category ? 'regular' : 'bold'}
             href="/store"
           >
             All products
@@ -34,54 +31,67 @@ export default function Categories() {
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
-          <BsCpu size="1.5vw" />
+          <BsCpu size="2.2vw" />
           <Link
-            fontSize="1.2vw"
+            fontSize="1.5vw"
             pl="3%"
             pr="3%"
-            fontWeight={cat === 'cpu' ? 'bold' : 'regular'}
-            href="/store?cat=cpu"
+            fontWeight={category === 'cpu' ? 'bold' : 'regular'}
+            href="/store/cpu"
           >
             CPUs
           </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
-          <FaMemory size="1.5vw" />
+          <FaMemory size="2.2vw" />
           <Link
-            fontSize="1.2vw"
+            fontSize="1.5vw"
             pl="3%"
             pr="3%"
-            fontWeight={cat === 'ram' ? 'bold' : 'regular'}
-            href="/store?cat=ram"
+            fontWeight={category === 'ram' ? 'bold' : 'regular'}
+            href="/store/ram"
           >
             Memory
           </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
-          <FaDesktop size="1.5vw" />
+          <FaDesktop size="2.2vw" />
           <Link
-            fontSize="1.2vw"
+            fontSize="1.5vw"
             pl="3%"
             pr="3%"
-            fontWeight={cat === 'monitor' ? 'bold' : 'regular'}
-            href="/store?cat=monitor"
+            fontWeight={category === 'monitor' ? 'bold' : 'regular'}
+            href="/store/monitor"
           >
             Monitors
           </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
-          <BsCpuFill size="1.5vw" />
+          <BsCpuFill size="2.2vw" />
           <Link
-            fontSize="1.2vw"
+            fontSize="1.5vw"
             pl="3%"
             pr="3%"
-            fontWeight={cat === 'gpu' ? 'bold' : 'regular'}
-            href="/store?cat=gpu"
+            fontWeight={category === 'gpu' ? 'bold' : 'regular'}
+            href="/store/gpu"
           >
             Graphics Cards
+          </Link>
+          <FaAngleRight size="1.2vw" />
+        </Flex>
+        <Flex h="2.5vw" pl="2%" align="center">
+          <MdDeveloperBoard size="2.2vw" />
+          <Link
+            fontSize="1.5vw"
+            pl="3%"
+            pr="3%"
+            fontWeight={category === 'motherboard' ? 'bold' : 'regular'}
+            href="/store/motherboard"
+          >
+            Motherboards
           </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
