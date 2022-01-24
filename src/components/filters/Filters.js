@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 import Options from './Options';
 import {
   Flex,
-  RangeSlider,
   Text,
-  RangeSliderTrack,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
   Divider,
+  NumberInput,
+  NumberInputField,
 } from '@chakra-ui/react';
 
 export default function Filters({ products, category }) {
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(400);
-  const primaryMin = 0;
-  const primaryMax = 400;
+  const [maxPrice, setMaxPrice] = useState(1500);
 
   return (
     <Flex
@@ -32,26 +28,32 @@ export default function Filters({ products, category }) {
         Price
       </Text>
 
-      <RangeSlider
-        alignSelf="center"
-        w="70%"
-        defaultValue={[minPrice, maxPrice]}
-        min={primaryMin}
-        max={primaryMax}
-        step={50}
-        onChangeEnd={(val) => {
-          setMinPrice(val[0]);
-          setMaxPrice(val[1]);
+      <Text pl="3%">Minimum price:</Text>
+      <NumberInput
+        onChange={(val) => {
+          setMinPrice(val === '' ? 0 : val);
         }}
+        defaultValue={0}
+        min={0}
+        max={1500}
+        size="sm"
       >
-        <RangeSliderTrack bg="red.100">
-          <RangeSliderFilledTrack bg="tomato" />
-        </RangeSliderTrack>
-        <RangeSliderThumb boxSize={4} index={0} />
-        <RangeSliderThumb boxSize={4} index={1} />
-      </RangeSlider>
-      <Text pl="3%">Minimum price: {minPrice}</Text>
-      <Text pl="3%">Maximum price: {maxPrice}</Text>
+        <NumberInputField />
+      </NumberInput>
+
+      <Text pl="3%">Maximum price:</Text>
+      <NumberInput
+        onChange={(val) => {
+          setMaxPrice(val === '' ? 0 : val);
+        }}
+        defaultValue={1500}
+        min={minPrice}
+        max={1500}
+        size="sm"
+      >
+        <NumberInputField />
+      </NumberInput>
+
       <Divider />
       <Options category={category} pricing={[minPrice, maxPrice]} />
     </Flex>
