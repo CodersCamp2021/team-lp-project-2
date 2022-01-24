@@ -1,7 +1,7 @@
-import { Text } from '@chakra-ui/react';
+import Navbar from './Navigation/Navbar';
 
 function App() {
-  return <Text>Hello world</Text>;
+  return <Navbar />;
 }
 
 export default App;
