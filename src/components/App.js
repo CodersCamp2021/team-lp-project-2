@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Text>Hello world</Text>
-      <Filters category={'monitor'} products={[]} />
+      <Filters category={'cpu'} products={[]} />
     </>
   );
 }

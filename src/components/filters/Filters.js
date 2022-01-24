@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsCheckAll } from 'react-icons/bs';
 import Options from './Options';
 import { useNavigate } from 'react-router-dom';
@@ -14,11 +14,29 @@ import {
 export default function Filters({ products, category }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1500);
+  const [state, setState] = useState({});
   const navigate = useNavigate();
 
-  const handleSubmit = (state) => {
-    console.log('click');
+  console.log(state);
+
+  const handleSubmit = () => {
+    const params = new URLSearchParams();
+    const [min, max] = state.pricing;
+    const arr = state.brands || [];
+
+    params.set('min', min);
+    params.set('max', max);
+
+    if (arr.length > 0) {
+      params.set('brand', arr);
+    }
+
+    navigate(`store${category ? '/' + category : ''}?${params}`);
   };
+
+  useEffect(() => {
+    setState({ pricing: [minPrice, maxPrice], brands: [] });
+  }, [category]);
 
   return (
     <Flex
@@ -67,7 +85,12 @@ export default function Filters({ products, category }) {
       </NumberInput>
 
       <Divider />
-      <Options category={category} pricing={[minPrice, maxPrice]} />
+      <Options
+        category={category}
+        pricing={[minPrice, maxPrice]}
+        state={state}
+        setStateCallback={(val) => setState(val)}
+      />
       <Button
         m={3}
         alignSelf="center"

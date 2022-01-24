@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Group from './Group';
 
-export default function Options({ category, pricing }) {
-  const [state, setState] = useState({ pricing });
+export default function Options({
+  state,
+  setStateCallback,
+  category,
+  pricing,
+}) {
   const [minPrice, maxPrice] = pricing;
 
-  console.log(state);
-
   useEffect(() => {
-    setState({ ...state, pricing });
+    setStateCallback({ ...state, pricing });
   }, [minPrice, maxPrice]);
 
   switch (category) {
@@ -17,7 +19,7 @@ export default function Options({ category, pricing }) {
         <Group
           title={'Brands'}
           options={['Intel', 'AMD']}
-          callback={(arr) => setState({ ...state, brands: arr })}
+          callback={(arr) => setStateCallback({ ...state, brands: arr })}
         ></Group>
       );
     }
@@ -26,7 +28,7 @@ export default function Options({ category, pricing }) {
         <Group
           title={'Brands'}
           options={['Asus', 'Gigabyte', 'MSI']}
-          callback={(arr) => setState({ ...state, brands: arr })}
+          callback={(arr) => setStateCallback({ ...state, brands: arr })}
         ></Group>
       );
     }
@@ -35,7 +37,7 @@ export default function Options({ category, pricing }) {
         <Group
           title={'Brands'}
           options={['Asus', 'Dell', 'HP', 'Sceptre', 'LG', 'Samsung']}
-          callback={(arr) => setState({ ...state, brands: arr })}
+          callback={(arr) => setStateCallback({ ...state, brands: arr })}
         ></Group>
       );
     }
@@ -44,7 +46,7 @@ export default function Options({ category, pricing }) {
         <Group
           title={'Brands'}
           options={['Asus', 'MSI']}
-          callback={(arr) => setState({ ...state, brands: arr })}
+          callback={(arr) => setStateCallback({ ...state, brands: arr })}
         ></Group>
       );
     }
@@ -59,7 +61,7 @@ export default function Options({ category, pricing }) {
             'Crucial',
             'Kingston',
           ]}
-          callback={(arr) => setState({ ...state, brands: arr })}
+          callback={(arr) => setStateCallback({ ...state, brands: arr })}
         ></Group>
       );
     }
