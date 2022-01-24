@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import DummyHome from './components/DummyHome';
 import DummyStore from './components/DummyStore';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import {
 
 function App() {
   return (
-    <Router>
+    <>
       <Center>
         <Breadcrumb separator={false} fontSize="40px" color="gray.500">
           <BreadcrumbItem>
@@ -30,7 +30,7 @@ function App() {
         <Route path="/" element={<DummyHome />} />
         <Route path="/store/*" element={<DummyStore />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
