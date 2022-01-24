@@ -42,7 +42,6 @@ const DummyStore = () => {
       <Center bg="tomato" h="100px" color="white" fontSize="5xl">
         Dummy Store
       </Center>
-      <Button>SET FILTERS</Button>
       <Flex justifyContent="space-around">
         <Stack mt={20}>
           <NavLink to=".">All products</NavLink>
