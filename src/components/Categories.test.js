@@ -1,7 +1,9 @@
-const cat = require('./Categories.js')
+import Categories from './Categories';
+import { render } from '@testing-library/react';
+import "@testing-library/jest-dom/extend-expect";
 
-test("is clicked product a link", () => {
-    const fontWeight = 'bold';
- expect(cat(fontWeight)).toEqual('bold')
+test("render component", () => {
+const {getByText}  = render(<Categories />)
+expect(getByText('Products')).toBeInTheDocument();
+expect(getByText('Memory')).toBeInTheDocument();
 })
-
