@@ -1,18 +1,17 @@
 import { Center, Stack, Flex, Button } from '@chakra-ui/react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import ProductList from './ProductList';
-import DummyProductDisplay from './DummyProductDisplay';
+import ProductDisplay from './ProductDisplay';
 import { useState, useEffect, createContext } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import app from '../firebase';
 
 export const CategoryContext = createContext(undefined);
+const db = getFirestore(app);
 
 const DummyStore = () => {
   const [category, setCategory] = useState(undefined);
   const [products, setProducts] = useState([]);
-
-  const db = getFirestore(app);
 
   const getAllProducts = async () => {
     let fetchedProducts = [];
@@ -62,7 +61,7 @@ const DummyStore = () => {
             />
             <Route
               path="/product/:productId"
-              element={<DummyProductDisplay />}
+              element={<ProductDisplay products={products} />}
             />
           </Routes>
         </CategoryContext.Provider>

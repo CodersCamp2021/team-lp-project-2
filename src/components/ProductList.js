@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
-import { TEST_ITEMS } from '../DummyItems';
 import { useState, useContext, useEffect } from 'react';
 import { CategoryContext } from './DummyStore';
 // import queryString from 'query-string';
@@ -35,7 +34,7 @@ const ProductList = ({ products }) => {
       >
         {products.length > 0
           ? categoryFilter().map((product) => (
-              <Link key={product.name} to={`/store/product/${product.name}`}>
+              <Link key={product.name} to={`/store/product/${product.id}`}>
                 <Box
                   p={5}
                   shadow="md"
