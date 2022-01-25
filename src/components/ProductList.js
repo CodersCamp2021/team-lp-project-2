@@ -33,8 +33,10 @@ const ProductList = ({ products }) => {
     );
     if (activeFilters.length < 1) return categoryProducts;
 
+    let filteredProducts = [];
+
     if (filters.minPrice && filters.maxPrice) {
-      categoryProducts = categoryProducts.filter((product) => {
+      filteredProducts = categoryProducts.filter((product) => {
         return (
           parseFloat(product.price) >= parseFloat(filters.minPrice) &&
           parseFloat(product.price) <= parseFloat(filters.maxPrice)
@@ -42,16 +44,31 @@ const ProductList = ({ products }) => {
       });
     }
     if (filters.brand) {
-      categoryProducts = categoryProducts.filter((product) =>
+      filteredProducts = categoryProducts.filter((product) =>
         filters.brand.includes(product.details.brand.toLowerCase()),
       );
     }
 
-    return categoryProducts;
+    return filteredProducts;
+  };
+
+  const applySearch = (filteredProducts) => {
+    let searchedName = searchParams.get('name');
+
+    if (!searchedName) return filteredProducts;
+
+    let searchedProducts = filteredProducts.filter((product) =>
+      product.name
+        .toLowerCase()
+        .includes(decodeURIComponent(searchedName.toLowerCase())),
+    );
+
+    return searchedProducts;
   };
 
   useEffect(() => {
     updateCategory(category);
+    // eslint-disable-next-line
   }, [category]);
 
   return (
@@ -64,7 +81,7 @@ const ProductList = ({ products }) => {
         alignItems="center"
       >
         {products.length > 0
-          ? applyFilters(applyCategory()).map((product) => (
+          ? applySearch(applyFilters(applyCategory())).map((product) => (
               <Link key={product.name} to={`/store/product/${product.id}`}>
                 <Box
                   p={5}

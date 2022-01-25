@@ -15,8 +15,8 @@ const DummyStore = () => {
 
   const getAllProducts = async () => {
     let fetchedProducts = [];
-    const booksRef = collection(db, 'products');
-    const snapshot = await getDocs(booksRef);
+    const productsRef = collection(db, 'products');
+    const snapshot = await getDocs(productsRef);
 
     snapshot.docs.forEach((doc) => {
       const data = doc.data();

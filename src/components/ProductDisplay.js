@@ -12,6 +12,7 @@ const ProductDisplay = ({ products }) => {
 
   useEffect(() => {
     findItem();
+    // eslint-disable-next-line
   }, [productId]);
 
   return (
