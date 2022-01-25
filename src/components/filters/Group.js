@@ -7,7 +7,7 @@ export default function Group({ title, options, callback }) {
       <Text p="3%" fontSize="xl">
         {title}
       </Text>
-      <CheckboxGroup onChange={callback}>
+      <CheckboxGroup key={options} onChange={callback}>
         {options.map((option) => (
           <Checkbox
             key={option}

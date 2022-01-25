@@ -28,14 +28,14 @@ export default function Filters({ products, category }) {
     params.set('max', max);
 
     if (arr.length > 0) {
-      params.set('brand', arr);
+      params.set('brands', arr);
     }
 
     navigate(`store${category ? '/' + category : ''}?${params}`);
   };
 
   useEffect(() => {
-    setState({ pricing: [minPrice, maxPrice], brands: [] });
+    setState({ pricing: [0, 1500], brands: [] });
   }, [category]);
 
   return (
@@ -59,7 +59,7 @@ export default function Filters({ products, category }) {
       </Text>
       <NumberInput
         onChange={(val) => {
-          setMinPrice(val === '' ? 0 : val);
+          setMinPrice(val === '' ? 0 : parseInt(val));
         }}
         defaultValue={0}
         min={0}
@@ -74,7 +74,7 @@ export default function Filters({ products, category }) {
       </Text>
       <NumberInput
         onChange={(val) => {
-          setMaxPrice(val === '' ? 0 : val);
+          setMaxPrice(val === '' ? 0 : parseInt(val));
         }}
         defaultValue={1500}
         min={minPrice}
