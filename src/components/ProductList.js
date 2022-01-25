@@ -20,8 +20,8 @@ const ProductList = ({ products }) => {
 
   const applyFilters = (categoryProducts) => {
     const filters = {
-      minPrice: searchParams.get('minPrice'),
-      maxPrice: searchParams.get('maxPrice'),
+      minPrice: searchParams.get('min'),
+      maxPrice: searchParams.get('max'),
       brand: searchParams
         .get('brand')
         ?.split(',')

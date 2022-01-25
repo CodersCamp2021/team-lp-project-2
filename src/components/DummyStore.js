@@ -1,4 +1,4 @@
-import { Center, Stack, Flex, Button } from '@chakra-ui/react';
+import { Center, Stack, Flex } from '@chakra-ui/react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import ProductList from './ProductList';
 import ProductDisplay from './ProductDisplay';
