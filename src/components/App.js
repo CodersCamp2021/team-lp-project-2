@@ -6,11 +6,11 @@ import Navbar from './Navigation/Navbar';
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<DummyHome />} />
         <Route path="/store/*" element={<Store />} />
       </Routes>
-      <Navbar />
     </>
   );
 }
