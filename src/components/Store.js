@@ -10,6 +10,7 @@ export const CategoryContext = createContext(undefined);
 const db = getFirestore(app);
 
 const Store = () => {
+  // eslint-disable-next-line
   const [category, setCategory] = useState(undefined);
   const [products, setProducts] = useState([]);
 
