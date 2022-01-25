@@ -9,7 +9,7 @@ import app from '../firebase';
 export const CategoryContext = createContext(undefined);
 const db = getFirestore(app);
 
-const DummyStore = () => {
+const Store = () => {
   const [category, setCategory] = useState(undefined);
   const [products, setProducts] = useState([]);
 
@@ -69,4 +69,4 @@ const DummyStore = () => {
   );
 };
 
-export default DummyStore;
+export default Store;

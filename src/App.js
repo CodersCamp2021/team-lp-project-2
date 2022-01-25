@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import DummyHome from './components/DummyHome';
-import DummyStore from './components/DummyStore';
+import Store from './components/Store';
 import { Link } from 'react-router-dom';
 import {
   Breadcrumb,
@@ -28,7 +28,7 @@ function App() {
       </Center>
       <Routes>
         <Route path="/" element={<DummyHome />} />
-        <Route path="/store/*" element={<DummyStore />} />
+        <Route path="/store/*" element={<Store />} />
       </Routes>
     </>
   );

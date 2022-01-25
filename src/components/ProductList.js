@@ -1,7 +1,7 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
 import { useContext, useEffect } from 'react';
-import { CategoryContext } from './DummyStore';
+import { CategoryContext } from './Store';
 
 const ProductList = ({ products }) => {
   let { category } = useParams();
