@@ -8,65 +8,23 @@ export default function Options({
   pricing,
 }) {
   const [minPrice, maxPrice] = pricing;
+  const categoryList = {
+    cpu: ['Intel', 'AMD'],
+    gpu: ['Asus', 'Gigabyte', 'MSI'],
+    monitor: ['Asus', 'Dell', 'HP', 'Sceptre', 'LG', 'Samsung'],
+    motherboard: ['Asus', 'MSI'],
+    ram: ['Patriot Memory', 'Corsair', 'HyperX', 'Crucial', 'Kingston'],
+  };
 
   useEffect(() => {
     setStateCallback({ ...state, pricing });
   }, [minPrice, maxPrice]);
 
-  switch (category) {
-    case 'cpu': {
-      return (
-        <Group
-          title={'Brands'}
-          options={['Intel', 'AMD']}
-          callback={(arr) => setStateCallback({ ...state, brands: arr })}
-        ></Group>
-      );
-    }
-    case 'gpu': {
-      return (
-        <Group
-          title={'Brands'}
-          options={['Asus', 'Gigabyte', 'MSI']}
-          callback={(arr) => setStateCallback({ ...state, brands: arr })}
-        ></Group>
-      );
-    }
-    case 'monitor': {
-      return (
-        <Group
-          title={'Brands'}
-          options={['Asus', 'Dell', 'HP', 'Sceptre', 'LG', 'Samsung']}
-          callback={(arr) => setStateCallback({ ...state, brands: arr })}
-        ></Group>
-      );
-    }
-    case 'motherboard': {
-      return (
-        <Group
-          title={'Brands'}
-          options={['Asus', 'MSI']}
-          callback={(arr) => setStateCallback({ ...state, brands: arr })}
-        ></Group>
-      );
-    }
-    case 'ram': {
-      return (
-        <Group
-          title={'Brands'}
-          options={[
-            'Patriot Memory',
-            'Corsair',
-            'HyperX',
-            'Crucial',
-            'Kingston',
-          ]}
-          callback={(arr) => setStateCallback({ ...state, brands: arr })}
-        ></Group>
-      );
-    }
-    default: {
-      return <></>;
-    }
-  }
+  return (
+    <Group
+      title={category ? 'Brands' : ''}
+      options={category ? categoryList[category] : []}
+      callback={(arr) => setStateCallback({ ...state, brands: arr })}
+    ></Group>
+  );
 }

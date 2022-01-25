@@ -9,7 +9,7 @@ function App() {
     <>
       <Text>Hello world</Text>
       <Button onClick={() => setBoolean(!boolean)}>Change category!</Button>
-      <Filters category={boolean ? 'cpu' : 'gpu'} products={[]} />
+      <Filters category={boolean ? 'cpu' : null} products={[]} />
     </>
   );
 }
