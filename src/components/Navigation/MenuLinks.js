@@ -1,7 +1,7 @@
 import React from 'react';
-import { Stack, Link, Flex } from '@chakra-ui/react';
+import { Stack, Flex, Link as ChakraLink } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useMatch } from 'react-router-dom';
+import { useMatch, Link as RouterLink } from 'react-router-dom';
 
 const MenuLinks = ({ isMenuOpen }) => {
   const match = useMatch('/*');
@@ -29,18 +29,24 @@ const MenuLinks = ({ isMenuOpen }) => {
       pt={{ base: '40px', md: '0' }}
       pb={{ base: '40px', md: '0' }}
     >
-      <Link href="/" fontSize="xl" color={currentPath === '/' && 'blue.400'}>
+      <ChakraLink
+        as={RouterLink}
+        to="/"
+        fontSize="xl"
+        color={currentPath === '/' && 'blue.400'}
+      >
         Home
-      </Link>
-      <Link
-        href="/store"
+      </ChakraLink>
+      <ChakraLink
+        as={RouterLink}
+        to="/store"
         fontSize="xl"
         color={currentPath === '/store' && 'blue.400'}
       >
         Store
-      </Link>
+      </ChakraLink>
       <Flex justify="center">
-        <FaShoppingCart size="30px" />
+        <FaShoppingCart data-testid="cart" size="30px" />
       </Flex>
     </Stack>
   );

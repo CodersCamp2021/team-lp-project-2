@@ -14,6 +14,8 @@ const SearchBar = ({ isMenuOpen }) => {
     if (!name) return;
 
     navigate(`/store?name=${name}`);
+
+    e.target.reset()
   };
 
   return (
