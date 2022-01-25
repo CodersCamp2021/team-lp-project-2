@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import DummyHome from './components/DummyHome';
-import Store from './components/Store';
+import DummyHome from './DummyHome';
+import Store from './Store';
 import { Link } from 'react-router-dom';
 import {
   Breadcrumb,
