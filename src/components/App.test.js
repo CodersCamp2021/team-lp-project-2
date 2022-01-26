@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
-test('click on Store image changes url', () => {
+test('click on CPU category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
@@ -18,7 +18,7 @@ test('click on Store image changes url', () => {
   expect(global.window.location.pathname).toEqual('/store/CPU');
 });
 
-test('click on Store image changes url', () => {
+test('click on GPU category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
@@ -34,7 +34,7 @@ test('click on Store image changes url', () => {
   expect(global.window.location.pathname).toEqual('/store/GPU');
 });
 
-test('click on Store image changes url', () => {
+test('click on RAM category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
@@ -50,7 +50,7 @@ test('click on Store image changes url', () => {
   expect(global.window.location.pathname).toEqual('/store/RAM');
 });
 
-test('click on Store image changes url', () => {
+test('click on Monitor category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
