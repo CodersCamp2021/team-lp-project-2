@@ -3,11 +3,10 @@ import { Routes, Route, NavLink } from 'react-router-dom';
 import ProductList from './ProductList';
 import ProductDisplay from './ProductDisplay';
 import { useState, useEffect, createContext } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import app from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 
 export const CategoryContext = createContext(undefined);
-const db = getFirestore(app);
 
 const Store = () => {
   // eslint-disable-next-line
@@ -59,10 +58,7 @@ const Store = () => {
               path="/:category"
               element={<ProductList products={products} />}
             />
-            <Route
-              path="/product/:productId"
-              element={<ProductDisplay products={products} />}
-            />
+            <Route path="/product/:productId" element={<ProductDisplay />} />
           </Routes>
         </CategoryContext.Provider>
       </Flex>
