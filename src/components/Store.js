@@ -58,10 +58,7 @@ const Store = () => {
               path="/:category"
               element={<ProductList products={products} />}
             />
-            <Route
-              path="/product/:productId"
-              element={<ProductDisplay products={products} />}
-            />
+            <Route path="/product/:productId" element={<ProductDisplay />} />
           </Routes>
         </CategoryContext.Provider>
       </Flex>
