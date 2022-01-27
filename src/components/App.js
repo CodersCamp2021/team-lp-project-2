@@ -1,11 +1,16 @@
-import { Text } from '@chakra-ui/react';
-import Categories from './Categories';
+import { Route, Routes } from 'react-router-dom';
+import DummyHome from './DummyHome';
+import Store from './Store';
+import Navbar from './Navigation/Navbar';
 
 function App() {
   return (
     <>
-      <Text>Hello world</Text>
-      <Categories category={'monitor'} />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<DummyHome />} />
+        <Route path="/store/*" element={<Store />} />
+      </Routes>
     </>
   );
 }
