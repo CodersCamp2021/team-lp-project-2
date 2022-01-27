@@ -1,15 +1,16 @@
-import { Button, Text } from '@chakra-ui/react';
-import { useState } from 'react';
-import Filters from './filters/Filters';
+import { Route, Routes } from 'react-router-dom';
+import DummyHome from './DummyHome';
+import Store from './Store';
+import Navbar from './Navigation/Navbar';
 
 function App() {
-  const [boolean, setBoolean] = useState(true);
-
   return (
     <>
-      <Text>Hello world</Text>
-      <Button onClick={() => setBoolean(!boolean)}>Change category!</Button>
-      <Filters category={boolean ? 'cpu' : null} products={[]} />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<DummyHome />} />
+        <Route path="/store/*" element={<Store />} />
+      </Routes>
     </>
   );
 }
