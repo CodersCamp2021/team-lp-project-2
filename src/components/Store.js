@@ -5,7 +5,7 @@ import ProductDisplay from './ProductDisplay';
 import { useState, useEffect, createContext } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-import Filters from './Filters/Filters';
+import Filters from './filters/Filters';
 
 export const CategoryContext = createContext(undefined);
 
