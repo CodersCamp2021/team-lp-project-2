@@ -3,13 +3,31 @@ import { SimpleGrid, Box, Text, Flex, Heading, Select } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 
+const SortStates = {
+  NAME_ASC: 'name(asc)',
+  NAME_DESC: 'name(desc)',
+  PRICE_ASC: 'price(asc)',
+  PRICE_DESC: 'price(desc)',
+};
+Object.freeze(SortStates);
+
 const ProductList = ({ products }) => {
   let { category } = useParams();
+  const [sorting, setSorting] = useState(SortStates.NAME_ASC);
   const updateCategory = useContext(CategoryContext);
   let [searchParams] = useSearchParams();
-  const [sorting, setSorting] = useState('name(asc)');
 
-  const handleSorting = () => {};
+  const sortName = (a, b) => {
+    let nameA = a.name.toLowerCase();
+    let nameB = b.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  };
 
   const handleCategory = () => {
     if (category) {
@@ -69,7 +87,19 @@ const ProductList = ({ products }) => {
     let filteredProducts = handleCategory();
     filteredProducts = handleFilter(filteredProducts);
     filteredProducts = handleSearch(filteredProducts);
-    return filteredProducts;
+
+    switch (sorting) {
+      case SortStates.NAME_ASC:
+        return filteredProducts.sort((a, b) => sortName(a, b));
+      case SortStates.NAME_DESC:
+        return filteredProducts.sort((a, b) => sortName(b, a));
+      case SortStates.PRICE_ASC:
+        return filteredProducts.sort((a, b) => a.price - b.price);
+      case SortStates.PRICE_DESC:
+        return filteredProducts.sort((a, b) => b.price - a.price);
+      default:
+        return filteredProducts;
+    }
   };
 
   useEffect(() => {
@@ -89,10 +119,10 @@ const ProductList = ({ products }) => {
           value={sorting}
           onChange={(e) => setSorting(e.target.value)}
         >
-          <option value="price(asc)">Price: Low to High</option>
-          <option value="price(desc)">Price: High to Low</option>
-          <option value="name(asc)">Name: A-Z</option>
-          <option value="name(desc)">Name: Z-A</option>
+          <option value={SortStates.NAME_ASC}>Name: A-Z</option>
+          <option value={SortStates.NAME_DESC}>Name: Z-A</option>
+          <option value={SortStates.PRICE_ASC}>Price: Low to High</option>
+          <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
         </Select>
       </label>
       <SimpleGrid
