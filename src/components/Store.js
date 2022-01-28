@@ -45,7 +45,7 @@ const Store = () => {
       </Center>
       <Flex justifyContent="space-around">
 
-        <Categories mt={20}/>
+        <Categories mt={20} category={category}/>
 
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
