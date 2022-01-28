@@ -18,6 +18,7 @@ export default function Options({
 
   useEffect(() => {
     setDetailsCallback({ ...details, pricing });
+    // eslint-disable-next-line
   }, [minPrice, maxPrice]);
 
   return (
