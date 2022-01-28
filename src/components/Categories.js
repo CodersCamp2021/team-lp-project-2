@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, Flex, Box, VStack, StackDivider } from '@chakra-ui/react';
+import { Text, Flex, Box, VStack, StackDivider, Link } from '@chakra-ui/react';
 import { FaAngleRight, FaDesktop, FaMemory } from 'react-icons/fa';
 import { BsCpu, BsCpuFill } from 'react-icons/bs';
 import { TiThSmall } from 'react-icons/ti';
 import { MdDeveloperBoard } from 'react-icons/md';
-import { NavLink} from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Categories = ({ category }) => {
   return (
@@ -20,7 +20,8 @@ const Categories = ({ category }) => {
       >
         <Flex h="2.5vw" pl="2%" align="center">
           <TiThSmall size="2.2vw" />
-          <NavLink
+          <Link
+            as={RouterLink}
             fontSize="1.5vw"
             pl="3%"
             pr="3%"
@@ -28,12 +29,13 @@ const Categories = ({ category }) => {
             to="/store"
           >
             All products
-          </NavLink>
+          </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
           <BsCpu size="2.2vw" />
-          <NavLink
+          <Link
+            as={RouterLink}
             fontSize="1.5vw"
             pl="3%"
             pr="3%"
@@ -41,12 +43,13 @@ const Categories = ({ category }) => {
             to="/store/cpu"
           >
             CPUs
-          </NavLink>
+          </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
           <FaMemory size="2.2vw" />
-          <NavLink
+          <Link
+            as={RouterLink}
             fontSize="1.5vw"
             pl="3%"
             pr="3%"
@@ -54,12 +57,13 @@ const Categories = ({ category }) => {
             to="/store/ram"
           >
             Memory
-          </NavLink>
+          </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
           <FaDesktop size="2.2vw" />
-          <NavLink
+          <Link
+            as={RouterLink}
             fontSize="1.5vw"
             pl="3%"
             pr="3%"
@@ -67,12 +71,13 @@ const Categories = ({ category }) => {
             to="/store/monitor"
           >
             Monitors
-          </NavLink>
+          </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
           <BsCpuFill size="2.2vw" />
-          <NavLink
+          <Link
+            as={RouterLink}
             fontSize="1.5vw"
             pl="3%"
             pr="3%"
@@ -80,12 +85,13 @@ const Categories = ({ category }) => {
             to="/store/gpu"
           >
             Graphics Cards
-          </NavLink>
+          </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
         <Flex h="2.5vw" pl="2%" align="center">
           <MdDeveloperBoard size="2.2vw" />
-          <NavLink
+          <Link
+            as={RouterLink}
             fontSize="1.5vw"
             pl="3%"
             pr="3%"
@@ -93,13 +99,12 @@ const Categories = ({ category }) => {
             to="/store/motherboard"
           >
             Motherboards
-          </NavLink>
+          </Link>
           <FaAngleRight size="1.2vw" />
         </Flex>
       </VStack>
     </Box>
   );
-}
-
+};
 
 export default Categories;
