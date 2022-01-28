@@ -33,10 +33,10 @@ const ProductList = ({ products }) => {
     );
     if (activeFilters.length < 1) return categoryProducts;
 
-    let filteredProducts = [];
+    let filteredProducts = categoryProducts;
 
     if (filters.minPrice && filters.maxPrice) {
-      filteredProducts = categoryProducts.filter((product) => {
+      filteredProducts = filteredProducts.filter((product) => {
         return (
           parseFloat(product.price) >= parseFloat(filters.minPrice) &&
           parseFloat(product.price) <= parseFloat(filters.maxPrice)
@@ -44,7 +44,7 @@ const ProductList = ({ products }) => {
       });
     }
     if (filters.brand) {
-      filteredProducts = categoryProducts.filter((product) =>
+      filteredProducts = filteredProducts.filter((product) =>
         filters.brand.includes(product.details.brand.toLowerCase()),
       );
     }
