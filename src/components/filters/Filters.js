@@ -11,7 +11,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-export default function Filters({ category }) {
+function Filters({ category }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1500);
   const [details, setDetails] = useState({});
@@ -102,3 +102,5 @@ export default function Filters({ category }) {
     </Flex>
   );
 }
+
+export default Filters;
