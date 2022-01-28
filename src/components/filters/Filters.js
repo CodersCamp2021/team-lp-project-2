@@ -29,7 +29,7 @@ function Filters({ category }) {
       params.set('brands', arr);
     }
 
-    navigate(`store${category ? '/' + category : ''}?${params}`);
+    navigate(`/store${category ? `/${category}` : ''}?${params}`);
   };
 
   useEffect(() => {
