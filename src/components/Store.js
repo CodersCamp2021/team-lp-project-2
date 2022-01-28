@@ -1,10 +1,11 @@
-import { Center, Stack, Flex } from '@chakra-ui/react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Center, Flex } from '@chakra-ui/react';
+import { Routes, Route } from 'react-router-dom';
 import ProductList from './ProductList';
 import ProductDisplay from './ProductDisplay';
 import { useState, useEffect, createContext } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import Categories from './Categories';
 import Filters from './filters/Filters';
 
 export const CategoryContext = createContext(undefined);
@@ -43,16 +44,8 @@ const Store = () => {
         Dummy Store
       </Center>
       <Flex justifyContent="space-around">
-        <Stack mt={20}>
-          <NavLink to=".">All products</NavLink>
-          <NavLink to="./cpu">CPU</NavLink>
-          <NavLink to="./gpu">GPU</NavLink>
-          <NavLink to="./ram">RAM</NavLink>
-          <NavLink to="./monitor">Monitor</NavLink>
-        </Stack>
-
+        <Categories mt={20} category={category} />
         <Filters category={category} />
-
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
             <Route path="/" element={<ProductList products={products} />} />
