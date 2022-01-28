@@ -23,7 +23,7 @@ const ProductList = ({ products }) => {
       minPrice: searchParams.get('min'),
       maxPrice: searchParams.get('max'),
       brand: searchParams
-        .get('brand')
+        .get('brands')
         ?.split(',')
         .map((name) => name.toLowerCase()),
     };
