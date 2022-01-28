@@ -1,12 +1,22 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
-import { useContext, useEffect } from 'react';
+import {
+  SimpleGrid,
+  Box,
+  Text,
+  Flex,
+  Heading,
+  Select,
+  Stack,
+  VStack,
+} from '@chakra-ui/react';
+import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 
 const ProductList = ({ products }) => {
   let { category } = useParams();
   const updateCategory = useContext(CategoryContext);
   let [searchParams] = useSearchParams();
+  const [sorting, setSorting] = useState('Name: A-Z');
 
   const applyCategory = () => {
     if (category) {
@@ -68,7 +78,22 @@ const ProductList = ({ products }) => {
   }, [category]);
 
   return (
-    <Flex mt={10} justifyContent="center">
+    <Flex mt={10} justifyContent="center" flexDirection="column">
+      <label>
+        Sort By:
+        <Select
+          size="sm"
+          mb={4}
+          maxWidth={175}
+          value={sorting}
+          onChange={(e) => setSorting(e.target.value)}
+        >
+          <option value="price(asc)">Price: Low to High</option>
+          <option value="price(desc)">Price: High to Low</option>
+          <option value="name(asc)">Name: A-Z</option>
+          <option value="name(desc)">Name: Z-A</option>
+        </Select>
+      </label>
       <SimpleGrid
         columns={[1, 2, 3, 4]}
         maxWidth="80vw"
