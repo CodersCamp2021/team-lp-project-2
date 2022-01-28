@@ -10,7 +10,6 @@ import Filters from './Filters/Filters';
 export const CategoryContext = createContext(undefined);
 
 const Store = () => {
-  // eslint-disable-next-line
   const [category, setCategory] = useState(undefined);
   const [products, setProducts] = useState([]);
 
