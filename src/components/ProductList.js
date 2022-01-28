@@ -1,14 +1,5 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import {
-  SimpleGrid,
-  Box,
-  Text,
-  Flex,
-  Heading,
-  Select,
-  Stack,
-  VStack,
-} from '@chakra-ui/react';
+import { SimpleGrid, Box, Text, Flex, Heading, Select } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 
@@ -16,9 +7,11 @@ const ProductList = ({ products }) => {
   let { category } = useParams();
   const updateCategory = useContext(CategoryContext);
   let [searchParams] = useSearchParams();
-  const [sorting, setSorting] = useState('Name: A-Z');
+  const [sorting, setSorting] = useState('name(asc)');
 
-  const applyCategory = () => {
+  const handleSorting = () => {};
+
+  const handleCategory = () => {
     if (category) {
       return products.filter(
         (product) => product.type.toLowerCase() === category.toLowerCase(),
@@ -28,7 +21,7 @@ const ProductList = ({ products }) => {
     }
   };
 
-  const applyFilters = (categoryProducts) => {
+  const handleFilter = (productList) => {
     const filters = {
       minPrice: searchParams.get('min'),
       maxPrice: searchParams.get('max'),
@@ -41,10 +34,10 @@ const ProductList = ({ products }) => {
     const activeFilters = Object.entries(filters).filter(
       ([key, value]) => !!value,
     );
-    if (activeFilters.length < 1) return categoryProducts;
+    if (activeFilters.length < 1) return productList;
 
     if (filters.minPrice && filters.maxPrice) {
-      categoryProducts = categoryProducts.filter((product) => {
+      productList = productList.filter((product) => {
         return (
           parseFloat(product.price) >= parseFloat(filters.minPrice) &&
           parseFloat(product.price) <= parseFloat(filters.maxPrice)
@@ -52,27 +45,35 @@ const ProductList = ({ products }) => {
       });
     }
     if (filters.brand) {
-      categoryProducts = categoryProducts.filter((product) =>
+      productList = productList.filter((product) =>
         filters.brand.includes(product.details.brand.toLowerCase()),
       );
     }
 
-    return categoryProducts;
+    return productList;
   };
 
-  const applySearch = (filteredProducts) => {
+  const handleSearch = (productList) => {
     let searchedName = searchParams.get('name');
 
-    if (!searchedName) return filteredProducts;
+    if (!searchedName) return productList;
 
-    return filteredProducts.filter((product) =>
+    return productList.filter((product) =>
       product.name
         .toLowerCase()
         .includes(decodeURIComponent(searchedName.toLowerCase())),
     );
   };
 
+  const applyFiltering = () => {
+    let filteredProducts = handleCategory();
+    filteredProducts = handleFilter(filteredProducts);
+    filteredProducts = handleSearch(filteredProducts);
+    return filteredProducts;
+  };
+
   useEffect(() => {
+    setSorting('name(asc)');
     updateCategory(category);
     // eslint-disable-next-line
   }, [category]);
@@ -102,7 +103,7 @@ const ProductList = ({ products }) => {
         alignItems="center"
       >
         {products.length > 0
-          ? applySearch(applyFilters(applyCategory())).map((product) => (
+          ? applyFiltering().map((product) => (
               <Link key={product.name} to={`/store/product/${product.id}`}>
                 <Box
                   p={5}
