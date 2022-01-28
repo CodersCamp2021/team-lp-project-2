@@ -5,11 +5,11 @@ import ProductDisplay from './ProductDisplay';
 import { useState, useEffect, createContext } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import Filters from './filters/Filters';
 
 export const CategoryContext = createContext(undefined);
 
 const Store = () => {
-  // eslint-disable-next-line
   const [category, setCategory] = useState(undefined);
   const [products, setProducts] = useState([]);
 
@@ -45,11 +45,13 @@ const Store = () => {
       <Flex justifyContent="space-around">
         <Stack mt={20}>
           <NavLink to=".">All products</NavLink>
-          <NavLink to="./CPU">CPU</NavLink>
-          <NavLink to="./GPU">GPU</NavLink>
-          <NavLink to="./RAM">RAM</NavLink>
-          <NavLink to="./Monitor">Monitor</NavLink>
+          <NavLink to="./cpu">CPU</NavLink>
+          <NavLink to="./gpu">GPU</NavLink>
+          <NavLink to="./ram">RAM</NavLink>
+          <NavLink to="./monitor">Monitor</NavLink>
         </Stack>
+
+        <Filters category={category} />
 
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
