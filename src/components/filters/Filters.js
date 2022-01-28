@@ -11,18 +11,16 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-export default function Filters({ products, category }) {
+export default function Filters({ category }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1500);
-  const [state, setState] = useState({});
+  const [details, setDetails] = useState({});
   const navigate = useNavigate();
-
-  console.log(state);
 
   const handleSubmit = () => {
     const params = new URLSearchParams();
-    const [min, max] = state.pricing;
-    const arr = state.brands || [];
+    const [min, max] = details.pricing;
+    const arr = details.brands || [];
 
     params.set('min', min);
     params.set('max', max);
@@ -35,7 +33,7 @@ export default function Filters({ products, category }) {
   };
 
   useEffect(() => {
-    setState({ pricing: [0, 1500], brands: [] });
+    setDetails({ pricing: [0, 1500], brands: [] });
   }, [category]);
 
   return (
@@ -88,8 +86,8 @@ export default function Filters({ products, category }) {
       <Options
         category={category}
         pricing={[minPrice, maxPrice]}
-        state={state}
-        setStateCallback={(val) => setState(val)}
+        details={details}
+        setDetailsCallback={(val) => setDetails(val)}
       />
       <Button
         m={3}

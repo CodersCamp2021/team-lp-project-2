@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import Group from './Group';
 
 export default function Options({
-  state,
-  setStateCallback,
+  details,
+  setDetailsCallback,
   category,
   pricing,
 }) {
@@ -17,14 +17,14 @@ export default function Options({
   };
 
   useEffect(() => {
-    setStateCallback({ ...state, pricing });
+    setDetailsCallback({ ...details, pricing });
   }, [minPrice, maxPrice]);
 
   return (
     <Group
       title={category ? 'Brands' : ''}
       options={category ? categoryList[category] : []}
-      callback={(arr) => setStateCallback({ ...state, brands: arr })}
+      callback={(arr) => setDetailsCallback({ ...details, brands: arr })}
     ></Group>
   );
 }
