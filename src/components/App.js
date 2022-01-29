@@ -6,7 +6,7 @@ import Cart from './Cart/Cart';
 import { useState } from 'react';
 
 function App() {
-  const [isCartOpen, setIsCartOpen] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleOpenCart = () => {
     setIsCartOpen(true);
