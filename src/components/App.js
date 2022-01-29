@@ -4,7 +4,6 @@ import Store from './Store';
 import Navbar from './Navigation/Navbar';
 import Footer from './HomePage/Footer';
 
-
 function App() {
   return (
     <>
