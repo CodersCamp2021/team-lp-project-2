@@ -9,6 +9,7 @@ const Cart = ({ isCartOpen, closeCart }) => {
     <>
       <CartBackground isCartOpen={isCartOpen} closeCart={closeCart} />
       <Box
+        as="aside"
         height="100vh"
         width="600px"
         bg="white"
@@ -29,6 +30,7 @@ const Cart = ({ isCartOpen, closeCart }) => {
         />
 
         <Flex
+          as="header"
           justify="center"
           align="center"
           pb="20px"
