@@ -25,7 +25,7 @@ const Footer = () => {
       <Box display="flex" gap="10px">
         <FaShippingFast size="23px" />
         <Text
-          fontSize={{ base: '13px', md: '16px' }}
+          fontSize={{ base: '13px', sm: '16px', md: '16px', lg: '18px' }}
           fontWeight={700}
           textAlign="center"
         >
@@ -35,7 +35,7 @@ const Footer = () => {
       <Box display="flex" gap="10px">
         <FaExchangeAlt size="23px" />
         <Text
-          fontSize={{ base: '13px', md: '16px' }}
+          fontSize={{ base: '13px', sm: '16px', md: '16px', lg: '18px' }}
           fontWeight={700}
           textAlign="center"
         >
@@ -45,7 +45,7 @@ const Footer = () => {
       <Box display="flex" gap="10px">
         <FaCreditCard size="23px" />
         <Text
-          fontSize={{ base: '13px', md: '16px' }}
+          fontSize={{ base: '13px', sm: '16px', md: '16px', lg: '18px' }}
           fontWeight={700}
           textAlign="center"
         >
@@ -55,7 +55,7 @@ const Footer = () => {
       <Box display="flex" gap="10px">
         <FaFacebookMessenger size="23px" />
         <Text
-          fontSize={{ base: '13px', md: '16px' }}
+          fontSize={{ base: '13px', sm: '16px', md: '16px', lg: '18px' }}
           fontWeight={700}
           textAlign="center"
         >
