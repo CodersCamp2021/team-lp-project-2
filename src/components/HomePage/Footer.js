@@ -1,37 +1,69 @@
 import React from 'react';
-import { Flex, Box, Text } from '@chakra-ui/react';
-import { FaFacebookMessenger, FaCreditCard, FaExchangeAlt, FaShippingFast } from 'react-icons/fa';
+import { Flex, Box, Text, Grid } from '@chakra-ui/react';
+import {
+  FaFacebookMessenger,
+  FaCreditCard,
+  FaExchangeAlt,
+  FaShippingFast,
+} from 'react-icons/fa';
 
 const Footer = () => {
   return (
-  <Flex
-    as="nav"
-    align="center"
-    justify="space-between"
-    width="100%"
-    height="80px"
-    gap="40px"
-    background="white.500"
-    px={{ base: '30px', md: '80px' }}
-    display={{ base: 'grid' , md: 'flex' }}
+    <Grid
+      as="nav"
+      borderTop="1px solid gray"
+      height={{ base: '190px', sm: '140px', md: '100px', lg: '80px' }}
+      gridTemplateColumns={{
+        md: 'repeat(4, minmax(180px, 1fr))',
+        sm: 'repeat(2, 1fr)',
+      }}
+      gap={{ base: '12px' }}
+      gridTemplateRows="auto"
+      placeItems="center"
+      alignContent="space-around"
     >
-    <Box display="flex" gap="10px">
+      <Box display="flex" gap="10px">
         <FaShippingFast size="23px" />
-        <Text fontSize={{ base: '15px', md: '18px' }}>Free shipping</Text>
-    </Box>
-    <Box display="flex" gap="10px">
+        <Text
+          fontSize={{ base: '13px', md: '16px' }}
+          fontWeight={700}
+          textAlign="center"
+        >
+          Free shipping
+        </Text>
+      </Box>
+      <Box display="flex" gap="10px">
         <FaExchangeAlt size="23px" />
-        <Text fontSize={{ base: '15px', md: '18px' }}>90 days return</Text>
-    </Box>
-    <Box display="flex" gap="10px">
+        <Text
+          fontSize={{ base: '13px', md: '16px' }}
+          fontWeight={700}
+          textAlign="center"
+        >
+          90 days return
+        </Text>
+      </Box>
+      <Box display="flex" gap="10px">
         <FaCreditCard size="23px" />
-        <Text fontSize={{ base: '15px', md: '18px' }}>Secure payments</Text>
-    </Box>
-    <Box display="flex" gap="10px">
+        <Text
+          fontSize={{ base: '13px', md: '16px' }}
+          fontWeight={700}
+          textAlign="center"
+        >
+          Secure payments
+        </Text>
+      </Box>
+      <Box display="flex" gap="10px">
         <FaFacebookMessenger size="23px" />
-        <Text fontSize={{ base: '15px', md: '18px' }}>24/7 dedicated support</Text>
-    </Box>
-  </Flex>);
+        <Text
+          fontSize={{ base: '13px', md: '16px' }}
+          fontWeight={700}
+          textAlign="center"
+        >
+          24/7 dedicated support
+        </Text>
+      </Box>
+    </Grid>
+  );
 };
 
 export default Footer;
