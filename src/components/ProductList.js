@@ -33,10 +33,8 @@ const ProductList = ({ products }) => {
     );
     if (activeFilters.length < 1) return categoryProducts;
 
-    let filteredProducts = [];
-
     if (filters.minPrice && filters.maxPrice) {
-      filteredProducts = categoryProducts.filter((product) => {
+      categoryProducts = categoryProducts.filter((product) => {
         return (
           parseFloat(product.price) >= parseFloat(filters.minPrice) &&
           parseFloat(product.price) <= parseFloat(filters.maxPrice)
@@ -44,12 +42,12 @@ const ProductList = ({ products }) => {
       });
     }
     if (filters.brand) {
-      filteredProducts = categoryProducts.filter((product) =>
+      categoryProducts = categoryProducts.filter((product) =>
         filters.brand.includes(product.details.brand.toLowerCase()),
       );
     }
 
-    return filteredProducts;
+    return categoryProducts;
   };
 
   const applySearch = (filteredProducts) => {
@@ -57,13 +55,11 @@ const ProductList = ({ products }) => {
 
     if (!searchedName) return filteredProducts;
 
-    let searchedProducts = filteredProducts.filter((product) =>
+    return filteredProducts.filter((product) =>
       product.name
         .toLowerCase()
         .includes(decodeURIComponent(searchedName.toLowerCase())),
     );
-
-    return searchedProducts;
   };
 
   useEffect(() => {
