@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import DummyHome from './DummyHome';
+import HomeMain from './HomePage/HomeMain';
 import Store from './Store';
 import Navbar from './Navigation/Navbar';
 import Footer from './HomePage/Footer';
@@ -10,7 +10,7 @@ function App() {
     <Grid minHeight="100vh" gridTemplateRows="auto 1fr auto">
       <Navbar />
       <Routes>
-        <Route path="/" element={<DummyHome />} />
+        <Route path="/" element={<HomeMain />} />
         <Route path="/store/*" element={<Store />} />
       </Routes>
       <Footer />

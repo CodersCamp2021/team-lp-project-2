@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Box, Text, Grid } from '@chakra-ui/react';
+import { Box, Text, Grid } from '@chakra-ui/react';
 import {
   FaFacebookMessenger,
   FaCreditCard,
