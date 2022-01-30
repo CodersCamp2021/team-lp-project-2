@@ -4,8 +4,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 
 function DeleteButton() {
-    function handleSubmit(e) {
-      e.preventDefault();
+    function handleSubmit() {
       console.log('click on delete button');
     }
   
