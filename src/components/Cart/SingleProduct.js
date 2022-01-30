@@ -3,13 +3,9 @@ import {
   Flex,
   Text,
   Image,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
 } from '@chakra-ui/react';
-import { FaTrashAlt } from 'react-icons/fa';
+import DeleteButton from './DeleteButton';
+import NumberField from './NumberField';
 
 const SingleProduct = ({ name, price, amount }) => {
   /**
@@ -30,17 +26,12 @@ const SingleProduct = ({ name, price, amount }) => {
           <Text fontSize="sm">{name}</Text>
         </Flex>
         <Flex align="center" direction="column">
-          <NumberInput
+          <NumberField
             w="30%"
             defaultValue={amount}
             onChange={(value) => handleChangeAmount(value)}
           >
-            <NumberInputField />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
+          </NumberField>
         </Flex>
       </Flex>
 
@@ -49,7 +40,7 @@ const SingleProduct = ({ name, price, amount }) => {
           <Text fontSize="sm">${price}</Text>
         </Flex>
         <Flex h="2.5vw" align="center" direction="column">
-          <FaTrashAlt fontSize="1.5vw" cursor="pointer" />
+          <DeleteButton fontSize="1.5vw" cursor="pointer" />
         </Flex>
       </Flex>
     </Flex>
