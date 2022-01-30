@@ -3,8 +3,8 @@ import { Grid, Heading, Text, Button } from '@chakra-ui/react';
 const HeroInfo = () => {
   return (
     <Grid
-      maxHeight="70vh"
-      gridTemplateRows={{ base: '2fr 1fr 1fr 1fr' }}
+      maxHeight="100%"
+      gridTemplateRows={{ base: '2fr 1fr 2fr 1fr' }}
       alignItems="flex-start"
       overflowWrap="break-word"
     >
@@ -26,7 +26,7 @@ const HeroInfo = () => {
         textColor="white"
         bg="teal.600"
         fontWeight={300}
-        alignSelf="flex-end"
+        alignSelf="flex-start"
         justifySelf="center"
         px={{ base: '44px' }}
         py={{ base: '24px' }}
