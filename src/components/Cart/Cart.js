@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Flex, Text, Button } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import CartBackground from './CartBackground';
-import SingleProduct from './SingleProduct';
 import CartHeader from './CartHeader';
+import CartSummary from './CartSummary';
+import Products from './Products';
 
 const dummyProducts = [
   {
@@ -46,27 +47,8 @@ const Cart = ({ isCartOpen, closeCart }) => {
         <CartHeader closeCart={closeCart} />
 
         <Box bg="tomato" w="100%" h="90%" p={10} color="white">
-          <Box bg="blue" w="100%" h="50%" p={10} color="white">
-            {dummyProducts.map((product) => {
-              const { id, name, price } = product;
-              return (
-                <SingleProduct key={id} id={id} name={name} price={price} />
-              );
-            })}
-          </Box>
-          <Box bg="green" w="100%" h="50%" p={10} color="white">
-            <Text fontSize="3xl" ml="10px" align="center">
-              Total: $951.93
-            </Text>
-            <Flex direction="column" align="center" justify="end">
-              <Button w="20%" mt="25" colorScheme="teal">
-                Button
-              </Button>
-              <Button w="20%" mt="5" colorScheme="blue">
-                Button
-              </Button>
-            </Flex>
-          </Box>
+          <Products products={dummyProducts} />
+          <CartSummary />
         </Box>
       </Box>
     </>
