@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const SingleProduct = () => {
+const SingleProduct = ({ id, name, price }) => {
   return (
     <Flex justify="space-around" mb="15px">
       <Flex justify="center" direction="column">
@@ -20,7 +20,7 @@ const SingleProduct = () => {
       <Flex direction="column" align="center" justify="space-between">
         <Flex align="center" direction="column">
           <Text fontSize="0.8vw" fontWeight="bold">
-            Intel core i5
+            {name}
           </Text>
           <Text fontSize="0.5vw" fontWeight="bold">
             3.7ghz
@@ -40,7 +40,7 @@ const SingleProduct = () => {
       <Flex direction="column" align="center" justify="center">
         <Flex h="2.5vw" align="center" direction="column">
           <Text fontSize="0.8vw" fontWeight="bold">
-            Cena
+            {price}
           </Text>
         </Flex>
         <Flex h="2.5vw" align="center" direction="column">
