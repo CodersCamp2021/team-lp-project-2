@@ -7,7 +7,6 @@ const HeroInfo = () => {
       gridTemplateRows={{ base: '2fr 1fr 1fr 1fr' }}
       alignItems="flex-start"
       overflowWrap="break-word"
-      pr={{ base: '15px', md: '40px' }}
     >
       <Heading as="h1" size="2xl" alignSelf="flex-end">
         Lorem ipsum dolor sit a
@@ -27,7 +26,7 @@ const HeroInfo = () => {
         textColor="white"
         bg="teal.600"
         fontWeight={300}
-        alignSelf="center"
+        alignSelf="flex-end"
         justifySelf="center"
         px={{ base: '44px' }}
         py={{ base: '24px' }}
