@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Flex, Text, Button } from '@chakra-ui/react';
-import { FaShoppingCart } from 'react-icons/fa';
 import CartBackground from './CartBackground';
-import { CloseIcon } from '@chakra-ui/icons';
 import SingleProduct from './SingleProduct';
+import CartHeader from './CartHeader';
 
 const dummyProducts = [
   {
@@ -44,27 +43,7 @@ const Cart = ({ isCartOpen, closeCart }) => {
         transform={isCartOpen ? 'translateX(-1000px)' : ''}
         transition="transform ease-in-out .4s .3s"
       >
-        <CloseIcon
-          onClick={closeCart}
-          boxSize="30px"
-          position="absolute"
-          top="30px"
-          right="30px"
-          cursor="pointer"
-        />
-
-        <Flex
-          as="header"
-          justify="center"
-          align="center"
-          pb="20px"
-          borderBottom="1px solid black"
-        >
-          <FaShoppingCart size="35px" />
-          <Text fontSize="3xl" ml="10px">
-            Cart
-          </Text>
-        </Flex>
+        <CartHeader closeCart={closeCart} />
 
         <Box bg="tomato" w="100%" h="90%" p={10} color="white">
           <Box bg="blue" w="100%" h="50%" p={10} color="white">
