@@ -33,8 +33,10 @@ const Products = () => {
   return (
     <Box bg="blue" w="100%" h="50%" p={10} color="white">
       {dummyProducts.map((product) => {
-        const { id, name, price } = product;
-        return <SingleProduct key={id} id={id} name={name} price={price} />;
+        const { id, name, price, amount } = product;
+        return (
+          <SingleProduct key={id} name={name} price={price} amount={amount} />
+        );
       })}
     </Box>
   );

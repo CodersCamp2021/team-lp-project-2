@@ -11,7 +11,15 @@ import {
 } from '@chakra-ui/react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const SingleProduct = ({ id, name, price }) => {
+const SingleProduct = ({ name, price, amount }) => {
+  /**
+   *
+   * logging is just for now. later it should update state in Context API
+   */
+  const handleChangeAmount = (newValue) => {
+    console.log(newValue);
+  };
+
   return (
     <Flex justify="space-around" mb="15px">
       <Flex justify="center" direction="column">
@@ -19,15 +27,14 @@ const SingleProduct = ({ id, name, price }) => {
       </Flex>
       <Flex direction="column" align="center" justify="space-between">
         <Flex align="center" direction="column">
-          <Text fontSize="0.8vw" fontWeight="bold">
-            {name}
-          </Text>
-          <Text fontSize="0.5vw" fontWeight="bold">
-            3.7ghz
-          </Text>
+          <Text fontSize="sm">{name}</Text>
         </Flex>
         <Flex align="center" direction="column">
-          <NumberInput w="30%">
+          <NumberInput
+            w="30%"
+            defaultValue={amount}
+            onChange={(value) => handleChangeAmount(value)}
+          >
             <NumberInputField />
             <NumberInputStepper>
               <NumberIncrementStepper />
@@ -39,9 +46,7 @@ const SingleProduct = ({ id, name, price }) => {
 
       <Flex direction="column" align="center" justify="center">
         <Flex h="2.5vw" align="center" direction="column">
-          <Text fontSize="0.8vw" fontWeight="bold">
-            {price}
-          </Text>
+          <Text fontSize="sm">${price}</Text>
         </Flex>
         <Flex h="2.5vw" align="center" direction="column">
           <FaTrashAlt fontSize="1.5vw" cursor="pointer" />
