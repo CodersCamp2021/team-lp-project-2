@@ -23,6 +23,7 @@ const addProduct = () => {
         wattage: 65,
         cacheSize: 32,
         processorCount: 6,
+        showOnHomepage: false
       },
     },
     {
@@ -42,6 +43,7 @@ const addProduct = () => {
         wattage: 105,
         cacheSize: 32,
         processorCount: 8,
+        showOnHomepage: false
       },
     },
     {
@@ -61,6 +63,7 @@ const addProduct = () => {
         wattage: 65,
         cacheSize: 4,
         processorCount: 4,
+        showOnHomepage: false
       },
     },
     {
@@ -80,6 +83,7 @@ const addProduct = () => {
         wattage: 95,
         cacheSize: 32,
         processorCount: 6,
+        showOnHomepage: false
       },
     },
     {
@@ -99,6 +103,7 @@ const addProduct = () => {
         wattage: 105,
         cacheSize: 36,
         processorCount: 8,
+        showOnHomepage: false
       },
     },
     {
@@ -118,6 +123,7 @@ const addProduct = () => {
         wattage: 65,
         cacheSize: 35,
         processorCount: 6,
+        showOnHomepage: false
       },
     },
     /**
@@ -140,6 +146,7 @@ const addProduct = () => {
         wattage: 125,
         cacheSize: 16,
         processorCount: 8,
+        showOnHomepage: false
       },
     },
     {
@@ -174,6 +181,7 @@ const addProduct = () => {
         wattage: 95,
         cacheSize: 16,
         processorCount: 1,
+        showOnHomepage: false
       },
     },
     {
@@ -189,6 +197,7 @@ const addProduct = () => {
         wattage: 95,
         cacheSize: 16,
         processorCount: 8,
+        showOnHomepage: false
       },
     },
     {
@@ -204,6 +213,7 @@ const addProduct = () => {
         wattage: 95,
         cacheSize: 9,
         processorCount: 6,
+        showOnHomepage: false
       },
     },
     {
@@ -223,6 +233,7 @@ const addProduct = () => {
         wattage: 65,
         cacheSize: 2,
         processorCount: 8,
+        showOnHomepage: false
       },
     },
     {
@@ -242,6 +253,7 @@ const addProduct = () => {
         wattage: 65,
         cacheSize: 6,
         processorCount: 4,
+        showOnHomepage: false
       },
     },
     {
@@ -261,6 +273,7 @@ const addProduct = () => {
         wattage: 65,
         cacheSize: 12,
         processorCount: 6,
+        showOnHomepage: false
       },
     },
     /**
@@ -281,6 +294,7 @@ const addProduct = () => {
         ramSize: 8,
         memoryClockSpeed: 19000,
         gpuClockSpeed: 1830,
+        showOnHomepage: false
       },
     },
     {
@@ -298,6 +312,7 @@ const addProduct = () => {
         ramSize: 10,
         memoryClockSpeed: 19000,
         gpuClockSpeed: 1800,
+        showOnHomepage: false
       },
     },
     {
@@ -315,6 +330,7 @@ const addProduct = () => {
         ramSize: 11,
         memoryClockSpeed: 14000,
         gpuClockSpeed: 1000,
+        showOnHomepage: false
       },
     },
     {
@@ -332,6 +348,7 @@ const addProduct = () => {
         ramSize: 8,
         memoryClockSpeed: 1845,
         gpuClockSpeed: 1845,
+        showOnHomepage: false
       },
     },
     {
@@ -349,6 +366,7 @@ const addProduct = () => {
         ramSize: 4,
         memoryClockSpeed: 7008,
         gpuClockSpeed: 1341,
+        showOnHomepage: false
       },
     },
     {
@@ -366,6 +384,7 @@ const addProduct = () => {
         ramSize: 6,
         memoryClockSpeed: 8192,
         gpuClockSpeed: 1594,
+        showOnHomepage: false
       },
     },
     {
@@ -383,6 +402,7 @@ const addProduct = () => {
         ramSize: 12,
         memoryClockSpeed: 15000,
         gpuClockSpeed: 1807,
+        showOnHomepage: false
       },
     },
     /**
@@ -402,6 +422,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 3200,
+        showOnHomepage: false
       },
     },
     {
@@ -418,6 +439,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 3600,
+        showOnHomepage: false
       },
     },
     {
@@ -434,6 +456,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 2400,
+        showOnHomepage: false
       },
     },
     {
@@ -450,6 +473,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 2666,
+        showOnHomepage: false
       },
     },
     {
@@ -466,6 +490,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 2400,
+        showOnHomepage: false
       },
     },
     {
@@ -482,6 +507,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 8,
         memorySpeed: 3000,
+        showOnHomepage: false
       },
     },
     {
@@ -498,6 +524,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 4400,
+        showOnHomepage: false
       },
     },
     {
@@ -514,6 +541,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 32,
         memorySpeed: 3200,
+        showOnHomepage: false
       },
     },
     {
@@ -530,6 +558,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 3200,
+        showOnHomepage: false
       },
     },
     /**
@@ -550,6 +579,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD B550',
         series: 'ROG STRIX B550-F GAMING',
+        showOnHomepage: false
       },
     },
     {
@@ -567,6 +597,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD A55',
         series: '90MB15X0-M0EAY0',
+        showOnHomepage: false
       },
     },
     {
@@ -583,6 +614,7 @@ const addProduct = () => {
         cpuSocket: 'Socket AM4',
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'X570',
+        showOnHomepage: false
       },
     },
     {
@@ -600,6 +632,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD B450',
         series: 'TUF GAMING B450M-PLUS II',
+        showOnHomepage: false
       },
     },
     {
@@ -617,6 +650,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'Intel H410',
         series: 'PRIME H410M-A/CSM',
+        showOnHomepage: false
       },
     },
     {
@@ -634,6 +668,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'Intel B560',
         series: 'PRIME B560-PLUS',
+        showOnHomepage: false
       },
     },
     {
@@ -651,6 +686,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD X570',
         series: 'MEG X570 UNIFY',
+        showOnHomepage: false
       },
     },
     {
@@ -668,6 +704,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD X570',
         series: 'AMD X570-A PRO',
+        showOnHomepage: false
       },
     },
     {
@@ -685,6 +722,7 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD B550',
         series: 'B550 ',
+        showOnHomepage: false
       },
     },
     /**
@@ -702,6 +740,7 @@ const addProduct = () => {
         resolutionStandard: 'FHD',
         displaySize: '23.8',
         refreshRate: '75 Hz',
+        showOnHomepage: false
       },
     },
     {
@@ -718,6 +757,7 @@ const addProduct = () => {
         resolutionStandard: 'VGA',
         displaySize: '27',
         refreshRate: '75 Hz',
+        showOnHomepage: false
       },
     },
     {
@@ -735,6 +775,7 @@ const addProduct = () => {
         resolutionStandard: 'QHD',
         displaySize: '23.5',
         refreshRate: '60 Hz',
+        showOnHomepage: false
       },
     },
     {
@@ -752,6 +793,7 @@ const addProduct = () => {
         resolutionStandard: 'FHD',
         displaySize: '32',
         refreshRate: '75 Hz',
+        showOnHomepage: false
       },
     },
     {
@@ -768,6 +810,7 @@ const addProduct = () => {
         resolutionStandard: 'WQHD',
         displaySize: '27',
         refreshRate: '165 Hz',
+        showOnHomepage: false
       },
     },
     {
@@ -784,6 +827,7 @@ const addProduct = () => {
         resolutionStandard: 'QHD',
         displaySize: '32',
         refreshRate: '165 Hz',
+        showOnHomepage: false
       },
     },
   ];
