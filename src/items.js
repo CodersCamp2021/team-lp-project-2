@@ -43,7 +43,12 @@ const addProduct = () => {
         wattage: 105,
         cacheSize: 32,
         processorCount: 8,
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'The AMD Ryzen 7 3800X processor will take you to a new level of performance.\
+        This powerful CPU has 8 cores with a base clock frequency of 3.90 GHz. In Turbo mode, it \
+        accelerates to 4.50 GHz, providing enormous power for smooth gaming and flawless multitasking \
+        of advanced operations. The unit draws on the entire spectrum of possibilities of the Zen 2 \
+        architecture, it is cooled by the Wraith Prism fan with RGB LED lighting.'
       },
     },
     {
@@ -146,7 +151,12 @@ const addProduct = () => {
         wattage: 125,
         cacheSize: 16,
         processorCount: 8,
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'With the 11th Intel Core desktop processor architecture and the right \
+        balance between up to 5 GHz and a powerful 8 cores and 16 threads, you can achieve high \
+        frame rates and low latency to make streaming and gaming more fun. With advanced features with \
+        an unlocked multiplier and support for the latest technology platforms, with the 11th Gen Intel \
+        Core i7-11700K processor you can have fun the way you want.'
       },
     },
     {
@@ -312,7 +322,11 @@ const addProduct = () => {
         ramSize: 10,
         memoryClockSpeed: 19000,
         gpuClockSpeed: 1800,
-        showOnHomepage: false
+        showOnHomepage: true, 
+        description: 'Gigabyte GeForce RTX 3080 GAMING OC 10 GB is a powerful graphics \
+        card based on the innovative NVIDIA Ampere architecture. The card is based on \
+        improved RT and Tensor cores, new stream multiprocessors and super-fast GDDR6X memory. \
+        All this will allow you to enjoy the game at an unprecedented level.'
       },
     },
     {
@@ -402,7 +416,13 @@ const addProduct = () => {
         ramSize: 12,
         memoryClockSpeed: 15000,
         gpuClockSpeed: 1807,
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'Thanks to the GPU in the NVIDIA Ampere architecture and 12GB \
+        of GDDR6 memory, the Zotac GeForce RTX 3060 Twin Edge OC will provide you \
+        with high performance in games, allowing you to use technologies such as Ray \
+        Tracing or DLSS. 220mm long, the card will also look great in compact housings. \
+        You can indulge in gameplay without worrying about liquidity drops, thanks to \
+        the efficient IceStorm 2.0 cooling system.'
       },
     },
     /**
@@ -422,7 +442,10 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 3200,
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'The overclocked DDR4 memory of the VENGEANCE RGB PRO series \
+        illuminates the inside of your computer with mesmerizing, dynamic, multi-zone \
+        RGB lighting, while offering the highest performance DDR4 memory.'
       },
     },
     {
@@ -473,7 +496,12 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         memorySize: 16,
         memorySpeed: 2666,
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'HyperX FURY DDR4 RGB memory delivers a massive load of performance in \
+        a stylish package. Modernize your system with economical and high-performance memory, \
+        offering clock speed of 2666 MHz and CL16 latency. Every FURY RGB DDR4 memory module is \
+        tested at full speed and is backed by a lifetime warranty. Its a hassle-free and \
+        affordable upgrade to your system.'
       },
     },
     {
@@ -579,7 +607,13 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD B550',
         series: 'ROG STRIX B550-F GAMING',
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'Build a high-performance PC powered by a 3rd Gen AMD Ryzen processor, \
+        powered by the ROG STRIX B550-F GAMING motherboard. Equipped with the B550 chipset, the \
+        ATX design offers you the ability to connect to the fastest NVMe SSDs, create an AMD \
+        CrossFireX configuration, and support DDR4 RAM modules up to 5000 MHz (OC). You can also \
+        easily control the cooling of the entire system, use the graphics chip built into the \
+        processor and illuminate the computers interior with a stylish RGB glow.'
       },
     },
     {
@@ -632,7 +666,12 @@ const addProduct = () => {
         ramMemoryTechnology: 'DDR4',
         chipsetType: 'AMD B450',
         series: 'TUF GAMING B450M-PLUS II',
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'TUF Gaming motherboards are specially designed and tested to withstand \
+        the toughest environments. Designed with military grade components, TUF GAMING B450M-PLUS \
+        II offers a streamlined power section and a range of solutions for optimal cooling. \
+        You can be sure to maintain the unparalleled performance and stability of 3rd Gen AMD \
+        Ryzen processors and DDR4 RAM overclocked up to 4,400 MHz.'
       },
     },
     {
@@ -757,7 +796,10 @@ const addProduct = () => {
         resolutionStandard: 'VGA',
         displaySize: '27',
         refreshRate: '75 Hz',
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'he curved display delivers a revolutionary visual experience with a \
+        leading 1800R screen curvature as the images appear to wrap around you for an in depth,  \
+        immersive experience.'
       },
     },
     {
@@ -827,7 +869,12 @@ const addProduct = () => {
         resolutionStandard: 'QHD',
         displaySize: '32',
         refreshRate: '165 Hz',
-        showOnHomepage: false
+        showOnHomepage: true,
+        description: 'Dominate the battlefield with the LG 32GN650-B Gaming Monitor. The \
+        lightning-fast response time of the matrix will give you extra fractions of a second \
+        in fast fights. The smoothness of the image will translate into increased precision of \
+        aiming, thanks to which you will gain an additional advantage over your opponent. Whats \
+        more, the dynamics of the image and amazing colors will make you even deeper into the game.'
       },
     },
   ];
