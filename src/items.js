@@ -11,9 +11,9 @@ const addProduct = () => {
       type: 'cpu',
       price: 263,
       images: [
-        'AMD Ryzen 5 3600%2F1.png',
-        'AMD Ryzen 5 3600%2F2.png',
-        'AMD Ryzen 5 3600%2F3.png',
+        'AMD Ryzen 5 3600%2F1.jpg',
+        'AMD Ryzen 5 3600%2F2.jpg',
+        'AMD Ryzen 5 3600%2F3.jpg',
       ],
       details: {
         brand: 'AMD',
