@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  Flex,
-  Text,
-  Image,
-} from '@chakra-ui/react';
+import { Flex, Text, Image } from '@chakra-ui/react';
 import DeleteButton from './DeleteButton';
 import NumberField from './NumberField';
 
 const SingleProduct = ({ name, price, amount }) => {
-  /**
-   *
-   * logging is just for now. later it should update state in Context API
-   */
+  //logging is just for now. later it should update state in Context API
   const handleChangeAmount = (newValue) => {
     console.log(newValue);
   };
@@ -30,8 +23,7 @@ const SingleProduct = ({ name, price, amount }) => {
             w="30%"
             defaultValue={amount}
             onChange={(value) => handleChangeAmount(value)}
-          >
-          </NumberField>
+          ></NumberField>
         </Flex>
       </Flex>
 

@@ -2,18 +2,16 @@ import React from 'react';
 import { Button } from '@chakra-ui/react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-
 function DeleteButton() {
-    function handleSubmit() {
-      console.log('click on delete button');
-    }
-  
-    return (
-      <Button 
-      rightIcon= {<FaTrashAlt />} colorScheme="white" Submit={handleSubmit}>
-      </Button>
-    );
+  function handleSubmit() {
+    console.log('click on delete button');
   }
 
+  return (
+    <Button bg="inherit" color="blackAlpha.900" onClick={handleSubmit}>
+      <FaTrashAlt />
+    </Button>
+  );
+}
 
-  export default DeleteButton;
+export default DeleteButton;
