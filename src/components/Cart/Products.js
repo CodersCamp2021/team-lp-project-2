@@ -4,7 +4,7 @@ import SingleProduct from './SingleProduct';
 
 const Products = ({ products }) => {
   return (
-    <Box p={10} color="#000" maxHeight="500px" overflowY="scroll">
+    <Box p={10} color="#000" maxHeight="60%" overflowY="scroll">
       {products.map((product) => {
         const { id, name, price, amount } = product;
         return (

@@ -9,7 +9,7 @@ function DeleteButton() {
 
   return (
     <Button bg="inherit" color="blackAlpha.900" onClick={handleSubmit}>
-      <FaTrashAlt />
+      <FaTrashAlt size="20px" />
     </Button>
   );
 }

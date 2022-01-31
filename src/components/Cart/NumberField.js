@@ -23,12 +23,12 @@ function NumberField() {
   return (
     <NumberInput maxW="130px">
       <Flex direction="row" align="center">
-        <Button w="15px" h="20px" mr="1" color="black" {...inc}>
-          +
+        <Button ml="1" color="black" {...dec}>
+          -
         </Button>
         <Input w="100px" h="40px" {...input} />
-        <Button w="15px" h="20px" ml="1" color="black" {...dec}>
-          -
+        <Button mr="1" color="black" {...inc}>
+          +
         </Button>
       </Flex>
     </NumberInput>

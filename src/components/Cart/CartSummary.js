@@ -6,7 +6,7 @@ import BuyButton from './BuyButton';
 const CartSummary = () => {
   return (
     <Box py={10} color="#000">
-      <Text fontSize="3xl" mt="15%" align="center">
+      <Text fontSize="3xl" align="center">
         Total: $951.93
       </Text>
       <Flex direction="column" align="center" justify="end">
