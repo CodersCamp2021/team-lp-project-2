@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Image } from '@chakra-ui/react';
+import { Text, Image, Grid, GridItem } from '@chakra-ui/react';
 import DeleteButton from './DeleteButton';
 import NumberField from './NumberField';
 
@@ -10,32 +10,36 @@ const SingleProduct = ({ name, price, amount }) => {
   };
 
   return (
-    <Flex justify="space-around" mb="15px">
-      <Flex justify="center" direction="column">
-        <Image src="" alt="image" />
-      </Flex>
-      <Flex direction="column" align="center" justify="space-between">
-        <Flex align="center" direction="column">
-          <Text fontSize="sm">{name}</Text>
-        </Flex>
-        <Flex align="center" direction="column">
-          <NumberField
-            w="30%"
-            defaultValue={amount}
-            onChange={(value) => handleChangeAmount(value)}
-          ></NumberField>
-        </Flex>
-      </Flex>
-
-      <Flex direction="column" align="center" justify="center">
-        <Flex h="2.5vw" align="center" direction="column">
-          <Text fontSize="sm">${price}</Text>
-        </Flex>
-        <Flex h="2.5vw" align="center" direction="column">
-          <DeleteButton fontSize="1.5vw" cursor="pointer" />
-        </Flex>
-      </Flex>
-    </Flex>
+    <Grid
+      templateColumns="80px auto 100px"
+      templateRows="repeat(2, 1fr)"
+      gap="20px"
+      py="20px"
+      borderBottom="1px solid #000"
+    >
+      <GridItem rowSpan={2} alignSelf="center">
+        <Image
+          src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${name}%2F1.jpg?alt=media`}
+          alt="image"
+        />
+      </GridItem>
+      <GridItem justifySelf="center">
+        <Text fontSize="sm">{name}</Text>
+      </GridItem>
+      <GridItem justifySelf="center">
+        <Text fontSize="sm">${price}</Text>
+      </GridItem>
+      <GridItem justifySelf="center">
+        <NumberField
+          w="30%"
+          defaultValue={amount}
+          onChange={(value) => handleChangeAmount(value)}
+        ></NumberField>
+      </GridItem>
+      <GridItem justifySelf="center">
+        <DeleteButton fontSize="1.5vw" cursor="pointer" />
+      </GridItem>
+    </Grid>
   );
 };
 
