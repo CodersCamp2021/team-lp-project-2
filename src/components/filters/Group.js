@@ -4,7 +4,7 @@ import React from 'react';
 export default function Group({ title, options, callback }) {
   return (
     <>
-      <Text p="3%" fontSize="xl">
+      <Text fontSize="1.5vw" pl="3%" pr="3%">
         {title}
       </Text>
       <CheckboxGroup key={options} onChange={callback}>

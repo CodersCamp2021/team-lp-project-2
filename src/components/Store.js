@@ -40,8 +40,13 @@ const Store = () => {
 
   return (
     <div>
-      <Flex justifyContent="space-around">
-        <Categories maxW="container.sm" mt={20} category={category} />
+      <Flex gap="9%">
+        <Categories
+          justifyContent="left"
+          maxW="container.sm"
+          mt={20}
+          category={category}
+        />
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
             <Route path="/" element={<ProductList products={products} />} />

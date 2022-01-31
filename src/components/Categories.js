@@ -104,7 +104,7 @@ const Categories = ({ category }) => {
           <FaAngleRight size="1.2vw" />
         </Flex>
       </VStack>
-      <Filters category={category} />
+      {/* <Filters category={category} /> */}
     </Box>
   );
 };

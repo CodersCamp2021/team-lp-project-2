@@ -109,26 +109,28 @@ const ProductList = ({ products }) => {
   }, [category]);
 
   return (
-    <Flex mt={10} justifyContent="center" flexDirection="column">
-      <label>
-        Sort By:
-        <Select
-          size="sm"
-          mb={4}
-          maxWidth={175}
-          value={sorting}
-          onChange={(e) => setSorting(e.target.value)}
-        >
-          <option value={SortStates.NAME_ASC}>Name: A-Z</option>
-          <option value={SortStates.NAME_DESC}>Name: Z-A</option>
-          <option value={SortStates.PRICE_ASC}>Price: Low to High</option>
-          <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
-        </Select>
-      </label>
+    <Flex justifyContent="center" flexDirection="column">
+      <Flex justifyContent="right">
+        <label>
+          Sort By:
+          <Select
+            size="sm"
+            mb={4}
+            maxWidth={175}
+            value={sorting}
+            onChange={(e) => setSorting(e.target.value)}
+          >
+            <option value={SortStates.NAME_ASC}>Name: A-Z</option>
+            <option value={SortStates.NAME_DESC}>Name: Z-A</option>
+            <option value={SortStates.PRICE_ASC}>Price: Low to High</option>
+            <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
+          </Select>
+        </label>
+      </Flex>
       <SimpleGrid
         columns={[1, 2, 3, 4]}
         maxWidth="80vw"
-        gap={60}
+        gap={50}
         justifyItems="center"
         alignItems="center"
       >

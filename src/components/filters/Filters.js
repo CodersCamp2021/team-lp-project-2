@@ -9,6 +9,7 @@ import {
   NumberInput,
   NumberInputField,
   Button,
+  VStack,
 } from '@chakra-ui/react';
 
 function Filters({ category }) {
@@ -37,68 +38,64 @@ function Filters({ category }) {
   }, [category]);
 
   return (
-    <Flex
-      p={3}
-      w="100%"
-      bg="#f1f1f1"
-      direction="column"
-      justify="center"
-      align="flex-start"
-    >
-      <Text pl="2%" fontSize="2xl" fontWeight="bold">
-        Filters
-      </Text>
-      <Text p="3%" fontSize="xl">
-        Price
-      </Text>
+    <Flex w="100%" direction="column" justify="center" align="flex-start">
+      <VStack spacing={2} align="stretch" w="100%">
+        <Text fontWeight="bold" mb={2} pl="2%" fontSize="2xl">
+          Filters
+        </Text>
 
-      <Text pl="3%" color="gray.500">
-        Minimum price:
-      </Text>
-      <NumberInput
-        onChange={(val) => {
-          setMinPrice(val === '' ? 0 : parseInt(val));
-        }}
-        defaultValue={0}
-        min={0}
-        max={maxPrice}
-        size="sm"
-      >
-        <NumberInputField />
-      </NumberInput>
+        <Text fontSize="1.5vw" pl="3%" pr="3%">
+          Price
+        </Text>
 
-      <Text pl="3%" color="gray.500">
-        Maximum price:
-      </Text>
-      <NumberInput
-        onChange={(val) => {
-          setMaxPrice(val === '' ? 0 : parseInt(val));
-        }}
-        defaultValue={1500}
-        min={minPrice}
-        max={1500}
-        size="sm"
-      >
-        <NumberInputField />
-      </NumberInput>
+        <Text pl="3%" color="gray.500">
+          Minimum price:
+        </Text>
+        <NumberInput
+          onChange={(val) => {
+            setMinPrice(val === '' ? 0 : parseInt(val));
+          }}
+          defaultValue={0}
+          min={0}
+          max={maxPrice}
+          size="sm"
+        >
+          <NumberInputField />
+        </NumberInput>
 
-      <Divider />
-      <Options
-        category={category}
-        pricing={[minPrice, maxPrice]}
-        details={details}
-        setDetailsCallback={(val) => setDetails(val)}
-      />
-      <Button
-        m={3}
-        alignSelf="right"
-        variant="outline"
-        colorScheme="red"
-        rightIcon={<BsCheckAll />}
-        onClick={handleSubmit}
-      >
-        Apply
-      </Button>
+        <Text pl="3%" color="gray.500">
+          Maximum price:
+        </Text>
+        <NumberInput
+          onChange={(val) => {
+            setMaxPrice(val === '' ? 0 : parseInt(val));
+          }}
+          defaultValue={1500}
+          min={minPrice}
+          max={1500}
+          size="sm"
+        >
+          <NumberInputField />
+        </NumberInput>
+
+        <Divider />
+        <Options
+          category={category}
+          pricing={[minPrice, maxPrice]}
+          details={details}
+          setDetailsCallback={(val) => setDetails(val)}
+        />
+        <Button
+          m={3}
+          alignSelf="right"
+          variant="outline"
+          colorScheme="red"
+          rightIcon={<BsCheckAll />}
+          onClick={handleSubmit}
+        >
+          Apply
+        </Button>
+      </VStack>
     </Flex>
   );
 }
