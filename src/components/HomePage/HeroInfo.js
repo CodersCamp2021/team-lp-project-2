@@ -1,7 +1,13 @@
-import { Grid, Heading, Text, Button } from '@chakra-ui/react';
-import { DummyProducts } from './DummyProducts';
+import {
+  Grid,
+  Heading,
+  Text,
+  Button,
+  SkeletonText,
+  Skeleton,
+} from '@chakra-ui/react';
 
-const HeroInfo = ({ active }) => {
+const HeroInfo = ({ heroProducts, isLoading, active }) => {
   return (
     <Grid
       maxHeight="100%"
@@ -9,17 +15,19 @@ const HeroInfo = ({ active }) => {
       alignItems="flex-start"
       overflowWrap="break-word"
     >
-      <Heading as="h1" size="2xl" alignSelf="flex-end">
-        {DummyProducts[active].name}
-      </Heading>
-      <Heading as="h2" size="lg" alignSelf="center" fontWeight={400}>
-        Price: ${parseFloat(DummyProducts[active].price).toFixed(2)}
-      </Heading>
-      <Text fontSize="lg">
-        Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula
-        ullamcorper. Diam donec adipiscing tristique risus nec feugiat in. Cras
-        ornare arcu dui vivamus arcu felis.asdfasdfasdfasdf
-      </Text>
+      <Skeleton isLoaded={!isLoading} alignSelf="flex-end" size="xl">
+        <Heading as="h1" size="xl" textAlign="center">
+          {heroProducts[active]?.name}
+        </Heading>
+      </Skeleton>
+      <Skeleton isLoaded={!isLoading} alignSelf="center" size="lg">
+        <Heading as="h2" size="lg" fontWeight={400}>
+          Price: ${parseFloat(heroProducts[active]?.price).toFixed(2)}
+        </Heading>
+      </Skeleton>
+      <SkeletonText isLoaded={!isLoading} noOfLines={6}>
+        <Text fontSize="md">{heroProducts[active]?.details.description}</Text>
+      </SkeletonText>
       <Button
         fontSize={{ base: '14px', sm: '16px', md: '20px', lg: '24px' }}
         boxShadow="lg"

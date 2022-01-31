@@ -1,9 +1,8 @@
 import { Flex, IconButton, ButtonGroup } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import ProductCarousel from './ProductCarousel';
-import { DummyProducts } from './DummyProducts';
 
-const HeroProduct = ({ active, increment, decrement }) => {
+const HeroProduct = ({ heroProducts, active, increment, decrement }) => {
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="center">
       <ProductCarousel active={active} />
@@ -24,7 +23,7 @@ const HeroProduct = ({ active, increment, decrement }) => {
           bgGradient="linear-gradient(0deg, #DCDCDC 40%, rgba(255, 255, 255, 0.8) 100%)"
           icon={<ChevronRightIcon />}
           onClick={increment}
-          disabled={active === DummyProducts.length - 1 ? true : false}
+          disabled={active === heroProducts.length - 1 ? true : false}
         />
       </ButtonGroup>
     </Flex>

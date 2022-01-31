@@ -12,11 +12,10 @@ const ProductCarousel = ({ active }) => {
           pb={8}
           position="absolute"
           opacity={index === active ? 1 : 0}
-          transition="300ms opacity ease-in-out 300ms"
+          transition="300ms opacity ease-in-out 100ms"
           key={product.name} // TODO: Change to ID with real products
           src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${product.images[0]}?alt=media`}
           alt={product.name}
-          className={index === active ? 'active' : ''}
         />
       ))}
     </Flex>
