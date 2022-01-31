@@ -37,8 +37,8 @@ const HomeMain = () => {
   }, []);
 
   const handleIncrement = () => {
-    setActiveItem(
-      (active) => (active === heroProducts.length - 1 ? active : active + 1), // TODO: Swap to real products
+    setActiveItem((active) =>
+      active === heroProducts.length - 1 ? active : active + 1,
     );
   };
 

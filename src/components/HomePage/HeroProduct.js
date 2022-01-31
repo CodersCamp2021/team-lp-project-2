@@ -2,10 +2,20 @@ import { Flex, IconButton, ButtonGroup } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import ProductCarousel from './ProductCarousel';
 
-const HeroProduct = ({ heroProducts, active, increment, decrement }) => {
+const HeroProduct = ({
+  heroProducts,
+  isLoading,
+  active,
+  increment,
+  decrement,
+}) => {
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="center">
-      <ProductCarousel active={active} />
+      <ProductCarousel
+        heroProducts={heroProducts}
+        isLoading={isLoading}
+        active={active}
+      />
       <ButtonGroup spacing={10} size="lg">
         <IconButton
           aria-label="View previous item"
