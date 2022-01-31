@@ -2,18 +2,17 @@ import React from 'react';
 import { Button } from '@chakra-ui/react';
 
 function BuyButton() {
-  function handleSubmit() {
+  function handleBuy() {
     console.log('click on buy button');
   }
 
   return (
     <Button
-      w="20%"
+      width="100px"
       mt="5"
       colorScheme="blue"
-      type="submit"
       bottom="0"
-      onClick={handleSubmit}
+      onClick={handleBuy}
     >
       Buy
     </Button>

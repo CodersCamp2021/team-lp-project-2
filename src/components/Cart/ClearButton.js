@@ -1,23 +1,16 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
 
-
 function ClearButton() {
-    function handleSubmit() {
-      ;
-      console.log('click on clear button');
-    }
-  
-    return (
-      <Button w="20%" mt="25" colorScheme="teal"
-      type="submit" onSubmit={handleSubmit}>
-      Clear cart
-      </Button>
-    );
+  function handleClearCart() {
+    console.log('click on clear cart button');
   }
 
+  return (
+    <Button width="100px" mt="25" colorScheme="teal" onClick={handleClearCart}>
+      Clear cart
+    </Button>
+  );
+}
 
-  
 export default ClearButton;
-
-
