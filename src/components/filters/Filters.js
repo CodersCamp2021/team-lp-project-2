@@ -39,7 +39,7 @@ function Filters({ category }) {
   return (
     <Flex
       p={3}
-      w="20%"
+      w="100%"
       bg="#f1f1f1"
       direction="column"
       justify="center"
@@ -91,7 +91,7 @@ function Filters({ category }) {
       />
       <Button
         m={3}
-        alignSelf="center"
+        alignSelf="right"
         variant="outline"
         colorScheme="red"
         rightIcon={<BsCheckAll />}

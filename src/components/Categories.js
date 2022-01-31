@@ -5,6 +5,7 @@ import { BsCpu, BsCpuFill } from 'react-icons/bs';
 import { TiThSmall } from 'react-icons/ti';
 import { MdDeveloperBoard } from 'react-icons/md';
 import { Link as RouterLink } from 'react-router-dom';
+import Filters from './filters/Filters';
 
 const Categories = ({ category }) => {
   return (
@@ -13,7 +14,7 @@ const Categories = ({ category }) => {
         Products
       </Text>
       <VStack
-        divider={<StackDivider borderColor="gray.200" />}
+        divider={<StackDivider borderColor="gray.500" />}
         spacing={2}
         align="stretch"
         w="100%"
@@ -103,6 +104,7 @@ const Categories = ({ category }) => {
           <FaAngleRight size="1.2vw" />
         </Flex>
       </VStack>
+      <Filters category={category} />
     </Box>
   );
 };

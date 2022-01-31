@@ -19,7 +19,7 @@ const Navbar = () => {
       px={{ base: '30px', md: '80px' }}
       width="100%"
       height="80px"
-      mb={{ base: '100px', md: '0' }}
+      mb={{ base: '100px', md: '5' }}
     >
       <Logo />
       <SearchBar isMenuOpen={isMenuOpen} />
