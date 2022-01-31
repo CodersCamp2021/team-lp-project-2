@@ -6,8 +6,10 @@ import {
   SkeletonText,
   Skeleton,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroInfo = ({ heroProducts, isLoading, active }) => {
+  const navigate = useNavigate();
   return (
     <Grid
       maxHeight="100%"
@@ -39,6 +41,11 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
         justifySelf="center"
         px={{ base: '44px' }}
         py={{ base: '24px' }}
+        onClick={() => {
+          navigate(
+            isLoading ? '/store' : `/store/product/${heroProducts[active]?.id}`,
+          );
+        }}
       >
         Go to the store
       </Button>
