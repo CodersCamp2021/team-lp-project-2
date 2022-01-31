@@ -39,7 +39,7 @@ const Cart = ({ isCartOpen, closeCart }) => {
       <Box
         as="aside"
         height="100vh"
-        width="600px"
+        width={{ base: '100vw', md: '600px' }}
         bg="white"
         position="fixed"
         top="0"
