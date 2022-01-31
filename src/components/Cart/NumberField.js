@@ -7,11 +7,11 @@ import {
   Flex,
 } from '@chakra-ui/react';
 
-function NumberField() {
+function NumberField({ defaultValue }) {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
       step: 1.0,
-      defaultValue: 0.0,
+      defaultValue,
       min: 0,
       max: 100,
     });
