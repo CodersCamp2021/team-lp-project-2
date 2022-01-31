@@ -1,23 +1,9 @@
-import { Flex, Image, IconButton, ButtonGroup } from '@chakra-ui/react';
+import { Flex, IconButton, ButtonGroup } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
 import ProductCarousel from './ProductCarousel';
 import { DummyProducts } from './DummyProducts';
-import ProductList from '../ProductList';
 
-const HeroProduct = () => {
-  const [active, setActive] = useState(0);
-
-  const handleIncrement = () => {
-    setActive((active) =>
-      active === DummyProducts.length - 1 ? active : active + 1,
-    );
-  };
-
-  const handleDecrement = () => {
-    setActive((active) => (active === 0 ? active : active - 1));
-  };
-
+const HeroProduct = ({ active, increment, decrement }) => {
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="center">
       {/* <Image
@@ -34,7 +20,7 @@ const HeroProduct = () => {
           borderRadius="50%"
           bgGradient="linear-gradient(0deg, #DCDCDC 40%, rgba(255, 255, 255, 0.8) 100%)"
           icon={<ChevronLeftIcon />}
-          onClick={handleDecrement}
+          onClick={decrement}
           disabled={active === 0 ? true : false}
         />
         <IconButton
@@ -43,7 +29,7 @@ const HeroProduct = () => {
           borderRadius="50%"
           bgGradient="linear-gradient(0deg, #DCDCDC 40%, rgba(255, 255, 255, 0.8) 100%)"
           icon={<ChevronRightIcon />}
-          onClick={handleIncrement}
+          onClick={increment}
           disabled={active === DummyProducts.length - 1 ? true : false}
         />
       </ButtonGroup>

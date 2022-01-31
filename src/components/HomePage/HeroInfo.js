@@ -1,6 +1,7 @@
 import { Grid, Heading, Text, Button } from '@chakra-ui/react';
+import { DummyProducts } from './DummyProducts';
 
-const HeroInfo = () => {
+const HeroInfo = ({ active }) => {
   return (
     <Grid
       maxHeight="100%"
@@ -9,10 +10,10 @@ const HeroInfo = () => {
       overflowWrap="break-word"
     >
       <Heading as="h1" size="2xl" alignSelf="flex-end">
-        Lorem ipsum dolor sit a
+        {DummyProducts[active].name}
       </Heading>
       <Heading as="h2" size="lg" alignSelf="center" fontWeight={400}>
-        Dolor sit amet tincidunt nunc
+        Price: ${parseFloat(DummyProducts[active].price).toFixed(2)}
       </Heading>
       <Text fontSize="lg">
         Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula
