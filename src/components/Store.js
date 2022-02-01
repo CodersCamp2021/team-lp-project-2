@@ -45,8 +45,8 @@ const Store = () => {
       flexWrap={{ base: 'wrap', md: 'nowrap', lg: 'nowrap' }}
     >
       <VStack
-        mt={{ base: '60px', sm: '10px', md: '50px', lg: '60px' }}
-        mr={20}
+        mt={{ base: '0', md: '50px' }}
+        mr={{ base: '3px', sm: '30px' }}
         ml={3}
         spacing="3vw"
         w={{ base: '100%', md: '300px', lg: '330px' }}

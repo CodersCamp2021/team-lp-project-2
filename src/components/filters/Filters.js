@@ -35,6 +35,8 @@ function Filters({ category }) {
   };
 
   useEffect(() => {
+    setMaxPrice(1500);
+    setMinPrice(0);
     setDetails({ pricing: [0, 1500], brands: [] });
   }, [category]);
 
@@ -74,6 +76,7 @@ function Filters({ category }) {
           defaultValue={0}
           min={0}
           max={maxPrice}
+          value={minPrice}
           size="md"
           pl="3%"
         >
@@ -90,6 +93,7 @@ function Filters({ category }) {
           defaultValue={1500}
           min={minPrice}
           max={1500}
+          value={maxPrice}
           size="md"
           pl="3%"
           pb="4%"

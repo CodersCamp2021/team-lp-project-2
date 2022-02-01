@@ -110,7 +110,7 @@ const ProductList = ({ products }) => {
 
   return (
     <Flex justifyContent="center" flexDirection="column">
-      <Flex justifyContent="right">
+      <Flex justifyContent="right" pr="3%">
         <label>
           Sort By:
           <Select

@@ -65,6 +65,7 @@ const Categories = ({ category }) => {
       >
         {categories.map((cat) => (
           <Category
+            key={cat.name}
             name={cat.name}
             icon={cat.icon}
             path={cat.path}
