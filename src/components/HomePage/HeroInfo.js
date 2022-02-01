@@ -17,6 +17,7 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
       gridTemplateRows={{ base: '2fr 1fr 2fr 1fr' }}
       alignItems="flex-start"
       overflowWrap="break-word"
+      data-testId="HeroInfo"
     >
       <Skeleton isLoaded={!isLoading} alignSelf="flex-end">
         <Heading as="h1" size="xl" textAlign="center">

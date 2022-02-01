@@ -48,6 +48,7 @@ const HomeMain = () => {
 
   return (
     <Grid
+      data-testId="HomeMain"
       gridTemplateColumns={{
         base: '1fr',
         sm: '1fr',
