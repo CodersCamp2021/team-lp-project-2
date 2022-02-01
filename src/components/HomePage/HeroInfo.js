@@ -15,9 +15,10 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
       gridArea="info"
       maxHeight="100%"
       gridTemplateRows={{ base: '2fr 1fr 2fr 1fr' }}
-      alignItems="flex-start"
-      overflowWrap="break-word"
+      alignItems={{ base: 'center', md: 'flex-start' }}
       data-testId="HeroInfo"
+      overflow="hidden"
+      textOverflow="ellipsis"
     >
       <Skeleton isLoaded={!isLoading} alignSelf="flex-end">
         <Heading as="h1" size="xl" textAlign="center">
@@ -33,7 +34,7 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
         <Text fontSize="md">{heroProducts[active]?.details.description}</Text>
       </SkeletonText>
       <Button
-        fontSize={{ base: '14px', sm: '16px', md: '20px', lg: '24px' }}
+        fontSize={{ base: '16px', sm: '16px', md: '20px', lg: '24px' }}
         boxShadow="lg"
         rounded="sm"
         textColor="white"
@@ -43,6 +44,7 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
         justifySelf="center"
         px={{ base: '44px' }}
         py={{ base: '24px' }}
+        my={{ base: '20px' }}
         onClick={() => {
           navigate(
             isLoading ? '/store' : `/store/product/${heroProducts[active]?.id}`,

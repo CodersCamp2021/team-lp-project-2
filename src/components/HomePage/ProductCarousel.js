@@ -8,6 +8,7 @@ const ProductCarousel = ({ heroProducts, isLoading, active }) => {
       justifyContent="center"
       alignItems="center"
       data-testId="ProductCarousel"
+      pb={8}
     >
       {!isLoading ? (
         heroProducts.map((product, index) => (
