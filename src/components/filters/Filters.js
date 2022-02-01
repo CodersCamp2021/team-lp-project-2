@@ -108,7 +108,7 @@ function Filters({ category }) {
           w="50%"
           alignSelf="center"
           variant="outline"
-          colorScheme="red"
+          colorScheme="purple"
           rightIcon={<BsCheckAll />}
           onClick={handleSubmit}
         >

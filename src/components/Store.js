@@ -49,7 +49,7 @@ const Store = () => {
         mr={20}
         ml={3}
         spacing="3vw"
-        w={{ base: '100%', md: '250px', lg: '300px' }}
+        w={{ base: '100%', md: '300px', lg: '330px' }}
       >
         <Categories category={category} />
         <Filters category={category} />
