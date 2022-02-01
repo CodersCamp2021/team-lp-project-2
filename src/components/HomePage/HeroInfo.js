@@ -12,12 +12,13 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
   const navigate = useNavigate();
   return (
     <Grid
+      gridArea="info"
       maxHeight="100%"
       gridTemplateRows={{ base: '2fr 1fr 2fr 1fr' }}
       alignItems="flex-start"
       overflowWrap="break-word"
     >
-      <Skeleton isLoaded={!isLoading} alignSelf="flex-end" size="xl">
+      <Skeleton isLoaded={!isLoading} alignSelf="flex-end">
         <Heading as="h1" size="xl" textAlign="center">
           {heroProducts[active]?.name}
         </Heading>
@@ -37,7 +38,7 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
         textColor="white"
         bg="teal.600"
         fontWeight={300}
-        alignSelf="flex-start"
+        alignSelf={{ base: 'flex-end', md: 'flex-start' }}
         justifySelf="center"
         px={{ base: '44px' }}
         py={{ base: '24px' }}

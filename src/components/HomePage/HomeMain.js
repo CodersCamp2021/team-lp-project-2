@@ -48,10 +48,23 @@ const HomeMain = () => {
 
   return (
     <Grid
-      gridTemplateColumns="2fr 4fr"
+      gridTemplateColumns={{
+        base: '1fr',
+        sm: '1fr',
+        md: '1fr 1fr',
+        lg: '2fr 3fr',
+      }}
+      gridTemplateRows="auto"
+      gridTemplateAreas={{
+        base: `'product' 'info'`,
+        sm: `'product' 'info'`,
+        md: `'info product'`,
+        lg: `'info product'`,
+      }}
       maxHeight="80vh"
-      py={{ base: '60px' }}
-      px={{ base: '30px', md: '160px' }}
+      py={{ base: '20px', sm: '30px', md: '40px', lg: '60px' }}
+      px={{ base: '30px', sm: '40px', md: '80px', lg: '140px' }}
+      mb={{ base: '60px', md: '0' }}
     >
       <HeroInfo
         heroProducts={heroProducts}

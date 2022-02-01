@@ -2,11 +2,16 @@ import { Flex, Image, Spinner } from '@chakra-ui/react';
 
 const ProductCarousel = ({ heroProducts, isLoading, active }) => {
   return (
-    <Flex height="80%" width="100%" justifyContent="center" alignItems="center">
+    <Flex
+      height={{ base: '10%', sm: '10%', md: '50%', lg: '80%' }}
+      width="100%"
+      justifyContent="center"
+      alignItems="center"
+    >
       {!isLoading ? (
         heroProducts.map((product, index) => (
           <Image
-            boxSize={{ base: 'xs', sm: 'md', md: 'lg' }}
+            boxSize={{ base: '200px', sm: '250px', md: '300px', lg: '400px' }}
             objectFit="contain"
             pb={8}
             position="absolute"

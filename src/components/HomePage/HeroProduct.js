@@ -10,13 +10,21 @@ const HeroProduct = ({
   decrement,
 }) => {
   return (
-    <Flex flexDirection="column" alignItems="center" justifyContent="center">
+    <Flex
+      gridArea="product"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      pl={{ base: 0, md: 10 }}
+      mt={{ base: 20, sm: 20, md: 0 }}
+      pt={{ base: 20, sm: 5, md: 0 }}
+    >
       <ProductCarousel
         heroProducts={heroProducts}
         isLoading={isLoading}
         active={active}
       />
-      <ButtonGroup spacing={10} size="lg">
+      <ButtonGroup spacing={{ base: 60, sm: 60, md: 10 }} size="lg">
         <IconButton
           aria-label="View previous item"
           fontSize="40px"

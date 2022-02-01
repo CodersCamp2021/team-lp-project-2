@@ -21,6 +21,8 @@ const Footer = () => {
       gridTemplateRows="auto"
       placeItems="center"
       alignContent="space-around"
+      bgColor="whitesmoke"
+      zIndex={2}
     >
       <Box display="flex" gap="10px">
         <FaShippingFast size="23px" />
