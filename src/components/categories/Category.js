@@ -9,7 +9,7 @@ export default function Category({ name, icon, isBolded, path }) {
       {icon}
       <Link
         as={RouterLink}
-        fontSize={{ base: '16px', md: '20px', lg: '24px' }}
+        fontSize={{ base: '18px', md: '20px', lg: '24px' }}
         pl="3%"
         pr="3%"
         fontWeight={isBolded ? 'bold' : 'regular'}
@@ -17,7 +17,7 @@ export default function Category({ name, icon, isBolded, path }) {
       >
         {name}
       </Link>
-      <FaAngleRight size="1.2vw" />
+      <FaAngleRight size="2vh" />
     </Flex>
   );
 }

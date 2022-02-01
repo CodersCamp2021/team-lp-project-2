@@ -64,7 +64,7 @@ const Store = () => {
       </VStack>
       <Box w={{ base: '100%', sm: '100%', md: '600px', lg: '1000px' }}>
         <Flex
-          p={{ base: '3px', md: '4% 0 2% 3%' }}
+          p={{ base: '20px', md: '4% 0 2% 3%' }}
           flexDirection="column"
           justifyContent="flex-end"
         >
