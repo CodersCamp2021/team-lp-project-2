@@ -73,7 +73,7 @@ function Filters({ category }) {
           defaultValue={0}
           min={0}
           max={maxPrice}
-          size="sm"
+          size="md"
           pl="3%"
         >
           <NumberInputField w="70%" />
@@ -89,13 +89,15 @@ function Filters({ category }) {
           defaultValue={1500}
           min={minPrice}
           max={1500}
-          size="sm"
+          size="md"
           pl="3%"
+          pb="4%"
         >
           <NumberInputField w="70%" />
         </NumberInput>
 
-        <Divider />
+        {category ? <Divider /> : <></>}
+
         <Options
           category={category}
           pricing={[minPrice, maxPrice]}

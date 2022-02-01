@@ -1,11 +1,11 @@
-import { Box, Flex, Spacer, VStack } from '@chakra-ui/react';
+import { Box, Flex, VStack } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import ProductList from './ProductList';
 import ProductDisplay from './ProductDisplay';
 import { useState, useEffect, createContext } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-import Categories from './Categories';
+import Categories from './categories/Categories';
 import Filters from './filters/Filters';
 
 export const CategoryContext = createContext(undefined);
