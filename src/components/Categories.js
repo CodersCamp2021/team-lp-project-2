@@ -5,11 +5,10 @@ import { BsCpu, BsCpuFill } from 'react-icons/bs';
 import { TiThSmall } from 'react-icons/ti';
 import { MdDeveloperBoard } from 'react-icons/md';
 import { Link as RouterLink } from 'react-router-dom';
-import Filters from './filters/Filters';
 
 const Categories = ({ category }) => {
   return (
-    <Box w="20%" bg="#f1f1f1" p={3}>
+    <Box w={{ base: '100px', md: '200px', lg: '300px' }} bg="blue.400">
       <Text fontWeight="bold" mb={2} pl="2%" fontSize="2xl">
         Products
       </Text>
@@ -104,7 +103,6 @@ const Categories = ({ category }) => {
           <FaAngleRight size="1.2vw" />
         </Flex>
       </VStack>
-      {/* <Filters category={category} /> */}
     </Box>
   );
 };

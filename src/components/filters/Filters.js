@@ -38,13 +38,19 @@ function Filters({ category }) {
   }, [category]);
 
   return (
-    <Flex w="100%" direction="column" justify="center" align="flex-start">
+    <Flex
+      bg="green"
+      w="100%"
+      direction="column"
+      justify="center"
+      align="flex-start"
+    >
       <VStack spacing={2} align="stretch" w="100%">
         <Text fontWeight="bold" mb={2} pl="2%" fontSize="2xl">
           Filters
         </Text>
 
-        <Text fontSize="1.5vw" pl="3%" pr="3%">
+        <Text fontSize="1.5vw" pl="3%" pr="3%" fontWeight="semibold">
           Price
         </Text>
 
@@ -59,8 +65,9 @@ function Filters({ category }) {
           min={0}
           max={maxPrice}
           size="sm"
+          pl="3%"
         >
-          <NumberInputField />
+          <NumberInputField w="70%" />
         </NumberInput>
 
         <Text pl="3%" color="gray.500">
@@ -74,8 +81,9 @@ function Filters({ category }) {
           min={minPrice}
           max={1500}
           size="sm"
+          pl="3%"
         >
-          <NumberInputField />
+          <NumberInputField w="70%" />
         </NumberInput>
 
         <Divider />
