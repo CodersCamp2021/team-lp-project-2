@@ -1,38 +1,44 @@
 import React from 'react';
 import {
-  NumberInput,
-  useNumberInput,
-  Button,
-  Input,
-  Flex,
+  Button
 } from '@chakra-ui/react';
+import { useState } from 'react';
 
-function NumberField({ defaultValue }) {
-  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-    useNumberInput({
-      step: 1.0,
-      defaultValue,
-      min: 0,
-      max: 100,
-    });
 
-  const inc = getIncrementButtonProps();
-  const dec = getDecrementButtonProps();
-  const input = getInputProps({ isReadOnly: true });
-
+function ButtonIncrement(props) {
+  
+   return (
+     <Button style={{ marginLeft: '.5rem'}} onClick={props.onClickFunc}>
+     +
+     </Button>
+   )
+}
+function ButtonDecrement(props) {
+  
   return (
-    <NumberInput maxW="130px">
-      <Flex direction="row" align="center">
-        <Button ml="1" color="black" {...dec}>
-          -
-        </Button>
-        <Input w="100px" h="40px" {...input} />
-        <Button mr="1" color="black" {...inc}>
-          +
-        </Button>
-      </Flex>
-    </NumberInput>
+    <Button style={{ marginLeft: '.5rem'}} onClick={props.onClickFunc}>
+    -
+    </Button>
+  )
+}
+function Display(props) {
+  return (
+    <label style={{ marginLeft: '.5rem'}} >{props.message}</label>
+  )
+}
+function NumberField() {
+  const [counter, setCounter] = useState(0);
+  const incrementCounter = () => setCounter(counter + 1);
+  let decrementCounter = () => setCounter(counter - 1);
+  if(counter<=1) {
+    decrementCounter = () => setCounter(1);
+  }
+  return (
+    <div> 
+      <ButtonIncrement onClickFunc={incrementCounter}/>
+      <Display message={counter}/> 
+      <ButtonDecrement onClickFunc={decrementCounter}/>
+    </div>
   );
 }
-
 export default NumberField;
