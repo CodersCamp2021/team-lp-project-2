@@ -1,4 +1,4 @@
-import { Box, Flex, VStack } from '@chakra-ui/react';
+import { Box, Flex, VStack, Text, Divider } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import ProductList from './ProductList';
 import ProductDisplay from './ProductDisplay';
@@ -38,6 +38,14 @@ const Store = () => {
     setCategory(newCategory);
   };
 
+  const displayName = {
+    cpu: 'CPUs',
+    gpu: 'Graphics Cards',
+    ram: 'Memory',
+    monitor: 'Monitors',
+    motherboard: 'Motherboards',
+  };
+
   return (
     <Flex
       bg="white.100"
@@ -55,6 +63,21 @@ const Store = () => {
         <Filters category={category} />
       </VStack>
       <Box w={{ base: '100%', sm: '100%', md: '600px', lg: '1000px' }}>
+        <Flex
+          p={{ base: '3px', md: '4% 0 2% 3%' }}
+          flexDirection="column"
+          justifyContent="flex-end"
+        >
+          <Text
+            pr={5}
+            fontSize={{ base: '40px', md: '40px' }}
+            fontWeight="bold"
+            alignSelf={{ base: 'center', md: 'flex-end' }}
+          >
+            {displayName[category] ? displayName[category] : 'All products'}
+          </Text>
+          <Divider />
+        </Flex>
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
             <Route path="/" element={<ProductList products={products} />} />
