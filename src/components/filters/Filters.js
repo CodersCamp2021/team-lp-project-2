@@ -39,18 +39,27 @@ function Filters({ category }) {
 
   return (
     <Flex
-      bg="green"
-      w="100%"
       direction="column"
       justify="center"
       align="flex-start"
+      w={{ base: '100%', sm: '100%', md: '250px', lg: '300px' }}
     >
-      <VStack spacing={2} align="stretch" w="100%">
-        <Text fontWeight="bold" mb={2} pl="2%" fontSize="2xl">
+      <VStack spacing={2} align="stretch" w="100%" mb="5%">
+        <Text
+          fontWeight="bold"
+          mb={2}
+          pl="2%"
+          fontSize={{ base: '20px', md: '24px', lg: '30px' }}
+        >
           Filters
         </Text>
 
-        <Text fontSize="1.5vw" pl="3%" pr="3%" fontWeight="semibold">
+        <Text
+          fontSize={{ base: '16px', md: '20px', lg: '24px' }}
+          pl="3%"
+          pr="3%"
+          fontWeight="semibold"
+        >
           Price
         </Text>
 
@@ -94,8 +103,8 @@ function Filters({ category }) {
           setDetailsCallback={(val) => setDetails(val)}
         />
         <Button
-          m={3}
-          alignSelf="right"
+          w="50%"
+          alignSelf="center"
           variant="outline"
           colorScheme="red"
           rightIcon={<BsCheckAll />}

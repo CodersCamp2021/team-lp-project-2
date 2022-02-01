@@ -8,21 +8,27 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const Categories = ({ category }) => {
   return (
-    <Box w={{ base: '100px', md: '200px', lg: '300px' }} bg="blue.400">
-      <Text fontWeight="bold" mb={2} pl="2%" fontSize="2xl">
+    <Box w={{ base: '100%', sm: '100%', md: '250px', lg: '300px' }}>
+      <Text
+        fontWeight="bold"
+        mb={2}
+        pl="2%"
+        fontSize={{ base: '20px', md: '24px', lg: '30px' }}
+      >
         Products
       </Text>
       <VStack
-        divider={<StackDivider borderColor="gray.500" />}
+        divider={<StackDivider borderColor="gray.200" />}
         spacing={2}
         align="stretch"
         w="100%"
+        mb="3%"
       >
         <Flex h="2.5vw" pl="2%" align="center">
           <TiThSmall size="2.2vw" />
           <Link
             as={RouterLink}
-            fontSize="1.5vw"
+            fontSize={{ base: '16px', md: '20px', lg: '24px' }}
             pl="3%"
             pr="3%"
             fontWeight={category ? 'regular' : 'bold'}
@@ -36,7 +42,7 @@ const Categories = ({ category }) => {
           <BsCpu size="2.2vw" />
           <Link
             as={RouterLink}
-            fontSize="1.5vw"
+            fontSize={{ base: '16px', md: '20px', lg: '24px' }}
             pl="3%"
             pr="3%"
             fontWeight={category === 'cpu' ? 'bold' : 'regular'}
@@ -50,7 +56,7 @@ const Categories = ({ category }) => {
           <FaMemory size="2.2vw" />
           <Link
             as={RouterLink}
-            fontSize="1.5vw"
+            fontSize={{ base: '16px', md: '20px', lg: '24px' }}
             pl="3%"
             pr="3%"
             fontWeight={category === 'ram' ? 'bold' : 'regular'}
@@ -64,7 +70,7 @@ const Categories = ({ category }) => {
           <FaDesktop size="2.2vw" />
           <Link
             as={RouterLink}
-            fontSize="1.5vw"
+            fontSize={{ base: '16px', md: '20px', lg: '24px' }}
             pl="3%"
             pr="3%"
             fontWeight={category === 'monitor' ? 'bold' : 'regular'}
@@ -78,7 +84,7 @@ const Categories = ({ category }) => {
           <BsCpuFill size="2.2vw" />
           <Link
             as={RouterLink}
-            fontSize="1.5vw"
+            fontSize={{ base: '16px', md: '20px', lg: '24px' }}
             pl="3%"
             pr="3%"
             fontWeight={category === 'gpu' ? 'bold' : 'regular'}
@@ -92,7 +98,7 @@ const Categories = ({ category }) => {
           <MdDeveloperBoard size="2.2vw" />
           <Link
             as={RouterLink}
-            fontSize="1.5vw"
+            fontSize={{ base: '16px', md: '20px', lg: '24px' }}
             pl="3%"
             pr="3%"
             fontWeight={category === 'motherboard' ? 'bold' : 'regular'}

@@ -1,4 +1,4 @@
-import { Box, Flex, Spacer, Text, VStack } from '@chakra-ui/react';
+import { Box, Flex, Spacer, VStack } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import ProductList from './ProductList';
 import ProductDisplay from './ProductDisplay';
@@ -39,13 +39,22 @@ const Store = () => {
   };
 
   return (
-    <Flex bg="red">
-      <VStack spacing="5vw">
+    <Flex
+      bg="white.100"
+      justifyContent="center"
+      flexWrap={{ base: 'wrap', md: 'nowrap', lg: 'nowrap' }}
+    >
+      <VStack
+        mt={{ base: '60px', sm: '10px', md: '50px', lg: '60px' }}
+        mr={20}
+        ml={3}
+        spacing="3vw"
+        w={{ base: '100%', md: '250px', lg: '300px' }}
+      >
         <Categories category={category} />
         <Filters category={category} />
       </VStack>
-      <Spacer />
-      <Box>
+      <Box w={{ base: '100%', sm: '100%', md: '600px', lg: '1000px' }}>
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
             <Route path="/" element={<ProductList products={products} />} />
@@ -58,27 +67,6 @@ const Store = () => {
         </CategoryContext.Provider>
       </Box>
     </Flex>
-    // <div>
-    //   <Flex gap="9%">
-    //     <Categories
-    //       justifyContent="left"
-    //       maxW="container.sm"
-    //       mt={20}
-    //       category={category}
-    //     />
-    //     <Text>text</Text>
-    //     <CategoryContext.Provider value={updateCategory}>
-    //       <Routes>
-    //         <Route path="/" element={<ProductList products={products} />} />
-    //         <Route
-    //           path="/:category"
-    //           element={<ProductList products={products} />}
-    //         />
-    //         <Route path="/product/:productId" element={<ProductDisplay />} />
-    //       </Routes>
-    //     </CategoryContext.Provider>
-    //   </Flex>
-    // </div>
   );
 };
 
