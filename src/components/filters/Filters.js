@@ -31,6 +31,7 @@ function Filters({ category }) {
     }
 
     navigate(`/store${category ? `/${category}` : ''}?${params}`);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
