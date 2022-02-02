@@ -48,7 +48,7 @@ const MenuLinks = ({ isMenuOpen, openCart }) => {
       <Flex justify="center">
         <FaShoppingCart
           cursor="pointer"
-          data-testid="cart"
+          data-testid="cartIcon"
           size="30px"
           onClick={openCart}
         />

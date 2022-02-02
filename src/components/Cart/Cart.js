@@ -37,6 +37,8 @@ const Cart = ({ isCartOpen, closeCart }) => {
     <>
       <CartBackground isCartOpen={isCartOpen} closeCart={closeCart} />
       <Box
+        data-testid="cart"
+        className={isCartOpen ? 'visible' : 'hidden'}
         as="aside"
         height="100vh"
         width={{ base: '100vw', md: '600px' }}
