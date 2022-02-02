@@ -797,7 +797,7 @@ const addProduct = () => {
         displaySize: '27',
         refreshRate: '75 Hz',
         showOnHomepage: true,
-        description: 'he curved display delivers a revolutionary visual experience with a \
+        description: 'The curved display delivers a revolutionary visual experience with a \
         leading 1800R screen curvature as the images appear to wrap around you for an in depth,  \
         immersive experience.'
       },
