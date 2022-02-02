@@ -19,6 +19,7 @@ const CartHeader = ({ closeCart }) => {
       </Text>
 
       <CloseIcon
+        data-testid="closeCartIcon"
         onClick={closeCart}
         boxSize="30px"
         position="absolute"
