@@ -25,7 +25,11 @@ const HeroProduct = ({
         isLoading={isLoading}
         active={active}
       />
-      <ButtonGroup spacing={{ base: 60, sm: 60, md: 10 }} size="lg">
+      <ButtonGroup
+        spacing={{ base: 60, sm: 60, md: 10 }}
+        mb={{ base: '20px' }}
+        size="lg"
+      >
         <IconButton
           aria-label="View previous item"
           fontSize="40px"

@@ -14,11 +14,10 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
     <Grid
       gridArea="info"
       maxHeight="100%"
-      gridTemplateRows={{ base: '2fr 1fr 2fr 1fr' }}
+      gridTemplateRows={{ base: '1fr 1fr 2fr 1fr', md: '2fr 1fr 2fr 1fr' }}
       alignItems={{ base: 'center', md: 'flex-start' }}
       data-testId="HeroInfo"
-      overflow="hidden"
-      textOverflow="ellipsis"
+      wordBreak="break-word"
     >
       <Skeleton isLoaded={!isLoading} alignSelf="flex-end">
         <Heading as="h1" size="xl" textAlign="center">
@@ -40,7 +39,7 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
         textColor="white"
         bg="teal.600"
         fontWeight={300}
-        alignSelf={{ base: 'flex-end', md: 'flex-start' }}
+        alignSelf={{ base: 'center', md: 'flex-start' }}
         justifySelf="center"
         px={{ base: '44px' }}
         py={{ base: '24px' }}
