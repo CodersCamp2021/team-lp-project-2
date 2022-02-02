@@ -1,14 +1,5 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import {
-  SimpleGrid,
-  Box,
-  Text,
-  Flex,
-  Heading,
-  Select,
-  FormControl,
-  FormLabel,
-} from '@chakra-ui/react';
+import { SimpleGrid, Text, Flex, Heading, Select } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 
