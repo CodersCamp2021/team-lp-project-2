@@ -57,9 +57,10 @@ const Footer = () => {
       <Box display="flex" gap="10px">
         <FaFacebookMessenger size="23px" />
         <Text
-          fontSize={{ base: '13px', sm: '16px', md: '16px', lg: '18px' }}
+          fontSize={{ base: '13px', sm: '16px', md: '13px', lg: '18px' }}
           fontWeight={700}
           textAlign="center"
+          wordBreak="keep-all"
         >
           24/7 dedicated support
         </Text>
