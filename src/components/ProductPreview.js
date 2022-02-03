@@ -43,6 +43,7 @@ const ProductPreview = ({ product }) => {
           src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${product.images[0]}?alt=media`}
           alt="image"
           height="90%"
+          objectFit='contain'
         />
       </Box>
       <Flex gap="5px">
