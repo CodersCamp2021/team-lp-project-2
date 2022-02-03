@@ -6,7 +6,8 @@ import { AddIcon } from '@chakra-ui/icons';
 const ProductPreview = ({ product }) => {
   const navigate = useNavigate();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
     console.log(`add to cart item with id: ${product.id}`);
   };
 
