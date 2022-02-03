@@ -14,17 +14,24 @@ const ProductPreview = ({ product }) => {
         p={5}
         direction="column"
         justifyContent="center"
+        gap="5px"
         shadow="md"
         borderWidth="1px"
         borderRadius="10px"
-        width="200px"
-        // height="160px"
+        width="220px"
+        height="220px"
         textAlign="center"
       >
-        <Box maxHeight="100%">
+        <Box
+          boxSize="120px"
+          alignSelf="center"
+          display="flex"
+          justifyContent="center"
+        >
           <Image
             src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${product.name}%2F1.jpg?alt=media`}
             alt="image"
+            height="90%"
           />
         </Box>
         <Flex>

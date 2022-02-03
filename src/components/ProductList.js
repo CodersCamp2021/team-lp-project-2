@@ -131,11 +131,12 @@ const ProductList = ({ products }) => {
       </Flex>
       <SimpleGrid
         paddingY={5}
-        minChildWidth="200px"
+        minChildWidth="220px"
         justifyItems={{ base: 'center', md: 'flex-start' }}
         alignItems="center"
         spacing={1}
         rowGap="30px"
+        columnGap="10px"
       >
         {products.length > 0 ? (
           applyFiltering().map((product) => (
