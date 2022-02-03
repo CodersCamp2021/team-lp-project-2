@@ -10,7 +10,9 @@ import {
   ListItem,
   ListIcon,
   Text,
+  Button,
 } from '@chakra-ui/react';
+import ChooseValue from './productDetails/ChooseValue';
 import { FaAngleRight } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
@@ -127,20 +129,38 @@ const ProductDisplay = ({ setProductName }) => {
                 ))}
               </Flex>
             </Flex>
-            <Flex bg="tomato" flexDirection="column">
-              <Text>Details:</Text>
-              <List>
+            <Flex w="50%" m={5} flexDirection="column">
+              <Text p="40px 0 10px 35px" fontSize="25px" fontWeight="semibold">
+                Details:
+              </Text>
+              <List pl={10} spacing={3}>
                 {Object.keys(productInfo.details)
                   .filter(
                     (key) => key !== 'description' && key !== 'showOnHomepage',
                   )
                   .map((keyName) => (
                     <ListItem key={keyName}>
-                      <ListIcon as={FaAngleRight} />
-                      {keyName}: {productInfo.details[keyName]}
+                      <Flex alignItems="center">
+                        <ListIcon size={5} as={FaAngleRight} />
+                        <Text fontSize="20px" fontWeight="500">
+                          {keyName}:
+                        </Text>
+                        <Text fontSize="20px" color="gray.700">
+                          {productInfo.details[keyName]}
+                        </Text>
+                      </Flex>
                     </ListItem>
                   ))}
               </List>
+              <Flex
+                py="10%"
+                alignSelf="center"
+                justifyContent="space-around"
+                w="80%"
+              >
+                <ChooseValue />
+                <Button>Add to cart!</Button>
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
