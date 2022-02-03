@@ -6,6 +6,7 @@ import {
   Spinner,
   Alert,
   AlertIcon,
+  Flex,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
@@ -44,9 +45,15 @@ const ProductDisplay = () => {
 
   if (isLoading) {
     return (
-      <Box>
-        <Spinner />
-      </Box>
+      <Flex w="100%" justifyContent="center">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="purple.500"
+          size="xl"
+        />
+      </Flex>
     );
   }
 
@@ -62,7 +69,7 @@ const ProductDisplay = () => {
   }
 
   return (
-    <Box>
+    <Box bg="tomato">
       {productInfo && (
         <>
           <Heading fontSize="xl">{productInfo.name}</Heading>
