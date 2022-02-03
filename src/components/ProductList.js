@@ -139,7 +139,7 @@ const ProductList = ({ products }) => {
       >
         {products.length > 0 ? (
           applyFiltering().map((product) => (
-            <ProductPreview product={product} />
+            <ProductPreview key={product.id} product={product} />
           ))
         ) : (
           <Flex justifyContent="center" alignItems="center" width="100%">
