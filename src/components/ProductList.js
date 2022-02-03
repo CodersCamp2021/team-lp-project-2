@@ -6,7 +6,6 @@ import {
   Heading,
   Select,
   Spinner,
-  Box,
 } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
