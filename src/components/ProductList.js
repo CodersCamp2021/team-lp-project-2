@@ -116,7 +116,7 @@ const ProductList = ({ products }) => {
         </Text>
         <Select
           size="md"
-          maxWidth={180}
+          maxWidth={190}
           variant="outline"
           borderWidth="2px"
           value={sorting}
