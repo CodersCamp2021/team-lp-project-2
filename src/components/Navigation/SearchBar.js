@@ -15,7 +15,7 @@ const SearchBar = ({ isMenuOpen }) => {
 
     navigate(`/store?name=${name}`);
 
-    e.target.reset()
+    e.target.reset();
   };
 
   return (
@@ -43,6 +43,7 @@ const SearchBar = ({ isMenuOpen }) => {
             borderColor="blackAlpha.500"
             focusBorderColor="blackAlpha.900"
             borderRadius="20px"
+            placeholder="Search for products..."
           />
           <Button
             type="submit"

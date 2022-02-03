@@ -1,5 +1,12 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { SimpleGrid, Box, Text, Flex, Heading, Select } from '@chakra-ui/react';
+import {
+  SimpleGrid,
+  Text,
+  Flex,
+  Heading,
+  Select,
+  Spinner,
+} from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 
@@ -109,13 +116,16 @@ const ProductList = ({ products }) => {
   }, [category]);
 
   return (
-    <Flex mt={10} justifyContent="center" flexDirection="column">
-      <label>
-        Sort By:
+    <Flex justifyContent="center" flexDirection="column">
+      <Flex justifyContent="flex-start" alignItems="center" m="1%">
+        <Text paddingX="1%" fontWeight="semibold" fontSize="20px">
+          Sort by:
+        </Text>
         <Select
-          size="sm"
-          mb={4}
-          maxWidth={175}
+          size="md"
+          maxWidth={190}
+          variant="outline"
+          borderWidth="2px"
           value={sorting}
           onChange={(e) => setSorting(e.target.value)}
         >
@@ -124,32 +134,45 @@ const ProductList = ({ products }) => {
           <option value={SortStates.PRICE_ASC}>Price: Low to High</option>
           <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
         </Select>
-      </label>
+      </Flex>
       <SimpleGrid
-        columns={[1, 2, 3, 4]}
-        maxWidth="80vw"
-        gap={60}
-        justifyItems="center"
+        paddingY={5}
+        minChildWidth="200px"
+        justifyItems={{ base: 'center', md: 'flex-start' }}
         alignItems="center"
+        spacing={1}
+        rowGap="30px"
       >
-        {products.length > 0
-          ? applyFiltering().map((product) => (
-              <Link key={product.name} to={`/store/product/${product.id}`}>
-                <Box
-                  p={5}
-                  shadow="md"
-                  borderWidth="1px"
-                  width="200px"
-                  height="160px"
-                  textAlign="center"
-                >
-                  <Heading fontSize="md">{product.name}</Heading>
-                  <Text fontSize="md">${product.price}</Text>
-                  <Text fontSize="md">{product.details.brand}</Text>
-                </Box>
-              </Link>
-            ))
-          : 'Loading...'}
+        {products.length > 0 ? (
+          applyFiltering().map((product) => (
+            <Link key={product.name} to={`/store/product/${product.id}`}>
+              <Flex
+                p={5}
+                flexDirection="column"
+                justifyContent="center"
+                shadow="md"
+                borderWidth="1px"
+                width="200px"
+                height="160px"
+                textAlign="center"
+              >
+                <Heading fontSize="md">{product.name}</Heading>
+                <Text fontSize="md">${product.price}</Text>
+                <Text fontSize="md">{product.details.brand}</Text>
+              </Flex>
+            </Link>
+          ))
+        ) : (
+          <Flex justifyContent="center" alignItems="center" width="100%">
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="purple.500"
+              size="xl"
+            />
+          </Flex>
+        )}
       </SimpleGrid>
     </Flex>
   );
