@@ -9,6 +9,8 @@ const ProductPreview = ({ product }) => {
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
+
+    //action for adding item to context API will be here
     console.log(`add to cart item with id: ${id}`);
   };
 
