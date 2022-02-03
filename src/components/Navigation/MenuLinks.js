@@ -8,7 +8,7 @@ import {
 import { FaShoppingCart } from 'react-icons/fa';
 import { useMatch, Link as RouterLink } from 'react-router-dom';
 
-const MenuLinks = ({ isMenuOpen }) => {
+const MenuLinks = ({ isMenuOpen, openCart }) => {
   const match = useMatch('/*');
   const currentPath = match.pathname;
 
@@ -56,7 +56,12 @@ const MenuLinks = ({ isMenuOpen }) => {
         Store
       </ChakraLink>
       <Flex justify="center">
-        <FaShoppingCart data-testid="cart" size="30px" />
+        <FaShoppingCart
+          cursor="pointer"
+          data-testid="cartIcon"
+          size="30px"
+          onClick={openCart}
+        />
       </Flex>
     </Stack>
   );

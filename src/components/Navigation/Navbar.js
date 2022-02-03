@@ -5,7 +5,7 @@ import MenuIcon from './MenuIcon';
 import MenuLinks from './MenuLinks';
 import SearchBar from './SearchBar';
 
-const Navbar = () => {
+const Navbar = ({ openCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -26,7 +26,7 @@ const Navbar = () => {
     >
       <Logo />
       <SearchBar isMenuOpen={isMenuOpen} />
-      <MenuLinks isMenuOpen={isMenuOpen} />
+      <MenuLinks isMenuOpen={isMenuOpen} openCart={openCart} />
       <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
     </Flex>
   );
