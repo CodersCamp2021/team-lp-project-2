@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import {
-  Text,
   Box,
   Image,
   Spinner,
@@ -8,12 +7,16 @@ import {
   AlertIcon,
   Flex,
   List,
+  ListItem,
+  ListIcon,
+  Text,
 } from '@chakra-ui/react';
+import { FaAngleRight } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
-const ProductDisplay = ({ updateCategory }) => {
+const ProductDisplay = ({ setProductName }) => {
   let { productId } = useParams();
 
   const [productInfo, setProductInfo] = useState(null);
@@ -34,6 +37,7 @@ const ProductDisplay = ({ updateCategory }) => {
       console.log('Document data:', docSnap.data());
       setProductInfo(docSnap.data());
       setImageURL(docSnap.data().images[0]);
+      setProductName(docSnap.data().name);
       setError(null);
     } else {
       setError('Product not found');
@@ -44,6 +48,10 @@ const ProductDisplay = ({ updateCategory }) => {
 
   useEffect(() => {
     getProduct(productId);
+    return () => {
+      setProductName('');
+    };
+    //eslint-disable-next-line
   }, [productId]);
 
   if (isLoading) {
@@ -75,23 +83,22 @@ const ProductDisplay = ({ updateCategory }) => {
     <Box>
       {productInfo && (
         <Flex flexDirection="column">
-          <Text fontWeight="semibold" fontSize="35px" p="1%" pb="3%">
-            {productInfo.name}
-          </Text>
           <Flex>
             <Flex
               flexDirection="column"
               w="50%"
               justifyContent="center"
               alignItems="center"
+              p={5}
             >
               <Flex
                 justifyContent="center"
                 alignItems="center"
                 w="500px"
                 h="500px"
-                border="5px solid #f1f1f1"
+                border="3px solid #f5f5f5"
                 borderRadius="15px"
+                boxShadow="md"
               >
                 <Image
                   src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${imageURL}?alt=media`}
@@ -111,7 +118,7 @@ const ProductDisplay = ({ updateCategory }) => {
                     w="20%"
                     m={3}
                     border={
-                      img === imageURL ? '3px solid #777' : '3px solid #f1f1f1'
+                      img === imageURL ? '2px solid #777' : '2px solid #f1f1f1'
                     }
                     p={1}
                     borderRadius="5px"
@@ -120,7 +127,21 @@ const ProductDisplay = ({ updateCategory }) => {
                 ))}
               </Flex>
             </Flex>
-            <Flex></Flex>
+            <Flex bg="tomato" flexDirection="column">
+              <Text>Details:</Text>
+              <List>
+                {Object.keys(productInfo.details)
+                  .filter(
+                    (key) => key !== 'description' && key !== 'showOnHomepage',
+                  )
+                  .map((keyName) => (
+                    <ListItem key={keyName}>
+                      <ListIcon as={FaAngleRight} />
+                      {keyName}: {productInfo.details[keyName]}
+                    </ListItem>
+                  ))}
+              </List>
+            </Flex>
           </Flex>
         </Flex>
       )}
