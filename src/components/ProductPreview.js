@@ -4,15 +4,16 @@ import React from 'react';
 import { AddIcon } from '@chakra-ui/icons';
 
 const ProductPreview = ({ product }) => {
+  const { id, name, price } = product;
   const navigate = useNavigate();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    console.log(`add to cart item with id: ${product.id}`);
+    console.log(`add to cart item with id: ${id}`);
   };
 
   const handleNavigateToProduct = () => {
-    navigate(`/store/product/${product.id}`);
+    navigate(`/store/product/${id}`);
   };
 
   return (
@@ -36,21 +37,21 @@ const ProductPreview = ({ product }) => {
         justifyContent="center"
       >
         <Image
-          src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${product.name}%2F1.jpg?alt=media`}
+          src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${name}%2F1.jpg?alt=media`}
           alt="image"
           height="90%"
         />
       </Box>
       <Flex gap="5px">
         <Heading fontSize="md" wordBreak="break-all" textAlign="left">
-          {product.name}
+          {name}
         </Heading>
         <Button onClick={handleAddToCart}>
           <AddIcon />
         </Button>
       </Flex>
       <Text fontSize="md" textAlign="left">
-        ${product.price}
+        ${price}
       </Text>
     </Flex>
   );
