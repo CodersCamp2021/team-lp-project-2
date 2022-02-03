@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, Image, Button } from '@chakra-ui/react';
+import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { AddIcon } from '@chakra-ui/icons';
@@ -43,13 +43,13 @@ const ProductPreview = ({ product }) => {
           src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${product.images[0]}?alt=media`}
           alt="image"
           height="90%"
-          objectFit='contain'
+          objectFit="contain"
         />
       </Box>
       <Flex gap="5px">
-        <Heading fontSize="md" wordBreak="break-all" textAlign="left">
+        <Text fontWeight="bold" noOfLines={2} fontSize="md" textAlign="left">
           {name}
-        </Heading>
+        </Text>
         <Button onClick={handleAddToCart}>
           <AddIcon />
         </Button>
