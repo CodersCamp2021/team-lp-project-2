@@ -19,6 +19,7 @@ const ProductPreview = ({ product }) => {
   return (
     <Flex
       onClick={handleNavigateToProduct}
+      cursor="pointer"
       p={5}
       direction="column"
       justifyContent="center"
@@ -37,7 +38,7 @@ const ProductPreview = ({ product }) => {
         justifyContent="center"
       >
         <Image
-          src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${name}%2F1.jpg?alt=media`}
+          src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${product.images[0]}?alt=media`}
           alt="image"
           height="90%"
         />
