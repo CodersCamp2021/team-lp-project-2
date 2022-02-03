@@ -19,7 +19,7 @@ const ProductPreview = ({ product }) => {
         borderWidth="1px"
         borderRadius="10px"
         width="220px"
-        height="220px"
+        height="250px"
         textAlign="center"
       >
         <Box
@@ -34,13 +34,17 @@ const ProductPreview = ({ product }) => {
             height="90%"
           />
         </Box>
-        <Flex>
-          <Heading fontSize="md">{product.name}</Heading>
+        <Flex gap="5px">
+          <Heading fontSize="md" wordBreak="break-all" textAlign="left">
+            {product.name}
+          </Heading>
           <Button>
             <AddIcon />
           </Button>
         </Flex>
-        <Text fontSize="md">${product.price}</Text>
+        <Text fontSize="md" textAlign="left">
+          ${product.price}
+        </Text>
       </Flex>
     </Link>
   );
