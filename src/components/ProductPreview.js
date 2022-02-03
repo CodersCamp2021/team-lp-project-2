@@ -4,9 +4,9 @@ import React, { useEffect } from 'react';
 import { AddIcon } from '@chakra-ui/icons';
 
 const ProductPreview = ({ product }) => {
-  useEffect(() => {
-    console.log(product);
-  }, [product]);
+  const handleAddToCart = (id) => {
+    console.log(`add to cart item with id: ${id}`);
+  };
 
   return (
     <Link to={`/store/product/${product.id}`}>
@@ -38,7 +38,7 @@ const ProductPreview = ({ product }) => {
           <Heading fontSize="md" wordBreak="break-all" textAlign="left">
             {product.name}
           </Heading>
-          <Button>
+          <Button onClick={handleAddToCart}>
             <AddIcon />
           </Button>
         </Flex>
