@@ -17,9 +17,12 @@ const Navbar = ({ openCart }) => {
       justify="space-between"
       gap="20px"
       px={{ base: '30px', md: '80px' }}
+      py="50px"
       width="100%"
       height="80px"
-      mb={{ base: '100px', md: '0' }}
+      mb={{ base: '100px', md: '5' }}
+      bg="#f1f1f1"
+      borderBottom="1px solid #ccc"
     >
       <Logo />
       <SearchBar isMenuOpen={isMenuOpen} />

@@ -1,5 +1,10 @@
 import React from 'react';
-import { Stack, Flex, Link as ChakraLink } from '@chakra-ui/react';
+import {
+  Stack,
+  Flex,
+  Link as ChakraLink,
+  StackDivider,
+} from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useMatch, Link as RouterLink } from 'react-router-dom';
 
@@ -25,9 +30,14 @@ const MenuLinks = ({ isMenuOpen, openCart }) => {
       textAlign="center"
       top="80px"
       left="0"
-      gap="40px"
+      gap="10px"
       pt={{ base: '40px', md: '0' }}
       pb={{ base: '40px', md: '0' }}
+      bg="#f1f1f1"
+      borderBottom={{ base: '1px solid #ccc', md: 'none' }}
+      divider={
+        <StackDivider borderColor="gray.300" w="80%" alignSelf="center" />
+      }
     >
       <ChakraLink
         as={RouterLink}

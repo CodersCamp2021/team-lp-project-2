@@ -1,14 +1,42 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { SimpleGrid, Box, Text, Flex, Heading } from '@chakra-ui/react';
-import { useContext, useEffect } from 'react';
+import {
+  SimpleGrid,
+  Text,
+  Flex,
+  Heading,
+  Select,
+  Spinner,
+} from '@chakra-ui/react';
+import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
+
+const SortStates = {
+  NAME_ASC: 'name(asc)',
+  NAME_DESC: 'name(desc)',
+  PRICE_ASC: 'price(asc)',
+  PRICE_DESC: 'price(desc)',
+};
+Object.freeze(SortStates);
 
 const ProductList = ({ products }) => {
   let { category } = useParams();
+  const [sorting, setSorting] = useState(SortStates.NAME_ASC);
   const updateCategory = useContext(CategoryContext);
   let [searchParams] = useSearchParams();
 
-  const applyCategory = () => {
+  const sortName = (a, b) => {
+    let nameA = a.name.toLowerCase();
+    let nameB = b.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const handleCategory = () => {
     if (category) {
       return products.filter(
         (product) => product.type.toLowerCase() === category.toLowerCase(),
@@ -18,7 +46,7 @@ const ProductList = ({ products }) => {
     }
   };
 
-  const applyFilters = (categoryProducts) => {
+  const handleFilter = (productList) => {
     const filters = {
       minPrice: searchParams.get('min'),
       maxPrice: searchParams.get('max'),
@@ -31,12 +59,10 @@ const ProductList = ({ products }) => {
     const activeFilters = Object.entries(filters).filter(
       ([key, value]) => !!value,
     );
-    if (activeFilters.length < 1) return categoryProducts;
-
-    let filteredProducts = [];
+    if (activeFilters.length < 1) return productList;
 
     if (filters.minPrice && filters.maxPrice) {
-      filteredProducts = categoryProducts.filter((product) => {
+      productList = productList.filter((product) => {
         return (
           parseFloat(product.price) >= parseFloat(filters.minPrice) &&
           parseFloat(product.price) <= parseFloat(filters.maxPrice)
@@ -44,60 +70,109 @@ const ProductList = ({ products }) => {
       });
     }
     if (filters.brand) {
-      filteredProducts = categoryProducts.filter((product) =>
+      productList = productList.filter((product) =>
         filters.brand.includes(product.details.brand.toLowerCase()),
       );
     }
 
-    return filteredProducts;
+    return productList;
   };
 
-  const applySearch = (filteredProducts) => {
+  const handleSearch = (productList) => {
     let searchedName = searchParams.get('name');
 
-    if (!searchedName) return filteredProducts;
+    if (!searchedName) return productList;
 
-    let searchedProducts = filteredProducts.filter((product) =>
+    return productList.filter((product) =>
       product.name
         .toLowerCase()
         .includes(decodeURIComponent(searchedName.toLowerCase())),
     );
+  };
 
-    return searchedProducts;
+  const applyFiltering = () => {
+    let filteredProducts = handleCategory();
+    filteredProducts = handleFilter(filteredProducts);
+    filteredProducts = handleSearch(filteredProducts);
+
+    switch (sorting) {
+      case SortStates.NAME_ASC:
+        return filteredProducts.sort((a, b) => sortName(a, b));
+      case SortStates.NAME_DESC:
+        return filteredProducts.sort((a, b) => sortName(b, a));
+      case SortStates.PRICE_ASC:
+        return filteredProducts.sort((a, b) => a.price - b.price);
+      case SortStates.PRICE_DESC:
+        return filteredProducts.sort((a, b) => b.price - a.price);
+      default:
+        return filteredProducts;
+    }
   };
 
   useEffect(() => {
+    setSorting('name(asc)');
     updateCategory(category);
     // eslint-disable-next-line
   }, [category]);
 
   return (
-    <Flex mt={10} justifyContent="center">
+    <Flex justifyContent="center" flexDirection="column">
+      <Flex justifyContent="flex-start" alignItems="center" m="1%">
+        <Text paddingX="1%" fontWeight="semibold" fontSize="20px">
+          Sort by:
+        </Text>
+        <Select
+          size="md"
+          maxWidth={190}
+          variant="outline"
+          borderWidth="2px"
+          value={sorting}
+          onChange={(e) => setSorting(e.target.value)}
+        >
+          <option value={SortStates.NAME_ASC}>Name: A-Z</option>
+          <option value={SortStates.NAME_DESC}>Name: Z-A</option>
+          <option value={SortStates.PRICE_ASC}>Price: Low to High</option>
+          <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
+        </Select>
+      </Flex>
       <SimpleGrid
-        columns={[1, 2, 3, 4]}
-        maxWidth="80vw"
-        gap={60}
-        justifyItems="center"
+        paddingY={5}
+        minChildWidth="200px"
+        justifyItems={{ base: 'center', md: 'flex-start' }}
         alignItems="center"
+        spacing={1}
+        rowGap="30px"
       >
-        {products.length > 0
-          ? applySearch(applyFilters(applyCategory())).map((product) => (
-              <Link key={product.name} to={`/store/product/${product.id}`}>
-                <Box
-                  p={5}
-                  shadow="md"
-                  borderWidth="1px"
-                  width="200px"
-                  height="160px"
-                  textAlign="center"
-                >
-                  <Heading fontSize="md">{product.name}</Heading>
-                  <Text fontSize="md">${product.price}</Text>
-                  <Text fontSize="md">{product.details.brand}</Text>
-                </Box>
-              </Link>
-            ))
-          : 'Loading...'}
+        {products.length > 0 ? (
+          applyFiltering().map((product) => (
+            <Link key={product.name} to={`/store/product/${product.id}`}>
+              <Flex
+                p={5}
+                flexDirection="column"
+                justifyContent="center"
+                shadow="md"
+                borderWidth="1px"
+                width="200px"
+                height="160px"
+                textAlign="center"
+              >
+                <Heading fontSize="md">{product.name}</Heading>
+                <Text fontSize="md">${product.price}</Text>
+                <Text fontSize="md">{product.details.brand}</Text>
+              </Flex>
+            </Link>
+          ))
+        ) : (
+          <Flex justifyContent="center" alignItems="center" width="100%">
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="purple.500"
+              size="xl"
+            />
+          </Flex>
+        )}
       </SimpleGrid>
     </Flex>
   );
