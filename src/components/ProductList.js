@@ -1,5 +1,13 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { SimpleGrid, Text, Flex, Heading, Select } from '@chakra-ui/react';
+import {
+  SimpleGrid,
+  Text,
+  Flex,
+  Heading,
+  Select,
+  Spinner,
+  Box,
+} from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 
@@ -136,26 +144,36 @@ const ProductList = ({ products }) => {
         spacing={1}
         rowGap="30px"
       >
-        {products.length > 0
-          ? applyFiltering().map((product) => (
-              <Link key={product.name} to={`/store/product/${product.id}`}>
-                <Flex
-                  p={5}
-                  flexDirection="column"
-                  justifyContent="center"
-                  shadow="md"
-                  borderWidth="1px"
-                  width="200px"
-                  height="160px"
-                  textAlign="center"
-                >
-                  <Heading fontSize="md">{product.name}</Heading>
-                  <Text fontSize="md">${product.price}</Text>
-                  <Text fontSize="md">{product.details.brand}</Text>
-                </Flex>
-              </Link>
-            ))
-          : 'Loading...'}
+        {products.length > 0 ? (
+          applyFiltering().map((product) => (
+            <Link key={product.name} to={`/store/product/${product.id}`}>
+              <Flex
+                p={5}
+                flexDirection="column"
+                justifyContent="center"
+                shadow="md"
+                borderWidth="1px"
+                width="200px"
+                height="160px"
+                textAlign="center"
+              >
+                <Heading fontSize="md">{product.name}</Heading>
+                <Text fontSize="md">${product.price}</Text>
+                <Text fontSize="md">{product.details.brand}</Text>
+              </Flex>
+            </Link>
+          ))
+        ) : (
+          <Flex justifyContent="center" alignItems="center" width="100%">
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="purple.500"
+              size="xl"
+            />
+          </Flex>
+        )}
       </SimpleGrid>
     </Flex>
   );
