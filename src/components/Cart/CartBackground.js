@@ -13,6 +13,7 @@ const CartBackground = ({ isCartOpen, closeCart }) => {
       transform={isCartOpen ? 'translateX(3000px)' : ''}
       transition="transform ease-in-out .4s"
       bg="blackAlpha.700"
+      zIndex="99"
     ></Box>
   );
 };
