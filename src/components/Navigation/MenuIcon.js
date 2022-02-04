@@ -6,9 +6,9 @@ const MenuIcon = ({ isMenuOpen, toggleMenu }) => {
   return (
     <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>
       {isMenuOpen ? (
-        <CloseIcon boxSize="25px" />
+        <CloseIcon cursor="pointer" boxSize="25px" />
       ) : (
-        <HamburgerIcon boxSize="35px" />
+        <HamburgerIcon cursor="pointer" boxSize="35px" />
       )}
     </Box>
   );
