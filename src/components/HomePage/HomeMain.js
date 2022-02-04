@@ -23,7 +23,6 @@ const HomeMain = () => {
       const data = doc.data();
       fetchedProducts.push({ ...data, id: doc.id });
     });
-    console.log(fetchedProducts);
     setHeroProducts(fetchedProducts);
     setIsLoading(false);
   };

@@ -1,10 +1,12 @@
+import React, { useEffect, useState } from 'react';
 import { Button, Flex, FormControl, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
-
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { collection, query, getDocs, where } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const SearchBar = ({ isMenuOpen }) => {
+  const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -17,6 +19,36 @@ const SearchBar = ({ isMenuOpen }) => {
 
     e.target.reset();
   };
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const getMatchingProducts = async () => {
+    let fetchedProducts = [];
+    const productsQuery = query(
+      collection(db, 'products'),
+      where('name', '>=', searchInput),
+      where('name', '<=', searchInput + '\uf8ff'),
+    );
+    const snapshot = await getDocs(productsQuery);
+
+    snapshot.docs.forEach((doc) => {
+      const data = doc.data();
+      fetchedProducts.push({ ...data, id: doc.id });
+      console.log(fetchedProducts);
+    });
+  };
+
+  useEffect(() => {
+    if (searchInput.length > 2) {
+      try {
+        getMatchingProducts();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }, [searchInput]);
 
   return (
     <Flex
@@ -40,6 +72,7 @@ const SearchBar = ({ isMenuOpen }) => {
       <form onSubmit={handleSubmit} style={{ width: '90%' }}>
         <FormControl display="flex" mx="auto" maxWidth="600px">
           <Input
+            onChange={handleChange}
             borderColor="blackAlpha.500"
             focusBorderColor="blackAlpha.900"
             borderRadius="20px"
