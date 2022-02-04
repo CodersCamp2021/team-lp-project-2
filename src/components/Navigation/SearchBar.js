@@ -1,11 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Button, Flex, FormControl, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
+import { AllProductsContext } from '../App';
+
+// Source and explanation of debounce hook => https://dmitripavlutin.com/controlled-inputs-using-react-hooks/#4-debouncing-the-controlled-input
+const useDebouncedValue = (value, wait) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  useEffect(() => {
+    const id = setTimeout(() => setDebouncedValue(value), wait);
+    return () => clearTimeout(id);
+  }, [value]);
+  return debouncedValue;
+};
 
 const SearchBar = ({ isMenuOpen }) => {
   const [searchInput, setSearchInput] = useState('');
+  const debouncedInput = useDebouncedValue(searchInput, 500);
   const navigate = useNavigate();
+  const products = useContext(AllProductsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +34,18 @@ const SearchBar = ({ isMenuOpen }) => {
   const handleChange = (e) => {
     setSearchInput(e.target.value);
   };
+
+  const handleSearch = () => {
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(debouncedInput.toLowerCase()),
+    );
+  };
+
+  useEffect(() => {
+    if (searchInput.length > 2) {
+      console.log(handleSearch());
+    }
+  }, [debouncedInput]);
 
   return (
     <Flex
