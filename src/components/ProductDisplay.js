@@ -125,6 +125,7 @@ const ProductDisplay = ({ setProductName }) => {
                     p={1}
                     borderRadius="5px"
                     onClick={() => setImageURL(img)}
+                    _hover={{ cursor: 'pointer' }}
                   />
                 ))}
               </Flex>
