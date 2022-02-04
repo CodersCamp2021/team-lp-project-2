@@ -23,6 +23,7 @@ const Navbar = ({ openCart }) => {
       mb={{ base: '100px', md: '5' }}
       bg="#f1f1f1"
       borderBottom="1px solid #ccc"
+      zIndex="10"
     >
       <Logo />
       <SearchBar isMenuOpen={isMenuOpen} />
