@@ -8,7 +8,8 @@ import SearchBar from './SearchBar';
 const Navbar = ({ openCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const handleOpenMenu = () => setIsMenuOpen(true);
+  const handleCloseMenu = () => setIsMenuOpen(false);
 
   return (
     <Flex
@@ -25,10 +26,18 @@ const Navbar = ({ openCart }) => {
       borderBottom="1px solid #ccc"
       zIndex="10"
     >
-      <Logo />
+      <Logo closeMenu={handleCloseMenu} />
       <SearchBar isMenuOpen={isMenuOpen} />
-      <MenuLinks isMenuOpen={isMenuOpen} openCart={openCart} />
-      <MenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <MenuLinks
+        isMenuOpen={isMenuOpen}
+        closeMenu={handleCloseMenu}
+        openCart={openCart}
+      />
+      <MenuIcon
+        isMenuOpen={isMenuOpen}
+        openMenu={handleOpenMenu}
+        closeMenu={handleCloseMenu}
+      />
     </Flex>
   );
 };
