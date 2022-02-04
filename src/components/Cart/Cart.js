@@ -49,6 +49,7 @@ const Cart = ({ isCartOpen, closeCart }) => {
         right="-1000px"
         transform={isCartOpen ? 'translateX(-1000px)' : ''}
         transition="transform ease-in-out .4s .3s"
+        zIndex="10"
       >
         <CartHeader closeCart={closeCart} />
 
