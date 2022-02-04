@@ -13,7 +13,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import ChooseValue from './productDetails/ChooseValue';
-import { FaAngleRight } from 'react-icons/fa';
+import { FaAngleRight, FaShoppingCart } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
@@ -160,7 +160,15 @@ const ProductDisplay = ({ setProductName }) => {
                 w="80%"
               >
                 <ChooseValue />
-                <Button>Add to cart!</Button>
+                <Button
+                  variant="solid"
+                  colorScheme="purple"
+                  rightIcon={<FaShoppingCart />}
+                  size="lg"
+                  borderRadius="15px"
+                >
+                  Add to cart
+                </Button>
               </Flex>
             </Flex>
           </Flex>
