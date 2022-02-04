@@ -11,16 +11,18 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleOpenCart = () => {
+    document.body.style.overflow = 'hidden';
     setIsCartOpen(true);
   };
 
   const handleCloseCart = () => {
+    document.body.style.overflow = 'auto';
     setIsCartOpen(false);
   };
 
   return (
     <Grid minHeight="100vh" gridTemplateRows="auto 1fr auto">
-      <Navbar openCart={handleOpenCart}/>
+      <Navbar openCart={handleOpenCart} />
       <Routes>
         <Route path="/" element={<HomeMain />} />
         <Route path="/store/*" element={<Store />} />
