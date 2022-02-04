@@ -25,6 +25,7 @@ const ProductDisplay = ({ setProductName }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [imageURL, setImageURL] = useState('');
+  const [noOfProducts, setNoOfProducts] = useState(1);
 
   //getting productInfo object from firebase
   const getProduct = async (productId) => {
@@ -159,13 +160,14 @@ const ProductDisplay = ({ setProductName }) => {
                 justifyContent="space-around"
                 w="80%"
               >
-                <ChooseValue />
+                <ChooseValue setNoOfProducts={(val) => setNoOfProducts(val)} />
                 <Button
                   variant="solid"
                   colorScheme="purple"
                   rightIcon={<FaShoppingCart />}
                   size="lg"
                   borderRadius="15px"
+                  onClick={() => console.log(noOfProducts)}
                 >
                   Add to cart
                 </Button>
