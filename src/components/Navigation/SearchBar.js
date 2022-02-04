@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Button, Flex, FormControl, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
-import { collection, query, getDocs, where } from 'firebase/firestore';
-import { db } from '../../firebase';
 
 const SearchBar = ({ isMenuOpen }) => {
   const [searchInput, setSearchInput] = useState('');
@@ -23,32 +21,6 @@ const SearchBar = ({ isMenuOpen }) => {
   const handleChange = (e) => {
     setSearchInput(e.target.value);
   };
-
-  const getMatchingProducts = async () => {
-    let fetchedProducts = [];
-    const productsQuery = query(
-      collection(db, 'products'),
-      where('name', '>=', searchInput),
-      where('name', '<=', searchInput + '\uf8ff'),
-    );
-    const snapshot = await getDocs(productsQuery);
-
-    snapshot.docs.forEach((doc) => {
-      const data = doc.data();
-      fetchedProducts.push({ ...data, id: doc.id });
-      console.log(fetchedProducts);
-    });
-  };
-
-  useEffect(() => {
-    if (searchInput.length > 2) {
-      try {
-        getMatchingProducts();
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }, [searchInput]);
 
   return (
     <Flex

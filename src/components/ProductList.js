@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
+import { AllProductsContext } from './App';
 
 const SortStates = {
   NAME_ASC: 'name(asc)',
@@ -18,10 +19,11 @@ const SortStates = {
 };
 Object.freeze(SortStates);
 
-const ProductList = ({ products }) => {
+const ProductList = () => {
   let { category } = useParams();
   const [sorting, setSorting] = useState(SortStates.NAME_ASC);
   const updateCategory = useContext(CategoryContext);
+  const products = useContext(AllProductsContext);
   let [searchParams] = useSearchParams();
 
   const sortName = (a, b) => {
