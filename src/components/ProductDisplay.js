@@ -159,10 +159,10 @@ const ProductDisplay = ({ setProductName }) => {
               </List>
               <Flex
                 py="10%"
-                direction="column"
                 alignSelf="center"
-                justifyContent="space-around"
-                gap="10px"
+                justifyContent="center"
+                gap="20px"
+                w={{ base: '400px', lg: '500px' }}
               >
                 <ChooseValue setNoOfProducts={(val) => setNoOfProducts(val)} />
                 <Button
