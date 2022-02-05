@@ -87,7 +87,6 @@ const ProductDisplay = ({ setProductName }) => {
         <Flex flexDirection="column">
           <Flex direction={{ base: 'column', lg: 'row' }} alignItems="center">
             <Flex
-              className="obrazek"
               flexShrink="3"
               flexDirection="column"
               w="50%"
