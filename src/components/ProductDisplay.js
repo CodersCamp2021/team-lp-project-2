@@ -130,7 +130,7 @@ const ProductDisplay = ({ setProductName }) => {
                 ))}
               </Flex>
             </Flex>
-            <Flex w="50%" m={5} flexDirection="column">
+            <Flex m={5} flexDirection="column">
               <Text p="40px 0 10px 35px" fontSize="25px" fontWeight="semibold">
                 Details:
               </Text>
