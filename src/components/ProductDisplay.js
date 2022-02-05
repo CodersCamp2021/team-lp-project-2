@@ -86,8 +86,9 @@ const ProductDisplay = ({ setProductName }) => {
     <Box>
       {productInfo && (
         <Flex flexDirection="column">
-          <Flex>
+          <Flex direction={{ base: 'column', lg: 'row' }} alignItems="center">
             <Flex
+              flexShrink="3"
               flexDirection="column"
               w="50%"
               justifyContent="center"
@@ -97,8 +98,8 @@ const ProductDisplay = ({ setProductName }) => {
               <Flex
                 justifyContent="center"
                 alignItems="center"
-                w="500px"
-                h="500px"
+                minWidth="300px"
+                minHeight="300px"
                 border="3px solid #f5f5f5"
                 borderRadius="15px"
                 boxShadow="md"
@@ -112,13 +113,13 @@ const ProductDisplay = ({ setProductName }) => {
                 />
               </Flex>
 
-              <Flex w="80%">
+              <Flex w="80%" justify="center">
                 {productInfo.images.map((img) => (
                   <Image
                     key={img}
                     src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${img}?alt=media`}
                     objectFit="contain"
-                    w="20%"
+                    w="60px"
                     m={3}
                     border={
                       img === imageURL ? '2px solid #777' : '2px solid #f1f1f1'
@@ -131,7 +132,7 @@ const ProductDisplay = ({ setProductName }) => {
                 ))}
               </Flex>
             </Flex>
-            <Flex w="50%" m={5} flexDirection="column">
+            <Flex m={5} flexDirection="column">
               <Text p="40px 0 10px 35px" fontSize="25px" fontWeight="semibold">
                 Details:
               </Text>
@@ -156,10 +157,12 @@ const ProductDisplay = ({ setProductName }) => {
               </List>
               <Flex
                 py="10%"
+                direction="column"
                 alignSelf="center"
                 justifyContent="space-around"
-                w="80%"
+                gap="10px"
               >
+<<<<<<< HEAD
                 <ChooseValue setNoOfProducts={(val) => setNoOfProducts(val)} />
                 <Button
                   variant="solid"
@@ -170,6 +173,11 @@ const ProductDisplay = ({ setProductName }) => {
                   onClick={() => console.log(noOfProducts)}
                 >
                   Add to cart
+=======
+                <ChooseValue />
+                <Button colorScheme="purple" py="5px" px="5px">
+                  Add to cart!
+>>>>>>> 42962d083faca740c2746dc975fe61a027a23fbb
                 </Button>
               </Flex>
             </Flex>
