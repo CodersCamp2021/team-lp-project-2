@@ -113,13 +113,13 @@ const ProductDisplay = ({ setProductName }) => {
                 />
               </Flex>
 
-              <Flex w="80%">
+              <Flex w="80%" justify="center">
                 {productInfo.images.map((img) => (
                   <Image
                     key={img}
                     src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${img}?alt=media`}
                     objectFit="contain"
-                    w="20%"
+                    w="60px"
                     m={3}
                     border={
                       img === imageURL ? '2px solid #777' : '2px solid #f1f1f1'
