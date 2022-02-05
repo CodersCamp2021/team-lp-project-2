@@ -37,7 +37,6 @@ const ProductDisplay = ({ setProductName }) => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log('Document data:', docSnap.data());
       setProductInfo(docSnap.data());
       setImageURL(docSnap.data().images[0]);
       setProductName(docSnap.data().name);
@@ -171,7 +170,12 @@ const ProductDisplay = ({ setProductName }) => {
                   rightIcon={<FaShoppingCart />}
                   size="lg"
                   borderRadius="15px"
-                  onClick={() => console.log(noOfProducts)}
+                  onClick={() =>
+                    console.log(
+                      'Add to cart: ' +
+                        JSON.stringify({ id: productId, amount: noOfProducts }),
+                    )
+                  }
                 >
                   Add to cart
                 </Button>
