@@ -6,6 +6,7 @@ import Cart from './Cart/Cart';
 import { useState } from 'react';
 import Footer from './HomePage/Footer';
 import { Grid } from '@chakra-ui/react';
+import { ProductProvider } from './ProductContex';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -21,15 +22,17 @@ function App() {
   };
 
   return (
-    <Grid minHeight="100vh" gridTemplateRows="auto 1fr auto">
-      <Navbar openCart={handleOpenCart} />
-      <Routes>
-        <Route path="/" element={<HomeMain />} />
-        <Route path="/store/*" element={<Store />} />
-      </Routes>
-      <Cart isCartOpen={isCartOpen} closeCart={handleCloseCart} />
-      <Footer />
-    </Grid>
+    <ProductProvider>
+      <Grid minHeight="100vh" gridTemplateRows="auto 1fr auto">
+        <Navbar openCart={handleOpenCart} />
+        <Routes>
+          <Route path="/" element={<HomeMain />} />
+          <Route path="/store/*" element={<Store />} />
+        </Routes>
+        <Cart isCartOpen={isCartOpen} closeCart={handleCloseCart} />
+        <Footer />
+      </Grid>
+    </ProductProvider>
   );
 }
 
