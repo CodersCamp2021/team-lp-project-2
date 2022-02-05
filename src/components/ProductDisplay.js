@@ -156,12 +156,15 @@ const ProductDisplay = ({ setProductName }) => {
               </List>
               <Flex
                 py="10%"
+                direction="column"
                 alignSelf="center"
                 justifyContent="space-around"
-                w="80%"
+                gap="10px"
               >
                 <ChooseValue />
-                <Button>Add to cart!</Button>
+                <Button colorScheme="purple" py="5px" px="5px">
+                  Add to cart!
+                </Button>
               </Flex>
             </Flex>
           </Flex>
