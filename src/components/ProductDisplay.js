@@ -85,8 +85,10 @@ const ProductDisplay = ({ setProductName }) => {
     <Box>
       {productInfo && (
         <Flex flexDirection="column">
-          <Flex>
+          <Flex direction={{ base: 'column', lg: 'row' }} alignItems="center">
             <Flex
+              className="obrazek"
+              flexShrink="3"
               flexDirection="column"
               w="50%"
               justifyContent="center"
@@ -96,8 +98,8 @@ const ProductDisplay = ({ setProductName }) => {
               <Flex
                 justifyContent="center"
                 alignItems="center"
-                w="500px"
-                h="500px"
+                minWidth="300px"
+                minHeight="300px"
                 border="3px solid #f5f5f5"
                 borderRadius="15px"
                 boxShadow="md"
