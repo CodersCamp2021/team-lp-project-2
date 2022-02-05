@@ -162,7 +162,6 @@ const ProductDisplay = ({ setProductName }) => {
                 justifyContent="space-around"
                 gap="10px"
               >
-<<<<<<< HEAD
                 <ChooseValue setNoOfProducts={(val) => setNoOfProducts(val)} />
                 <Button
                   variant="solid"
@@ -173,11 +172,6 @@ const ProductDisplay = ({ setProductName }) => {
                   onClick={() => console.log(noOfProducts)}
                 >
                   Add to cart
-=======
-                <ChooseValue />
-                <Button colorScheme="purple" py="5px" px="5px">
-                  Add to cart!
->>>>>>> 42962d083faca740c2746dc975fe61a027a23fbb
                 </Button>
               </Flex>
             </Flex>
