@@ -103,6 +103,8 @@ const ProductDisplay = ({ setProductName }) => {
                 border="3px solid #f5f5f5"
                 borderRadius="15px"
                 boxShadow="md"
+                w="450px"
+                h="450px"
               >
                 <Image
                   src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${imageURL}?alt=media`}
