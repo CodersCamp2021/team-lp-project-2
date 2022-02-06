@@ -5,7 +5,7 @@ export const ProductsContex = React.createContext();
 function productListReducer(state, action) {
   switch (action.type) {
     case 'ADD':
-      return { count: state.count + 1 };
+      return { count: state.count + action.payload.wartosc };
     case 'ODD':
       return { count: state.count - 1 };
     default:

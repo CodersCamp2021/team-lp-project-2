@@ -32,7 +32,9 @@ function NumberField() {
 
   return (
     <div>
-      <ButtonIncrement onClickFunc={() => dispatch({ type: 'ADD' })} />
+      <ButtonIncrement
+        onClickFunc={() => dispatch({ type: 'ADD', payload: { wartosc: 3 } })}
+      />
       <Display message={state.count} />
       <ButtonDecrement onClickFunc={console.log('-')} />
     </div>
