@@ -1,14 +1,33 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+
+beforeEach(() => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(), // Deprecated
+      removeListener: jest.fn(), // Deprecated
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+});
 
 test('click on CPU category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>,
   );
   const store = screen.getByText('Store');
   fireEvent.click(store);
@@ -22,13 +41,15 @@ test('click on GPU category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>,
   );
   const store = screen.getByText('Store');
   fireEvent.click(store);
-  const gpu = screen.getByText('Graphics Cards');
+  const gpu = screen.getByText('Graphic Cards');
   fireEvent.click(gpu);
 
   expect(global.window.location.pathname).toEqual('/store/gpu');
@@ -38,9 +59,11 @@ test('click on RAM category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>,
   );
   const store = screen.getByText('Store');
   fireEvent.click(store);
@@ -54,9 +77,11 @@ test('click on Monitor category changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>,
   );
   const store = screen.getByText('Store');
   fireEvent.click(store);
