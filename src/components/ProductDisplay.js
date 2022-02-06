@@ -82,10 +82,13 @@ const ProductDisplay = ({ setProductName }) => {
   }
 
   return (
-    <Box bg="tomato">
+    <Box>
       {productInfo && (
         <Flex flexDirection="column" flexWrap="wrap">
-          <Flex direction={{ base: 'column', xl: 'row' }} alignItems="center">
+          <Flex
+            direction={{ base: 'column', '2xl': 'row' }}
+            alignItems="center"
+          >
             <Flex
               flexShrink="3"
               flexDirection="column"
@@ -97,11 +100,11 @@ const ProductDisplay = ({ setProductName }) => {
               <Flex
                 justifyContent="center"
                 alignItems="center"
-                minWidth="300px"
-                minHeight="300px"
                 border="3px solid #f5f5f5"
                 borderRadius="15px"
                 boxShadow="md"
+                w={{ base: '300px', md: '350px', lg: '400px' }}
+                h={{ base: '300px', md: '350px', lg: '400px' }}
               >
                 <Image
                   src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${imageURL}?alt=media`}
@@ -159,7 +162,7 @@ const ProductDisplay = ({ setProductName }) => {
                 alignSelf="center"
                 justifyContent="center"
                 gap="20px"
-                w={{ base: '400px', lg: '500px' }}
+                w={{ base: '300px', lg: '400px' }}
               >
                 <ChooseValue setNoOfProducts={(val) => setNoOfProducts(val)} />
                 <Button
