@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from '@chakra-ui/react';
 import { useState } from 'react';
-import { useProduct, useProductUpdate } from '../../components/ProductContex';
+import { ProductsContex } from '../../components/ProductContex';
 
 function ButtonIncrement(props) {
   return (
@@ -28,15 +28,13 @@ function NumberField() {
     decrementCounter = () => setCounter(1);
   }
 
-  const test = useProduct();
-  const changeTest = useProductUpdate();
-  const changeTest2 = useProductUpdate()[1];
-  const testFunc = (test) => test - 1;
+  const { dispatch } = useContext(ProductsContex);
+
   return (
     <div>
-      <ButtonIncrement onClickFunc={changeTest[0]} />
-      <Display message={test} />
-      <ButtonDecrement onClickFunc={changeTest[1]} />
+      <ButtonIncrement onClickFunc={() => dispatch()} />
+      <Display message={'eeee'} />
+      <ButtonDecrement onClickFunc={console.log('-')} />
     </div>
   );
 }
