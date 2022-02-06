@@ -1,14 +1,8 @@
-import { Link, useParams, useSearchParams } from 'react-router-dom';
-import {
-  SimpleGrid,
-  Text,
-  Flex,
-  Heading,
-  Select,
-  Spinner,
-} from '@chakra-ui/react';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { SimpleGrid, Text, Flex, Select, Spinner } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
+import ProductPreview from './ProductPreview';
 
 const SortStates = {
   NAME_ASC: 'name(asc)',
@@ -137,30 +131,16 @@ const ProductList = ({ products }) => {
       </Flex>
       <SimpleGrid
         paddingY={5}
-        minChildWidth="200px"
+        minChildWidth="220px"
         justifyItems={{ base: 'center', md: 'flex-start' }}
         alignItems="center"
         spacing={1}
         rowGap="30px"
+        columnGap="10px"
       >
         {products.length > 0 ? (
           applyFiltering().map((product) => (
-            <Link key={product.name} to={`/store/product/${product.id}`}>
-              <Flex
-                p={5}
-                flexDirection="column"
-                justifyContent="center"
-                shadow="md"
-                borderWidth="1px"
-                width="200px"
-                height="160px"
-                textAlign="center"
-              >
-                <Heading fontSize="md">{product.name}</Heading>
-                <Text fontSize="md">${product.price}</Text>
-                <Text fontSize="md">{product.details.brand}</Text>
-              </Flex>
-            </Link>
+            <ProductPreview key={product.id} product={product} />
           ))
         ) : (
           <Flex justifyContent="center" alignItems="center" width="100%">
