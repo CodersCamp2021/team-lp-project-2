@@ -44,7 +44,7 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
         as={RouterLink}
         to="/"
         fontSize="xl"
-        color={currentPath === '/' && 'blue.400'}
+        color={currentPath === '/' && 'purple.500'}
       >
         Home
       </ChakraLink>
@@ -53,7 +53,7 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
         as={RouterLink}
         to="/store"
         fontSize="xl"
-        color={currentPath === '/store' && 'blue.400'}
+        color={currentPath.includes('store') && 'purple.500'}
       >
         Store
       </ChakraLink>
