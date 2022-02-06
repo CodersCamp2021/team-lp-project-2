@@ -1,7 +1,13 @@
 import Filters from './Filters';
-import { getByTestId, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
+
+const mockBrands = {
+  '': [],
+  cpu: ['Intel', 'AMD'],
+  gpu: ['Asus', 'Gigabyte', 'MSI'],
+};
 
 test('Component renders correctly', () => {
   render(
@@ -29,16 +35,23 @@ test('Render submit button correctly', () => {
 });
 
 test('Checkboxes are unchecked after changing category', () => {
-  render(
-    <ChakraProvider>
-      <BrowserRouter>
-        <Filters category={'cpu'} />
-      </BrowserRouter>
-    </ChakraProvider>,
-  );
+  for (const category in mockBrands) {
+    render(
+      <ChakraProvider>
+        <BrowserRouter>
+          <Filters category={category} />
+        </BrowserRouter>
+      </ChakraProvider>,
+    );
 
-  const checkboxes = screen.getAllByRole('checkbox');
-  checkboxes.forEach((checkbox) => {
-    expect(checkbox).not.toBeChecked();
-  });
+    let checkboxes = [];
+    for (const brand of mockBrands[category]) {
+      checkboxes.push(screen.getByLabelText(brand));
+    }
+
+    checkboxes.forEach((checkbox) => {
+      expect(checkbox).not.toBeChecked();
+    });
+    checkboxes = [];
+  }
 });
