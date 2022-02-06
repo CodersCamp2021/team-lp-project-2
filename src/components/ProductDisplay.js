@@ -82,14 +82,14 @@ const ProductDisplay = ({ setProductName }) => {
   }
 
   return (
-    <Box>
+    <Box bg="tomato">
       {productInfo && (
-        <Flex flexDirection="column">
-          <Flex direction={{ base: 'column', lg: 'row' }} alignItems="center">
+        <Flex flexDirection="column" flexWrap="wrap">
+          <Flex direction={{ base: 'column', xl: 'row' }} alignItems="center">
             <Flex
               flexShrink="3"
               flexDirection="column"
-              w="50%"
+              w="40%"
               justifyContent="center"
               alignItems="center"
               p={5}
@@ -102,8 +102,6 @@ const ProductDisplay = ({ setProductName }) => {
                 border="3px solid #f5f5f5"
                 borderRadius="15px"
                 boxShadow="md"
-                w="450px"
-                h="450px"
               >
                 <Image
                   src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${imageURL}?alt=media`}
@@ -133,7 +131,7 @@ const ProductDisplay = ({ setProductName }) => {
                 ))}
               </Flex>
             </Flex>
-            <Flex m={5} flexDirection="column">
+            <Flex m={5} flexDirection="column" minW="=400px">
               <Text p="40px 0 10px 35px" fontSize="25px" fontWeight="semibold">
                 Details:
               </Text>
