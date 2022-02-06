@@ -22,6 +22,24 @@ function productListReducer(state, action) {
           ],
         };
       }
+    case 'ADD_MANY_PROD':
+      const manyIndex = state.products.findIndex(
+        (product) => product.id === action.payload.product.id,
+      );
+      if (manyIndex >= 0) {
+        const copyManyProducts = [...state.products];
+        copyManyProducts[manyIndex].amount = copyManyProducts[manyIndex].amount + parseInt(action.payload.count);
+        return {
+          products: copyManyProducts,
+        };
+      } else {
+        return {
+          products: [
+            ...state.products,
+            { ...action.payload.product, amount: action.payload.count},
+          ],
+        };
+      }
     case 'INCREASE_PROD_AMOUNT':
       const ind = state.products.findIndex(
         (product) => product.id === action.payload.id,
@@ -52,6 +70,10 @@ function productListReducer(state, action) {
       delProductList.splice(delIndex, 1)
       return {
         products: delProductList,
+      };
+    case "CLEAR_CART":
+      return {
+        products: [],
       };
     default:
       return state;

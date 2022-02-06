@@ -94,6 +94,7 @@ const Store = () => {
               path="/product/:productId"
               element={
                 <ProductDisplay
+                  products={products}
                   setProductName={(productName) => setProductName(productName)}
                 />
               }

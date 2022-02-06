@@ -7,6 +7,7 @@ function DeleteButton({id}) {
   function handleSubmit() {
     dispatch({ type: 'DELETE_PROD', payload: { id: id } })
   }
+  
   const { dispatch } = useContext(ProductsContex);
   return (
     <Button bg="inherit" color="blackAlpha.900" onClick={handleSubmit}>

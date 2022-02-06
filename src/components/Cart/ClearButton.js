@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from '@chakra-ui/react';
+import { ProductsContex } from '../../components/ProductContex';
 
 function ClearButton() {
   function handleClearCart() {
-    console.log('click on clear cart button');
+    dispatch({ type: 'CLEAR_CART', })
   }
 
+  const { dispatch } = useContext(ProductsContex);
   return (
     <Button width="100px" mt="25" colorScheme="teal" onClick={handleClearCart}>
       Clear cart
