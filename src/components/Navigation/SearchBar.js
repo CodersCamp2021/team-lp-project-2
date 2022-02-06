@@ -3,22 +3,12 @@ import { Button, Flex, FormControl, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 import { AllProductsContext } from '../App';
-
-// Source and explanation of debounce hook => https://dmitripavlutin.com/controlled-inputs-using-react-hooks/#4-debouncing-the-controlled-input
-const useDebouncedValue = (value, wait) => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-  useEffect(() => {
-    const id = setTimeout(() => setDebouncedValue(value), wait);
-    return () => clearTimeout(id);
-  }, [value]);
-  return debouncedValue;
-};
+import SearchCombobox from './Combobox';
 
 const SearchBar = ({ isMenuOpen }) => {
-  const [searchInput, setSearchInput] = useState('');
-  const debouncedInput = useDebouncedValue(searchInput, 500);
+  // const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
-  const products = useContext(AllProductsContext);
+  // const products = useContext(AllProductsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,21 +21,21 @@ const SearchBar = ({ isMenuOpen }) => {
     e.target.reset();
   };
 
-  const handleChange = (e) => {
-    setSearchInput(e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   setSearchInput(e.target.value);
+  // };
 
-  const handleSearch = () => {
-    return products.filter((product) =>
-      product.name.toLowerCase().includes(debouncedInput.toLowerCase()),
-    );
-  };
+  // const handleSearch = () => {
+  //   return products.filter((product) =>
+  //     product.name.toLowerCase().includes(debouncedInput.toLowerCase()),
+  //   );
+  // };
 
-  useEffect(() => {
-    if (searchInput.length > 2) {
-      console.log(handleSearch());
-    }
-  }, [debouncedInput]);
+  // useEffect(() => {
+  //   if (searchInput.length > 2) {
+  //     console.log(handleSearch());
+  //   }
+  // }, [debouncedInput]);
 
   return (
     <Flex
@@ -67,15 +57,23 @@ const SearchBar = ({ isMenuOpen }) => {
       pb={{ base: '40px', md: '0' }}
     >
       <form onSubmit={handleSubmit} style={{ width: '90%' }}>
-        <FormControl display="flex" mx="auto" maxWidth="600px">
-          <Input
+        <FormControl
+          display="flex"
+          mx="auto"
+          maxWidth="600px"
+          maxHeight="40px"
+          align="center"
+        >
+          {/* <Input
             onChange={handleChange}
             borderColor="blackAlpha.500"
             focusBorderColor="blackAlpha.900"
             borderRadius="20px"
             placeholder="Search for products..."
-          />
+          /> */}
+          <SearchCombobox />
           <Button
+            placeSelf="center"
             type="submit"
             bg="none"
             _hover={{ bg: 'inherit' }}
