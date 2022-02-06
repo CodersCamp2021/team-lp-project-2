@@ -1,5 +1,6 @@
 import Filters from './Filters';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -54,4 +55,32 @@ test('Checkboxes are unchecked after changing category', () => {
     });
     checkboxes = [];
   }
+});
+
+test('should change url', () => {
+  global.window = { location: { pathname: null } };
+  window.scrollTo = jest.fn();
+
+  render(
+    <ChakraProvider>
+      <BrowserRouter>
+        <Filters category={'cpu'} />
+      </BrowserRouter>
+    </ChakraProvider>,
+  );
+
+  const checkboxes = mockBrands['cpu'].map((brand) =>
+    screen.getByLabelText(brand),
+  );
+
+  checkboxes.forEach((checkbox) => {
+    userEvent.click(checkbox);
+  });
+
+  const apply = screen.getByTestId('applyButton');
+  userEvent.click(apply);
+
+  expect(global.window.location.pathname).toEqual(
+    `/store/cpu?min=0&max=1500&brands=Intel%2CAMD`,
+  );
 });

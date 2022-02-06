@@ -117,6 +117,7 @@ function Filters({ category }) {
           colorScheme="purple"
           rightIcon={<BsCheckAll />}
           onClick={handleSubmit}
+          data-testid="applyButton"
         >
           Apply
         </Button>
