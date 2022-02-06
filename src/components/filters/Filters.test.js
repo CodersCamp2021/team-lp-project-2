@@ -27,3 +27,18 @@ test('Render submit button correctly', () => {
   const applyButton = screen.getByRole('button');
   expect(applyButton).toBeInTheDocument();
 });
+
+test('Checkboxes are unchecked after changing category', () => {
+  render(
+    <ChakraProvider>
+      <BrowserRouter>
+        <Filters category={'cpu'} />
+      </BrowserRouter>
+    </ChakraProvider>,
+  );
+
+  const checkboxes = screen.getAllByRole('checkbox');
+  checkboxes.forEach((checkbox) => {
+    expect(checkbox).not.toBeChecked();
+  });
+});
