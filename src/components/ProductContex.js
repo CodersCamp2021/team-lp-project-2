@@ -36,10 +36,12 @@ function productListReducer(state, action) {
         (product) => product.id === action.payload.id,
       );
       const copyProductsList = [...state.products];
-      copyProductsList[decIndex].amount = copyProductsList[decIndex].amount - 1;
-      return {
-        products: copyProductsList,
-      };
+      if (copyProductsList[decIndex].amount > 1){
+        copyProductsList[decIndex].amount = copyProductsList[decIndex].amount - 1;
+        return {
+          products: copyProductsList,
+        };
+      }
     default:
       return state;
   }
