@@ -39,7 +39,7 @@ const SingleProduct = ({ name, price, amount, id }) => {
         ></NumberField>
       </GridItem>
       <GridItem justifySelf="center">
-        <DeleteButton fontSize="1.5vw" cursor="pointer" />
+        <DeleteButton fontSize="1.5vw" cursor="pointer" id={id}/>
       </GridItem>
     </Grid>
   );

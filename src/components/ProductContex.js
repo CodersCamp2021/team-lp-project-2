@@ -41,7 +41,18 @@ function productListReducer(state, action) {
         return {
           products: copyProductsList,
         };
-      }
+      }else{
+        return {products: copyProductsList,}
+      };
+    case 'DELETE_PROD':
+      const delIndex = state.products.findIndex(
+        (product) => product.id === action.payload.id,
+      );
+      const delProductList = [...state.products];
+      delProductList.splice(delIndex, 1)
+      return {
+        products: delProductList,
+      };
     default:
       return state;
   }
