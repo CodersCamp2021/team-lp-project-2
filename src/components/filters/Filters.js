@@ -46,6 +46,7 @@ function Filters({ category }) {
       justify="center"
       align="flex-start"
       w={{ base: '100%', sm: '100%', md: '250px', lg: '300px' }}
+      data-testid="filters"
     >
       <VStack spacing={2} align="stretch" w="100%" mb="5%">
         <Text
