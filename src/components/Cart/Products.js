@@ -8,7 +8,13 @@ const Products = ({ products }) => {
       {products.map((product) => {
         const { id, name, price, amount } = product;
         return (
-          <SingleProduct key={id} name={name} price={price} amount={amount} />
+          <SingleProduct
+            key={id}
+            name={name}
+            price={price}
+            amount={amount}
+            id={id}
+          />
         );
       })}
     </Box>

@@ -20,7 +20,7 @@ function ButtonDecrement(props) {
 function Display(props) {
   return <label style={{ marginLeft: '.5rem' }}>{props.message}</label>;
 }
-function NumberField() {
+function NumberField({ amount, id }) {
   const [counter, setCounter] = useState(0);
   const incrementCounter = () => setCounter(counter + 1);
   let decrementCounter = () => setCounter(counter - 1);
@@ -29,13 +29,14 @@ function NumberField() {
   }
 
   const { state, dispatch } = useContext(ProductsContex);
-
   return (
     <div>
       <ButtonIncrement
-        onClickFunc={() => dispatch({ type: 'ADD', payload: { wartosc: 3 } })}
+        onClickFunc={() =>
+          dispatch({ type: 'INCREASE_PROD_AMOUNT', payload: { id: id } })
+        }
       />
-      <Display message={state.count} />
+      <Display message={amount} />
       <ButtonDecrement onClickFunc={console.log('-')} />
     </div>
   );

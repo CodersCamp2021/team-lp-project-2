@@ -1,7 +1,8 @@
 import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, { useContext } from 'react';
 import { AddIcon, CheckIcon } from '@chakra-ui/icons';
+import { ProductsContex } from './ProductContex';
 
 const dummyProducts = [
   {
@@ -41,11 +42,14 @@ const ProductPreview = ({ product }) => {
    */
   const isProductInCart = dummyProducts.some((product) => product.id === id);
 
+  const { state, dispatch } = useContext(ProductsContex);
+
   const handleAddToCart = (e) => {
     e.stopPropagation();
 
     //action for adding item to context API will be here
     console.log(`add to cart item with id: ${id}`);
+    dispatch({ type: 'ADD_PROD', payload: { product: product } });
   };
 
   const handleGhostClick = (e) => {

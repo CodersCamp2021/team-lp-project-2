@@ -1,34 +1,46 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 export const ProductsContex = React.createContext();
 
 function productListReducer(state, action) {
   switch (action.type) {
-    case 'ADD':
-      return { count: state.count + action.payload.wartosc };
-    case 'ODD':
-      return { count: state.count - 1 };
+    case 'ADD_PROD':
+      const index = state.products.findIndex(
+        (product) => product.id === action.payload.product.id,
+      );
+      if (index >= 0) {
+        const copyProducts = [...state.products];
+        copyProducts[index].amount = copyProducts[index].amount + 1;
+        return {
+          products: copyProducts,
+        };
+      } else {
+        return {
+          products: [
+            ...state.products,
+            { ...action.payload.product, amount: 1 },
+          ],
+        };
+      }
+    case 'INCREASE_PROD_AMOUNT':
+      const ind = state.products.findIndex(
+        (product) => product.id === action.payload.id,
+      );
+      const copyProducts = [...state.products];
+      copyProducts[ind].amount = copyProducts[ind].amount + 1;
+      return {
+        products: copyProducts,
+      };
     default:
       return state;
   }
 }
 
 export function ProductProvider({ children }) {
-  const [state, dispatch] = useReducer(productListReducer, { count: 0 });
-
-  // function addProductToCart(product) {
-  //   changeProductList((prevProductNumber) => prevProductNumber.append(product));
-  // }
-
-  // function removeProductFromCart(id) {
-  //   changeProductList((prevProductNumber) => {
-  //     for (let i = 0; i < prevProductNumber.length; i++) {
-  //       if (prevProductNumber[i].id == id) {
-  //         prevProductNumber.splice(i, 1);
-  //       }
-  //     }
-  //   });
-  // }
+  const [state, dispatch] = useReducer(productListReducer, { products: [] });
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   return (
     <ProductsContex.Provider value={{ state, dispatch }}>
