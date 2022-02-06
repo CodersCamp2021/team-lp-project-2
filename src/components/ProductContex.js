@@ -31,6 +31,15 @@ function productListReducer(state, action) {
       return {
         products: copyProducts,
       };
+    case 'DECREASE_PROD_AMOUNT':
+      const decIndex = state.products.findIndex(
+        (product) => product.id === action.payload.id,
+      );
+      const copyProductsList = [...state.products];
+      copyProductsList[decIndex].amount = copyProductsList[decIndex].amount - 1;
+      return {
+        products: copyProductsList,
+      };
     default:
       return state;
   }

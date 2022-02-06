@@ -37,7 +37,10 @@ function NumberField({ amount, id }) {
         }
       />
       <Display message={amount} />
-      <ButtonDecrement onClickFunc={console.log('-')} />
+      <ButtonDecrement onClickFunc={() => 
+        dispatch({ type: 'DECREASE_PROD_AMOUNT', payload: { id: id } })
+        } 
+      />
     </div>
   );
 }
