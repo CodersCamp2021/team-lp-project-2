@@ -28,12 +28,12 @@ function NumberField() {
     decrementCounter = () => setCounter(1);
   }
 
-  const { dispatch } = useContext(ProductsContex);
+  const { state, dispatch } = useContext(ProductsContex);
 
   return (
     <div>
-      <ButtonIncrement onClickFunc={() => dispatch()} />
-      <Display message={'eeee'} />
+      <ButtonIncrement onClickFunc={() => dispatch({ type: 'ADD' })} />
+      <Display message={state.count} />
       <ButtonDecrement onClickFunc={console.log('-')} />
     </div>
   );

@@ -1,20 +1,20 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 export const ProductsContex = React.createContext();
 
 function productListReducer(state, action) {
   switch (action.type) {
     case 'ADD':
-      return state + action.wartosc;
+      return { count: state.count + 1 };
     case 'ODD':
-      return state - 1;
+      return { count: state.count - 1 };
     default:
       return state;
   }
 }
 
 export function ProductProvider({ children }) {
-  const [productList, dispatch] = useReducer(productListReducer, 0);
+  const [state, dispatch] = useReducer(productListReducer, { count: 0 });
 
   // function addProductToCart(product) {
   //   changeProductList((prevProductNumber) => prevProductNumber.append(product));
@@ -31,7 +31,7 @@ export function ProductProvider({ children }) {
   // }
 
   return (
-    <ProductsContex.Provider value={(productList, dispatch)}>
+    <ProductsContex.Provider value={{ state, dispatch }}>
       {children}
     </ProductsContex.Provider>
   );
