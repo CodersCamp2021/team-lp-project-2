@@ -30,12 +30,13 @@ function NumberField() {
 
   const test = useProduct();
   const changeTest = useProductUpdate();
+  const changeTest2 = useProductUpdate()[1];
   const testFunc = (test) => test - 1;
   return (
     <div>
-      <ButtonIncrement onClickFunc={changeTest} />
+      <ButtonIncrement onClickFunc={changeTest[0]} />
       <Display message={test} />
-      <ButtonDecrement onClickFunc={testFunc(test)} />
+      <ButtonDecrement onClickFunc={changeTest[1]} />
     </div>
   );
 }

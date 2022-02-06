@@ -12,15 +12,27 @@ export function useProductUpdate() {
 }
 
 export function ProductProvider({ children }) {
-  const [productList, changeProductList] = useState(0);
+  const [productList, changeProductList] = useState([]);
 
-  function changeProdDetails() {
-    changeProductList((prevProductNumber) => prevProductNumber + 1);
+  function addProductToCart(product) {
+    changeProductList((prevProductNumber) => prevProductNumber.append(product));
+  }
+
+  function removeProductFromCart(id) {
+    changeProductList((prevProductNumber) => {
+      for (let i = 0; i < prevProductNumber.length; i++) {
+        if (prevProductNumber[i].id == id) {
+          prevProductNumber.splice(i, 1);
+        }
+      }
+    });
   }
 
   return (
     <ProductsContex.Provider value={productList}>
-      <ProductsContexUpdate.Provider value={changeProdDetails}>
+      <ProductsContexUpdate.Provider
+        value={[addProductToCart, removeProductFromCart]}
+      >
         {children}
       </ProductsContexUpdate.Provider>
     </ProductsContex.Provider>
