@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useCombobox } from 'downshift';
 import { AllProductsContext } from '../App';
 import { Input, List, ListItem, Box, Flex, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 /* Downshift useCombobox documentation: https://www.downshift-js.com/use-combobox
 
@@ -23,7 +24,7 @@ const ComboboxItem = React.forwardRef(
     return (
       <ListItem
         transition="background-color 220ms, color 220ms"
-        bg={isActive ? 'purple.100' : null}
+        bg={isActive ? 'purple.100' : 'white'}
         px={4}
         py={2}
         cursor="pointer"
@@ -46,9 +47,16 @@ const useDebouncedValue = (value, wait) => {
 
 const SearchCombobox = () => {
   const products = useContext(AllProductsContext);
+  const [selectedState, setSelectedState] = useState(null);
   const [inputItems, setInputItems] = useState(products);
   const productsNames = products.map((product) => product.name);
-  // const debouncedInput = useDebouncedValue(searchInput, 500);
+  // const debouncedInput = useDebouncedValue(searchInput, 500);const [selectedState, setSelectedState] = useState(null);
+  const navigate = useNavigate();
+  const handleSelectedItemChange = ({ selectedItem }) => {
+    setSelectedState(selectedItem.name);
+    navigate(`/store/product/${selectedItem.id}`);
+  };
+
   const {
     isOpen,
     getMenuProps,
@@ -57,7 +65,8 @@ const SearchCombobox = () => {
     highlightedIndex,
     getItemProps,
   } = useCombobox({
-    items: products,
+    items: inputItems,
+    selectedItem: selectedState,
     onInputValueChange: ({ inputValue }) => {
       if (inputValue.length > 2) {
         setInputItems(
@@ -67,9 +76,7 @@ const SearchCombobox = () => {
         );
       }
     },
-    onSelectedItemChange: (changes) => {
-      console.log(changes);
-    },
+    onSelectedItemChange: handleSelectedItemChange,
   });
   return (
     <Box {...getComboboxProps()} direction="column" justify="center">
@@ -79,31 +86,49 @@ const SearchCombobox = () => {
         borderColor="blackAlpha.500"
         focusBorderColor="blackAlpha.900"
         borderRadius="20px"
-        width="80%"
+        width="500px"
         maxWidth="600px"
       />
       <ComboboxList
-        mt={1}
-        position="relative"
-        maxHeight="20rem"
+        mt="1px"
+        width="450px"
+        position="static"
+        maxHeight="10rem"
         isOpen={isOpen}
         {...getMenuProps()}
         overflowY="auto"
         bg="white"
-        zIndex="10"
+        zIndex="999"
+        border="1px solid black"
       >
         {inputItems.map((item, index) => (
           <ComboboxItem
             {...getItemProps({ item, index })}
             itemIndex={index}
             highlightedIndex={highlightedIndex}
-            key={index}
+            key={item.name + index}
           >
             {item.name}
           </ComboboxItem>
         ))}
       </ComboboxList>
     </Box>
+  );
+};
+
+const ControlledCombobox = () => {
+  const [selectedState, setSelectedState] = useState(null);
+  const navigate = useNavigate();
+  const handleSelectedItemChange = ({ selectedItem }) => {
+    setSelectedState(selectedItem.name);
+    navigate(`/store/product/${selectedItem.id}`);
+  };
+
+  return (
+    <SearchCombobox
+      selectedItem={selectedState}
+      handleSelectedItemChange={handleSelectedItemChange}
+    />
   );
 };
 

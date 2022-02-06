@@ -53,7 +53,7 @@ const Store = () => {
           >
             {displayName[category] ? displayName[category] : 'All products'}
           </Text>
-          <Divider />
+          <Divider zIndex="-1" />
         </Flex>
         <CategoryContext.Provider value={updateCategory}>
           <Routes>
