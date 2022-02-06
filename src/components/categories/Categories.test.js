@@ -1,27 +1,44 @@
-import { Categories, Link } from './Categories';
-import { render, fireEvent } from '@testing-library/react';
+import Categories from './Categories';
+import { render, fireEvent, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
+const nameArray = [
+  'All products',
+  'CPUs',
+  'Memory',
+  'Monitors',
+  'Graphic Cards',
+  'Motherboards',
+];
 
-test('render component correctly', () => {
-  const { screen } = render(
-    <Categories>
-      <Link />
-    </Categories>,
+const nameUrlArray = ['', '/cpu', '/ram', '/monitor', '/gpu', '/motherboard'];
+
+test('render categories correctly', () => {
+  render(
+    <BrowserRouter>
+      <Categories />
+    </BrowserRouter>,
   );
-  const renderText = screen.getByRole('link');
-  expect(renderText).toBeInTheDocument();
+
+  nameArray.forEach((name) => {
+    const category = screen.getByText(name);
+    expect(category).toBeInTheDocument();
+  });
 });
 
 test('product Link changes url', () => {
   global.window = { location: { pathname: null } };
-  const { screen } = render(
-    <Categories>
-      <Link />
-    </Categories>,
+  render(
+    <BrowserRouter>
+      <Categories />
+    </BrowserRouter>,
   );
-  const cpus = screen.getByText('CPUs');
 
-  fireEvent.click(cpus);
-
-  expect(global.window.location.pathname).toEqual('/store/cpu');
+  nameArray.forEach((name, index) => {
+    const category = screen.getByText(name);
+    fireEvent.click(category);
+    expect(global.window.location.pathname).toEqual(
+      `/store${nameUrlArray[index]}`,
+    );
+  });
 });

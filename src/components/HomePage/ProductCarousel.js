@@ -7,7 +7,7 @@ const ProductCarousel = ({ heroProducts, isLoading, active }) => {
       width="100%"
       justifyContent="center"
       alignItems="center"
-      data-testId="ProductCarousel"
+      data-testid="ProductCarousel"
       pb={8}
     >
       {!isLoading ? (
