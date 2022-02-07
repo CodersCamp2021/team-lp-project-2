@@ -75,22 +75,24 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
             openCart();
           }}
         />
-        <Flex
-          justify="center"
-          align="center"
-          position="absolute"
-          right="0"
-          bottom="0"
-          transform="translate(60%, 60%)"
-          width="30px"
-          height="30px"
-          zIndex="1000"
-          bg="purple.500"
-          color="whiteAlpha.900"
-          borderRadius="50%"
-        >
-          <Text>{amountOfProducts}</Text>
-        </Flex>
+        {amountOfProducts > 0 && (
+          <Flex
+            justify="center"
+            align="center"
+            position="absolute"
+            right="0"
+            bottom="0"
+            transform="translate(60%, 60%)"
+            width="30px"
+            height="30px"
+            zIndex="1000"
+            bg="purple.500"
+            color="whiteAlpha.900"
+            borderRadius="50%"
+          >
+            <Text>{amountOfProducts}</Text>
+          </Flex>
+        )}
       </Flex>
     </Stack>
   );
