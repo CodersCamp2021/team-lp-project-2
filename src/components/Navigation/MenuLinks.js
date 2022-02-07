@@ -80,9 +80,9 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
             justify="center"
             align="center"
             position="absolute"
-            right="0"
+            right={{ base: '50%', md: '0' }}
             bottom="0"
-            transform="translate(60%, 60%)"
+            transform={{ base: 'translate(100%, 60%)', md: 'translate(60%, 60%)' }}
             width="30px"
             height="30px"
             zIndex="1000"
