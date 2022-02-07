@@ -65,16 +65,16 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
       >
         Store
       </ChakraLink>
-      <Flex justify="center" position="relative">
-        <FaShoppingCart
-          cursor="pointer"
-          data-testid="cartIcon"
-          size="30px"
-          onClick={() => {
-            closeMenu();
-            openCart();
-          }}
-        />
+      <Flex
+        justify="center"
+        position="relative"
+        cursor="pointer"
+        onClick={() => {
+          closeMenu();
+          openCart();
+        }}
+      >
+        <FaShoppingCart data-testid="cartIcon" size="30px" />
         {amountOfProducts > 0 && (
           <Flex
             justify="center"
@@ -82,7 +82,10 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
             position="absolute"
             right={{ base: '50%', md: '0' }}
             bottom="0"
-            transform={{ base: 'translate(100%, 60%)', md: 'translate(60%, 60%)' }}
+            transform={{
+              base: 'translate(100%, 60%)',
+              md: 'translate(60%, 60%)',
+            }}
             width="30px"
             height="30px"
             zIndex="1000"
