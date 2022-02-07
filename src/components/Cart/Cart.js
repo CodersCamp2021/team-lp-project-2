@@ -31,7 +31,7 @@ const Cart = ({ isCartOpen, closeCart }) => {
         {state.products.length > 0 ? (
           <Products products={state.products} />
         ) : (
-          <Flex justify="center">
+          <Flex justify="center" pt={10}>
             <Text fontSize="3xl">The cart is empty</Text>
           </Flex>
         )}

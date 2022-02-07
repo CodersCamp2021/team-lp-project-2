@@ -30,7 +30,9 @@ const SingleProduct = ({ name, price, amount, id }) => {
         />
       </GridItem>
       <GridItem justifySelf="center">
-        <Text fontSize="sm">{name}</Text>
+        <Text fontSize="sm" textAlign="center">
+          {name}
+        </Text>
       </GridItem>
       <GridItem justifySelf="center">
         <Text fontSize="sm">${price}</Text>
