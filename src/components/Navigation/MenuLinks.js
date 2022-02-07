@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Stack,
   Flex,
@@ -8,10 +8,17 @@ import {
 } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useMatch, Link as RouterLink } from 'react-router-dom';
+import { ProductContext } from '../ProductContext';
 
 const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
+  const { state } = useContext(ProductContext);
   const match = useMatch('/*');
   const currentPath = match.pathname;
+
+  const amountOfProducts = state.products.reduce(
+    (acc, curr) => (acc += curr.amount),
+    0,
+  );
 
   return (
     <Stack
@@ -82,7 +89,7 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
           color="whiteAlpha.900"
           borderRadius="50%"
         >
-          <Text>5</Text>
+          <Text>{amountOfProducts}</Text>
         </Flex>
       </Flex>
     </Stack>
