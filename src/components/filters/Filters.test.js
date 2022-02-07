@@ -1,6 +1,6 @@
 import Filters from './Filters';
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const mockBrands = {
   gpu: ['Asus', 'Gigabyte', 'MSI'],
 };
 
-test('Component renders correctly', () => {
+test('should render component correctly', () => {
   render(
     <ChakraProvider>
       <BrowserRouter>
@@ -23,7 +23,7 @@ test('Component renders correctly', () => {
   expect(filters).toBeInTheDocument();
 });
 
-test('Render submit button correctly', () => {
+test('should render submit button correctly', () => {
   render(
     <ChakraProvider>
       <BrowserRouter>
@@ -35,7 +35,7 @@ test('Render submit button correctly', () => {
   expect(applyButton).toBeInTheDocument();
 });
 
-test('Checkboxes are unchecked after changing category', () => {
+test('should render unchecked checkboxes after changing category', () => {
   for (const category in mockBrands) {
     render(
       <ChakraProvider>
