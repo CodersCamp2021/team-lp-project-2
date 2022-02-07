@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
+import { FaShoppingCart } from 'react-icons/fa';
 
 function BuyButton() {
   function handleBuy() {
@@ -8,11 +9,11 @@ function BuyButton() {
 
   return (
     <Button
-      width="100px"
-      mt="5"
-      colorScheme="blue"
-      bottom="0"
+      width="120px"
+      colorScheme="purple"
       onClick={handleBuy}
+      rightIcon={<FaShoppingCart />}
+      size="lg"
     >
       Buy
     </Button>

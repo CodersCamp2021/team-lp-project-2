@@ -13,7 +13,7 @@ const SingleProduct = ({ name, price, amount, id }) => {
     <Grid
       templateColumns="80px auto 100px"
       templateRows="repeat(2, 1fr)"
-      gap="20px"
+      gap="10px"
       py="20px"
       borderBottom="1px solid #000"
     >
@@ -23,13 +23,23 @@ const SingleProduct = ({ name, price, amount, id }) => {
           alt="image"
         />
       </GridItem>
-      <GridItem justifySelf="center">
-        <Text fontSize="sm">{name}</Text>
+      <GridItem justifySelf="start" alignSelf="center">
+        <Text
+          pl={3}
+          fontWeight="semibold"
+          fontSize="md"
+          maxWidth="250px"
+          isTruncated
+        >
+          {name}
+        </Text>
       </GridItem>
-      <GridItem justifySelf="center">
-        <Text fontSize="sm">${price}</Text>
+      <GridItem alignSelf="center" justifySelf="center">
+        <Text fontWeight="bold" fontSize="lg">
+          ${parseFloat(price).toFixed(2)}
+        </Text>
       </GridItem>
-      <GridItem justifySelf="center">
+      <GridItem justifySelf="center" bg="tomato">
         <NumberField
           amount={amount}
           id={id}
@@ -39,7 +49,7 @@ const SingleProduct = ({ name, price, amount, id }) => {
         ></NumberField>
       </GridItem>
       <GridItem justifySelf="center">
-        <DeleteButton fontSize="1.5vw" cursor="pointer" id={id}/>
+        <DeleteButton fontSize="1.5vw" cursor="pointer" id={id} />
       </GridItem>
     </Grid>
   );

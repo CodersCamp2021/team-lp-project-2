@@ -15,7 +15,7 @@ const CartSummary = () => {
     return parseFloat(sum).toFixed(2);
   }
   return (
-    <Box py={10} color="#000">
+    <Box py={10} mt={2} borderTop="2px solid #999">
       <Flex align="center" justify="center">
         <Text
           pr={3}
@@ -30,7 +30,7 @@ const CartSummary = () => {
           {calculatePrice()}$
         </Text>
       </Flex>
-      <Flex direction="column" align="center" justify="end">
+      <Flex pt={5} direction="row" align="center" justify="center" gap={5}>
         <ClearButton />
         <BuyButton />
       </Flex>
