@@ -12,13 +12,24 @@ const CartSummary = () => {
     for (let index = 0; index < state.products.length; index++) {
       sum = sum + state.products[index].price * state.products[index].amount;
     }
-    return parseFloat(sum).toFixed(2);;
+    return parseFloat(sum).toFixed(2);
   }
   return (
     <Box py={10} color="#000">
-      <Text fontSize="3xl" align="center">
-        Total: {calculatePrice()}$
-      </Text>
+      <Flex align="center" justify="center">
+        <Text
+          pr={3}
+          fontWeight="semibold"
+          fontSize="3xl"
+          align="center"
+          color="#111"
+        >
+          Total:
+        </Text>
+        <Text color="#777" fontSize="3xl" align="center">
+          {calculatePrice()}$
+        </Text>
+      </Flex>
       <Flex direction="column" align="center" justify="end">
         <ClearButton />
         <BuyButton />
