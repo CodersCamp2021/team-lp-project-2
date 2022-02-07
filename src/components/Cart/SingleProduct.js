@@ -3,7 +3,7 @@ import { Text, Image, Grid, GridItem } from '@chakra-ui/react';
 import DeleteButton from './DeleteButton';
 import NumberField from './NumberField';
 
-const SingleProduct = ({ name, price, amount }) => {
+const SingleProduct = ({ name, price, amount, id }) => {
   //logging is just for now. later it should update state in Context API
   const handleChangeAmount = (newValue) => {
     console.log(newValue);
@@ -31,13 +31,15 @@ const SingleProduct = ({ name, price, amount }) => {
       </GridItem>
       <GridItem justifySelf="center">
         <NumberField
+          amount={amount}
+          id={id}
           w="30%"
           defaultValue={amount}
           onChange={(value) => handleChangeAmount(value)}
         ></NumberField>
       </GridItem>
       <GridItem justifySelf="center">
-        <DeleteButton fontSize="1.5vw" cursor="pointer" />
+        <DeleteButton fontSize="1.5vw" cursor="pointer" id={id}/>
       </GridItem>
     </Grid>
   );

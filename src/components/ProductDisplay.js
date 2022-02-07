@@ -14,23 +14,23 @@ import {
 } from '@chakra-ui/react';
 import ChooseValue from './productDetails/ChooseValue';
 import { FaAngleRight, FaShoppingCart } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
+import { ProductContext } from './ProductContext';
 
-const ProductDisplay = ({ setProductName }) => {
+const ProductDisplay = ({products, setProductName}) => {
   let { productId } = useParams();
-
   const [productInfo, setProductInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [noOfProducts, setNoOfProducts] = useState(1);
-
+  const { dispatch } = useContext(ProductContext);
   //getting productInfo object from firebase
   const getProduct = async (productId) => {
     const docRef = doc(db, 'products', productId);
-
+    console.log(productId)
     setIsLoading(true);
     setError(null);
 
@@ -47,6 +47,13 @@ const ProductDisplay = ({ setProductName }) => {
 
     setIsLoading(false);
   };
+  
+  function handleAddManyProducts() {
+    const manyIndex = products.findIndex(
+      (product) => product.id === productId,
+    );
+    dispatch({ type: 'ADD_MANY_PROD', payload: {product: products[manyIndex], count: parseInt(noOfProducts)}})
+  }
 
   useEffect(() => {
     getProduct(productId);
@@ -171,12 +178,7 @@ const ProductDisplay = ({ setProductName }) => {
                   rightIcon={<FaShoppingCart />}
                   size="lg"
                   borderRadius="15px"
-                  onClick={() =>
-                    console.log(
-                      'Add to cart: ' +
-                        JSON.stringify({ id: productId, amount: noOfProducts }),
-                    )
-                  }
+                  onClick={handleAddManyProducts}
                 >
                   Add to cart
                 </Button>
