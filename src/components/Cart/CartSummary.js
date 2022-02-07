@@ -12,7 +12,7 @@ const CartSummary = () => {
     for (let index = 0; index < state.products.length; index++) {
       sum = sum + state.products[index].price * state.products[index].amount;
     }
-    return sum;
+    return parseFloat(sum).toFixed(2);;
   }
   return (
     <Box py={10} color="#000">
