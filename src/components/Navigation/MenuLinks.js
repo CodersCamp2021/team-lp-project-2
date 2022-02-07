@@ -4,6 +4,7 @@ import {
   Flex,
   Link as ChakraLink,
   StackDivider,
+  Text,
 } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useMatch, Link as RouterLink } from 'react-router-dom';
@@ -57,7 +58,7 @@ const MenuLinks = ({ isMenuOpen, openCart, closeMenu }) => {
       >
         Store
       </ChakraLink>
-      <Flex justify="center">
+      <Flex justify="center" position="relative">
         <FaShoppingCart
           cursor="pointer"
           data-testid="cartIcon"
