@@ -8,7 +8,7 @@ function DeleteButton({id}) {
     dispatch({ type: 'DELETE_PROD', payload: { id: id } })
   }
 
-  const { dispatch } = useContext(ProductsContex);
+  const { dispatch } = useContext(ProductContext);
   return (
     <Button bg="inherit" color="blackAlpha.900" onClick={handleSubmit}>
       <FaTrashAlt size="20px" />

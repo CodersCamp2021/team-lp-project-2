@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 
-export const ProductsContex = React.createContext();
+export const ProductContext = React.createContext();
 
 function productListReducer(state, action) {
   switch (action.type) {
@@ -87,8 +87,8 @@ export function ProductProvider({ children }) {
   }, [state]);
 
   return (
-    <ProductsContex.Provider value={{ state, dispatch }}>
+    <ProductContext.Provider value={{ state, dispatch }}>
       {children}
-    </ProductsContex.Provider>
+    </ProductContext.Provider>
   );
 }

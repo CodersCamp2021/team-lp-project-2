@@ -4,10 +4,10 @@ import CartBackground from './CartBackground';
 import CartHeader from './CartHeader';
 import CartSummary from './CartSummary';
 import Products from './Products';
-import { ProductsContex } from '../ProductContext';
+import { ProductContext } from '../ProductContext';
 
 const Cart = ({ isCartOpen, closeCart }) => {
-  const { state } = useContext(ProductsContex);
+  const { state } = useContext(ProductContext);
   return (
     <>
       <CartBackground isCartOpen={isCartOpen} closeCart={closeCart} />

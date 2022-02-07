@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button } from '@chakra-ui/react';
-import { ProductsContex } from '../ProductContext';
+import { ProductContext } from '../ProductContext';
 
 function ButtonIncrement(props) {
   return (
@@ -20,7 +20,7 @@ function Display(props) {
   return <label style={{ marginLeft: '.5rem' }}>{props.message}</label>;
 }
 function NumberField({ amount, id }) {
-  const { dispatch } = useContext(ProductsContex);
+  const { dispatch } = useContext(ProductContext);
   return (
     <div>
       <ButtonIncrement

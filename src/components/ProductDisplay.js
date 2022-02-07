@@ -17,7 +17,7 @@ import { FaAngleRight, FaShoppingCart } from 'react-icons/fa';
 import { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
-import { ProductsContex } from './ProductContext';
+import { ProductContext } from './ProductContext';
 
 const ProductDisplay = ({products, setProductName}) => {
   let { productId } = useParams();
@@ -26,7 +26,7 @@ const ProductDisplay = ({products, setProductName}) => {
   const [error, setError] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [noOfProducts, setNoOfProducts] = useState(1);
-  const { dispatch } = useContext(ProductsContex);
+  const { dispatch } = useContext(ProductContext);
   //getting productInfo object from firebase
   const getProduct = async (productId) => {
     const docRef = doc(db, 'products', productId);
