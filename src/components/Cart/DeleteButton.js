@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from '@chakra-ui/react';
 import { FaTrashAlt } from 'react-icons/fa';
-import { ProductsContex } from '../ProductContext';
+import { ProductContext } from '../ProductContext';
 
 function DeleteButton({id}) {
   function handleSubmit() {
