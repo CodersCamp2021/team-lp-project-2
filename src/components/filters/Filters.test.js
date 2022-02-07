@@ -57,7 +57,7 @@ test('should render unchecked checkboxes after changing category', () => {
   }
 });
 
-test('should change url', () => {
+test('should change url - checkboxes', () => {
   global.window = { location: { pathname: null } };
   window.scrollTo = jest.fn();
 
@@ -84,4 +84,29 @@ test('should change url', () => {
   expect(global.window.location.search).toEqual(
     `?min=0&max=1500&brands=Intel%2CAMD`,
   );
+});
+
+test('should change url - price inputs', () => {
+  global.window = { location: { pathname: null } };
+  window.scrollTo = jest.fn();
+
+  render(
+    <ChakraProvider>
+      <BrowserRouter>
+        <Filters />
+      </BrowserRouter>
+    </ChakraProvider>,
+  );
+
+  const minInput = screen.getByTestId('minInput');
+  userEvent.type(minInput, '120');
+
+  const maxInput = screen.getByTestId('maxInput');
+  userEvent.type(maxInput, '{backspace}');
+
+  const apply = screen.getByTestId('applyButton');
+  userEvent.click(apply);
+
+  expect(global.window.location.pathname).toEqual(`/store`);
+  expect(global.window.location.search).toEqual(`?min=120&max=150`);
 });
