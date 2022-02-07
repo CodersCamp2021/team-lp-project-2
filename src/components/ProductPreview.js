@@ -1,38 +1,51 @@
-import {
-  Box,
-  Flex,
-  Text,
-  Image,
-  Button,
-  Slide,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Flex, Text, Image, Button, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AddIcon, CheckIcon } from '@chakra-ui/icons';
 import { ProductContext } from './ProductContext';
+import { BsCheckCircleFill } from 'react-icons/bs';
 
 const ProductPreview = ({ product }) => {
   const { id, name, price } = product;
   const navigate = useNavigate();
-  const { isOpen, onClose, onOpen } = useDisclosure();
+  const [disabled, setDisabled] = useState(false);
+  const toast = useToast();
 
   const { dispatch } = useContext(ProductContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      onClose();
+      setDisabled(false);
     }, 2000);
     return () => {
       clearTimeout(timer);
     };
     //eslint-disable-next-line
-  }, [isOpen]);
+  }, [disabled]);
+
+  const showToast = () => {
+    toast({
+      duration: 3000,
+      position: 'bottom-left',
+      render: () => (
+        <Box color="white" p={4} bg="purple.500" borderRadius="5px">
+          <Flex alignItems="center" gap="10px">
+            <BsCheckCircleFill />
+            <Text fontWeight="bold">Product added to cart!</Text>
+          </Flex>
+          <Text fontSize={{ base: '20px', md: '15px' }}>
+            Check if he hasn't escaped from there.
+          </Text>
+        </Box>
+      ),
+    });
+  };
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
+    setDisabled(true);
     dispatch({ type: 'ADD_PROD', payload: { product: product } });
-    onOpen();
+    showToast();
   };
 
   const handleGhostClick = (e) => {
@@ -75,7 +88,7 @@ const ProductPreview = ({ product }) => {
         <Text fontWeight="bold" noOfLines={2} fontSize="md" textAlign="left">
           {name}
         </Text>
-        {!isOpen ? (
+        {!disabled ? (
           <Button onClick={handleAddToCart}>
             <AddIcon />
           </Button>
@@ -90,25 +103,6 @@ const ProductPreview = ({ product }) => {
             <CheckIcon color="white" />
           </Button>
         )}
-        <Slide
-          direction="bottom"
-          in={isOpen}
-          style={{ zIndex: 10 }}
-          animateOpacity
-        >
-          <Box
-            p="10px"
-            color="white"
-            mt="4"
-            bg="purple.500"
-            shadow="lg"
-            rounded="lg"
-          >
-            <Text fontWeight="semibold" fontSize={{ base: '15px', md: '20px' }}>
-              Product added to cart!
-            </Text>
-          </Box>
-        </Slide>
       </Flex>
       <Text fontSize="md" textAlign="left">
         ${price}
