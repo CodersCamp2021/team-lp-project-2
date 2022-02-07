@@ -2,7 +2,7 @@ import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { AddIcon, CheckIcon } from '@chakra-ui/icons';
-import { ProductsContex } from './ProductContex';
+import { ProductsContex } from './ProductContext';
 
 const dummyProducts = [
   {
@@ -42,7 +42,7 @@ const ProductPreview = ({ product }) => {
    */
   const isProductInCart = dummyProducts.some((product) => product.id === id);
 
-  const { state, dispatch } = useContext(ProductsContex);
+  const { dispatch } = useContext(ProductsContex);
 
   const handleAddToCart = (e) => {
     e.stopPropagation();

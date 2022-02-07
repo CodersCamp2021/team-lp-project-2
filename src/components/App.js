@@ -6,7 +6,7 @@ import Cart from './Cart/Cart';
 import { useState } from 'react';
 import Footer from './HomePage/Footer';
 import { Grid } from '@chakra-ui/react';
-import { ProductProvider } from './ProductContex';
+import { ProductProvider } from './ProductContext';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);

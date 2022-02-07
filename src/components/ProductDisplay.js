@@ -17,7 +17,7 @@ import { FaAngleRight, FaShoppingCart } from 'react-icons/fa';
 import { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
-import { ProductsContex } from './ProductContex';
+import { ProductsContex } from './ProductContext';
 
 const ProductDisplay = ({products, setProductName}) => {
   let { productId } = useParams();

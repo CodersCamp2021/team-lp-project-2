@@ -4,7 +4,7 @@ import CartBackground from './CartBackground';
 import CartHeader from './CartHeader';
 import CartSummary from './CartSummary';
 import Products from './Products';
-import { ProductsContex } from '../../components/ProductContex';
+import { ProductsContex } from '../ProductContext';
 
 const Cart = ({ isCartOpen, closeCart }) => {
   const { state } = useContext(ProductsContex);
