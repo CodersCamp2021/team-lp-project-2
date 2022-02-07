@@ -80,7 +80,8 @@ test('should change url', () => {
   const apply = screen.getByTestId('applyButton');
   userEvent.click(apply);
 
-  expect(global.window.location.pathname).toEqual(
-    `/store/cpu?min=0&max=1500&brands=Intel%2CAMD`,
+  expect(global.window.location.pathname).toEqual(`/store/cpu`);
+  expect(global.window.location.search).toEqual(
+    `?min=0&max=1500&brands=Intel%2CAMD`,
   );
 });
