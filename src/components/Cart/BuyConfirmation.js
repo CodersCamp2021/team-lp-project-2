@@ -27,8 +27,8 @@ export default function BuyConfirmation({ isOpen, onClose }) {
         <ModalCloseButton />
         <ModalBody>
           <Text>
-            Your order make our day! We hope we make yours. If you have any
-            questions about order. contact us anytime. We'd love to hear from
+            Your order made our day! We hope we make yours. If you have any
+            questions about your order, feel free to contact us anytime. We'd love to hear from
             you! 💜
           </Text>
         </ModalBody>
