@@ -41,7 +41,7 @@ const ComboboxItem = React.forwardRef(
 const SearchCombobox = () => {
   const products = useContext(AllProductsContext);
   const [inputItems, setInputItems] = useState([]);
-
+  const [selectedState, setSelectedState] = useState('');
   const navigate = useNavigate();
 
   const handleInputValueChange = ({ inputValue }) => {
@@ -59,6 +59,7 @@ const SearchCombobox = () => {
   };
 
   const handleSelectedItemChange = ({ selectedItem }) => {
+    setSelectedState('');
     navigate(`/store/product/${selectedItem.id}`);
   };
 
@@ -71,6 +72,7 @@ const SearchCombobox = () => {
     getItemProps,
   } = useCombobox({
     items: inputItems,
+    selectedItem: selectedState,
     itemToString: (item) => (item ? item.name : ''),
     onInputValueChange: handleInputValueChange,
     onSelectedItemChange: handleSelectedItemChange,
