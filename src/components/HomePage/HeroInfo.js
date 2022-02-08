@@ -7,6 +7,7 @@ import {
   Skeleton,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { CgDetailsMore } from 'react-icons/cg';
 
 const HeroInfo = ({ heroProducts, isLoading, active }) => {
   const navigate = useNavigate();
@@ -35,22 +36,23 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
       <Button
         fontSize={{ base: '16px', sm: '16px', md: '20px', lg: '24px' }}
         boxShadow="lg"
-        rounded="sm"
+        rounded="md"
         textColor="white"
-        bg="teal.600"
+        bg="purple.500"
         fontWeight={300}
         alignSelf={{ base: 'center', md: 'flex-start' }}
         justifySelf="center"
-        px={{ base: '44px' }}
+        px={{ base: '20px' }}
         py={{ base: '24px' }}
         my={{ base: '20px' }}
+        rightIcon={<CgDetailsMore />}
         onClick={() => {
           navigate(
             isLoading ? '/store' : `/store/product/${heroProducts[active]?.id}`,
           );
         }}
       >
-        Go to the store
+        Show details
       </Button>
     </Grid>
   );
