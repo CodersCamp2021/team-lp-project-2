@@ -1,8 +1,8 @@
-import { Button, Flex, FormControl, Input } from '@chakra-ui/react';
-import { SearchIcon } from '@chakra-ui/icons';
-
 import React from 'react';
+import { Button, Flex, FormControl } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
+import SearchCombobox from './SearchCombobox';
 
 const SearchBar = ({ isMenuOpen }) => {
   const navigate = useNavigate();
@@ -38,14 +38,16 @@ const SearchBar = ({ isMenuOpen }) => {
       pb={{ base: '40px', md: '0' }}
     >
       <form onSubmit={handleSubmit} style={{ width: '90%' }}>
-        <FormControl display="flex" mx="auto" maxWidth="600px">
-          <Input
-            borderColor="blackAlpha.500"
-            focusBorderColor="blackAlpha.900"
-            borderRadius="20px"
-            placeholder="Search for products..."
-          />
+        <FormControl
+          display="flex"
+          mx="auto"
+          maxWidth="600px"
+          maxHeight="40px"
+          align="center"
+        >
+          <SearchCombobox />
           <Button
+            placeSelf="center"
             type="submit"
             bg="none"
             _hover={{ bg: 'inherit' }}

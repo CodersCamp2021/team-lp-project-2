@@ -20,9 +20,11 @@ import { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { ProductContext } from './ProductContext';
+import { AllProductsContext } from './App';
 
-const ProductDisplay = ({ products, setProductName }) => {
+const ProductDisplay = ({ setProductName }) => {
   let { productId } = useParams();
+  const products = useContext(AllProductsContext);
   const [productInfo, setProductInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

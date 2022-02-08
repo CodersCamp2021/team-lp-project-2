@@ -2,6 +2,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import { SimpleGrid, Text, Flex, Select, Spinner } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
+import { AllProductsContext } from './App';
 import ProductPreview from './ProductPreview';
 
 const SortStates = {
@@ -12,10 +13,11 @@ const SortStates = {
 };
 Object.freeze(SortStates);
 
-const ProductList = ({ products }) => {
+const ProductList = () => {
   let { category } = useParams();
   const [sorting, setSorting] = useState(SortStates.NAME_ASC);
   const updateCategory = useContext(CategoryContext);
+  const products = useContext(AllProductsContext);
   let [searchParams] = useSearchParams();
 
   const sortName = (a, b) => {

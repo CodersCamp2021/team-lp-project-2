@@ -23,7 +23,6 @@ const HomeMain = () => {
       const data = doc.data();
       fetchedProducts.push({ ...data, id: doc.id });
     });
-    console.log(fetchedProducts);
     setHeroProducts(fetchedProducts);
     setIsLoading(false);
   };
@@ -62,10 +61,8 @@ const HomeMain = () => {
         md: `'info product'`,
         lg: `'info product'`,
       }}
-      // maxHeight="80vh"
       py={{ base: '10px', sm: '20px', md: '30px', lg: '40px' }}
       px={{ base: '30px', sm: '40px', md: '80px', lg: '140px' }}
-      // mb={{ base: '60px', md: '0' }}
     >
       <HeroInfo
         heroProducts={heroProducts}
