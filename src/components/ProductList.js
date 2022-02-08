@@ -131,31 +131,36 @@ const ProductList = () => {
           <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
         </Select>
       </Flex>
-      <SimpleGrid
-        paddingY={5}
-        minChildWidth="220px"
-        justifyItems={{ base: 'center', md: 'flex-start' }}
-        alignItems="center"
-        spacing={1}
-        rowGap="30px"
-        columnGap="10px"
-      >
-        {products.length > 0 ? (
-          applyFiltering().map((product) => (
-            <ProductPreview key={product.id} product={product} />
-          ))
-        ) : (
+        {parseInt(applyFiltering().length) > 0?
+        (<SimpleGrid
+          paddingY={5}
+          minChildWidth="220px"
+          justifyItems={{ base: 'center', md: 'flex-start' }}
+          alignItems="center"
+          spacing={1}
+          rowGap="30px"
+          columnGap="10px"
+        >
+          {products.length > 0 ? (
+            applyFiltering().map((product) => (
+              <ProductPreview key={product.id} product={product} />))
+          ) : (
+            <Flex justifyContent="center" alignItems="center" width="100%">
+              <Spinner
+                thickness="4px"
+                speed="0.65s"
+                emptyColor="gray.200"
+                color="purple.500"
+                size="xl"
+              />
+            </Flex>
+          )}
+        </SimpleGrid>)
+        :(
           <Flex justifyContent="center" alignItems="center" width="100%">
-            <Spinner
-              thickness="4px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="purple.500"
-              size="xl"
-            />
+            <Text fontSize='40px'>No items to display</Text>
           </Flex>
         )}
-      </SimpleGrid>
     </Flex>
   );
 };
