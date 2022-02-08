@@ -23,7 +23,6 @@ const SingleProduct = ({
       templateColumns={{ base: 'repeat(2, 1fr)', sm: '80px auto 100px' }}
       templateRows={{ base: 'repeat(4, auto)', sm: 'repeat(2, 1fr)' }}
       gap="20px"
-
       py="20px"
       borderBottom={borderBottom}
     >
@@ -51,7 +50,7 @@ const SingleProduct = ({
             fontWeight="semibold"
             fontSize="md"
             maxWidth="250px"
-            isTruncated
+            noOfLines={2}
           >
             {name}
           </Text>
