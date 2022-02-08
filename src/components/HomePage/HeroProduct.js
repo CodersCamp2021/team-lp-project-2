@@ -18,7 +18,7 @@ const HeroProduct = ({
       pl={{ base: 0, md: 10 }}
       mt={{ base: 5, sm: 20, md: 0 }}
       pt={{ base: 20, sm: 5, md: 0 }}
-      data-testId="HeroProduct"
+      data-testid="HeroProduct"
     >
       <ProductCarousel
         heroProducts={heroProducts}

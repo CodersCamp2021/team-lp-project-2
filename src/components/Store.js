@@ -10,6 +10,7 @@ export const CategoryContext = createContext(undefined);
 
 const Store = () => {
   const [category, setCategory] = useState(undefined);
+  const [productName, setProductName] = useState('');
 
   const updateCategory = (newCategory) => {
     setCategory(newCategory);
@@ -51,7 +52,11 @@ const Store = () => {
             fontWeight="bold"
             alignSelf={{ base: 'center', md: 'flex-end' }}
           >
-            {displayName[category] ? displayName[category] : 'All products'}
+            {productName
+              ? productName
+              : displayName[category]
+              ? displayName[category]
+              : 'All products'}
           </Text>
           <Divider zIndex="-1" />
         </Flex>
@@ -59,7 +64,14 @@ const Store = () => {
           <Routes>
             <Route path="/" element={<ProductList />} />
             <Route path="/:category" element={<ProductList />} />
-            <Route path="/product/:productId" element={<ProductDisplay />} />
+            <Route
+              path="/product/:productId"
+              element={
+                <ProductDisplay
+                  setProductName={(productName) => setProductName(productName)}
+                />
+              }
+            />
           </Routes>
         </CategoryContext.Provider>
       </Box>

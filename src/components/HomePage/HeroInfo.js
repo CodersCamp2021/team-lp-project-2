@@ -16,7 +16,7 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
       maxHeight="100%"
       gridTemplateRows={{ base: '1fr 1fr 2fr 1fr', md: '2fr 1fr 2fr 1fr' }}
       alignItems={{ base: 'center', md: 'flex-start' }}
-      data-testId="HeroInfo"
+      data-testid="HeroInfo"
       wordBreak="break-word"
     >
       <Skeleton isLoaded={!isLoading} alignSelf="flex-end">

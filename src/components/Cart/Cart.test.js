@@ -3,12 +3,31 @@ import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import Cart from './Cart';
+import { ChakraProvider } from '@chakra-ui/react';
+
+beforeEach(() => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(), // Deprecated
+      removeListener: jest.fn(), // Deprecated
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+});
 
 test('check if Cart is hidden by default', () => {
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>,
   );
 
   const cart = screen.getByTestId('cart');
@@ -18,9 +37,11 @@ test('check if Cart is hidden by default', () => {
 
 test('check if Cart gets visible after clicking cart icon', () => {
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>,
   );
 
   const cartIcon = screen.getByTestId('cartIcon');

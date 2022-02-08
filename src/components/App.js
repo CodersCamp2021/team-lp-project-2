@@ -8,6 +8,7 @@ import Footer from './HomePage/Footer';
 import { Grid } from '@chakra-ui/react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import { ProductProvider } from './ProductContext';
 
 export const AllProductsContext = createContext([]);
 
@@ -36,25 +37,29 @@ function App() {
   }, []);
 
   const handleOpenCart = () => {
+    document.body.style.overflow = 'hidden';
     setIsCartOpen(true);
   };
 
   const handleCloseCart = () => {
+    document.body.style.overflow = 'auto';
     setIsCartOpen(false);
   };
 
   return (
-    <Grid minHeight="100vh" gridTemplateRows="auto 1fr auto">
-      <AllProductsContext.Provider value={allProducts}>
-        <Navbar openCart={handleOpenCart} />
-        <Routes>
-          <Route path="/" element={<HomeMain />} />
-          <Route path="/store/*" element={<Store />} />
-        </Routes>
-        <Cart isCartOpen={isCartOpen} closeCart={handleCloseCart} />
-      </AllProductsContext.Provider>
-      <Footer />
-    </Grid>
+    <AllProductsContext.Provider value={allProducts}>
+      <ProductProvider>
+        <Grid minHeight="100vh" gridTemplateRows="auto 1fr auto">
+          <Navbar openCart={handleOpenCart} />
+          <Routes>
+            <Route path="/" element={<HomeMain />} />
+            <Route path="/store/*" element={<Store />} />
+          </Routes>
+          <Cart isCartOpen={isCartOpen} closeCart={handleCloseCart} />
+          <Footer />
+        </Grid>
+      </ProductProvider>
+    </AllProductsContext.Provider>
   );
 }
 

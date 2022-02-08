@@ -7,7 +7,7 @@ const ProductCarousel = ({ heroProducts, isLoading, active }) => {
       width="100%"
       justifyContent="center"
       alignItems="center"
-      data-testId="ProductCarousel"
+      data-testid="ProductCarousel"
       pb={8}
     >
       {!isLoading ? (
@@ -18,7 +18,7 @@ const ProductCarousel = ({ heroProducts, isLoading, active }) => {
             pb={8}
             position="absolute"
             opacity={index === active ? 1 : 0}
-            transition="300ms opacity ease-in-out 100ms"
+            transition="300ms opacity ease-in-out"
             key={product.id}
             src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${product.images[0]}?alt=media`}
             alt={product.name}

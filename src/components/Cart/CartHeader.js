@@ -10,18 +10,19 @@ const CartHeader = ({ closeCart }) => {
       justify="center"
       align="center"
       pb="20px"
-      borderBottom="1px solid black"
+      borderBottom="2px solid #999"
       position="relative"
+      mb={2}
     >
       <FaShoppingCart size="35px" />
-      <Text fontSize="3xl" ml="10px">
+      <Text fontWeight="bold" fontSize="3xl" ml="15px">
         Cart
       </Text>
 
       <CloseIcon
         data-testid="closeCartIcon"
         onClick={closeCart}
-        boxSize="30px"
+        boxSize="25px"
         position="absolute"
         right="10px"
         cursor="pointer"

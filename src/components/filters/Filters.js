@@ -46,6 +46,7 @@ function Filters({ category }) {
       justify="center"
       align="flex-start"
       w={{ base: '100%', sm: '100%', md: '250px', lg: '300px' }}
+      data-testid="filters"
     >
       <VStack spacing={2} align="stretch" w="100%" mb="5%">
         <Text
@@ -80,7 +81,7 @@ function Filters({ category }) {
           size="md"
           pl="3%"
         >
-          <NumberInputField w="70%" />
+          <NumberInputField w="70%" data-testid="minInput" />
         </NumberInput>
 
         <Text pl="3%" color="gray.500">
@@ -98,7 +99,7 @@ function Filters({ category }) {
           pl="3%"
           pb="4%"
         >
-          <NumberInputField w="70%" />
+          <NumberInputField w="70%" data-testid="maxInput" />
         </NumberInput>
 
         {category ? <Divider /> : <></>}
@@ -116,6 +117,7 @@ function Filters({ category }) {
           colorScheme="purple"
           rightIcon={<BsCheckAll />}
           onClick={handleSubmit}
+          data-testid="applyButton"
         >
           Apply
         </Button>
