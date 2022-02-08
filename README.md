@@ -127,3 +127,18 @@ The store project is just an example of how an actual store works. It allows us 
 - Cypress
 - Figma
 - Trello
+
+## Aplication design
+
+### Home view
+
+![image](https://user-images.githubusercontent.com/92548480/153063275-de56460b-0064-43c9-8fcd-e6645ebd1a5e.png)
+
+### Store view
+
+![image](https://user-images.githubusercontent.com/92548480/153063753-5e33c455-e248-4e88-8240-8aa2fb0639a2.png)
+
+### Cart Component
+
+![image](https://user-images.githubusercontent.com/92548480/153064023-32b139b5-8d57-4f06-bd0a-596855a1772e.png)
+
