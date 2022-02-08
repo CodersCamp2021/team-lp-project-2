@@ -11,25 +11,36 @@ const SingleProduct = ({ name, price, amount, id }) => {
 
   return (
     <Grid
-      templateColumns="80px auto 100px"
-      templateRows="repeat(2, 1fr)"
+      templateColumns={{ base: 'repeat(2, 1fr)', sm: '80px auto 100px' }}
+      templateRows={{ base: 'repeat(4, auto)', sm: 'repeat(2, 1fr)' }}
       gap="20px"
       py="20px"
       borderBottom="1px solid #000"
     >
-      <GridItem rowSpan={2} alignSelf="center">
+      <GridItem
+        gridRow={{ base: '1 / 2', sm: '1 / 4' }}
+        gridColumn={{ base: 'span 2', sm: '1' }}
+        justifySelf="center"
+        alignSelf="center"
+        maxWidth="100px"
+      >
         <Image
           src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${name}%2F1.jpg?alt=media`}
           alt="image"
         />
       </GridItem>
       <GridItem justifySelf="center">
-        <Text fontSize="sm">{name}</Text>
+        <Text fontSize="sm" textAlign="center">
+          {name}
+        </Text>
       </GridItem>
       <GridItem justifySelf="center">
         <Text fontSize="sm">${price}</Text>
       </GridItem>
-      <GridItem justifySelf="center">
+      <GridItem
+        justifySelf="center"
+        gridColumn={{ base: 'span 2', sm: 'auto' }}
+      >
         <NumberField
           amount={amount}
           id={id}
@@ -38,8 +49,11 @@ const SingleProduct = ({ name, price, amount, id }) => {
           onChange={(value) => handleChangeAmount(value)}
         ></NumberField>
       </GridItem>
-      <GridItem justifySelf="center">
-        <DeleteButton fontSize="1.5vw" cursor="pointer" id={id}/>
+      <GridItem
+        justifySelf="center"
+        gridColumn={{ base: 'span 2', sm: 'auto' }}
+      >
+        <DeleteButton fontSize="1.5vw" cursor="pointer" id={id} />
       </GridItem>
     </Grid>
   );

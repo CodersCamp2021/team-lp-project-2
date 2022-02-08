@@ -4,20 +4,20 @@ import { ProductContext } from '../ProductContext';
 
 function ButtonIncrement(props) {
   return (
-    <Button style={{ marginLeft: '.5rem' }} onClick={props.onClickFunc}>
+    <Button mx=".5rem" onClick={props.onClickFunc}>
       +
     </Button>
   );
 }
 function ButtonDecrement(props) {
   return (
-    <Button style={{ marginLeft: '.5rem' }} onClick={props.onClickFunc}>
+    <Button mx=".5rem" onClick={props.onClickFunc}>
       -
     </Button>
   );
 }
 function Display(props) {
-  return <label style={{ marginLeft: '.5rem' }}>{props.message}</label>;
+  return <label mx=".5rem">{props.message}</label>;
 }
 function NumberField({ amount, id }) {
   const { dispatch } = useContext(ProductContext);
@@ -29,9 +29,10 @@ function NumberField({ amount, id }) {
         }
       />
       <Display message={amount} />
-      <ButtonDecrement onClickFunc={() => 
-        dispatch({ type: 'DECREASE_PROD_AMOUNT', payload: { id: id } })
-        } 
+      <ButtonDecrement
+        onClickFunc={() =>
+          dispatch({ type: 'DECREASE_PROD_AMOUNT', payload: { id: id } })
+        }
       />
     </div>
   );
