@@ -5,8 +5,20 @@ import logo from '../../assets/shoppy.png';
 
 const Logo = ({ closeMenu }) => {
   return (
-    <ChakraLink as={RouterLink} to="/" onClick={closeMenu} fontSize="xl">
-      <Image src={logo} alt="Logo" width="100px" minWidth="100px" />
+    <ChakraLink
+      draggable="false"
+      as={RouterLink}
+      to="/"
+      onClick={closeMenu}
+      fontSize="xl"
+    >
+      <Image
+        draggable="false"
+        src={logo}
+        alt="Logo"
+        width="100px"
+        minWidth="100px"
+      />
     </ChakraLink>
   );
 };
