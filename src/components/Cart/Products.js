@@ -6,7 +6,8 @@ const Products = ({ products, closeCart }) => {
   return (
     <Box px={10} color="#000" maxHeight="60%" overflowY="scroll">
       {products.map((product, index) => {
-        const { id, name, price, amount } = product;
+        const { id, name, price, amount, images } = product;
+        console.log(name);
         return (
           <SingleProduct
             closeCart={closeCart}
@@ -15,6 +16,7 @@ const Products = ({ products, closeCart }) => {
             price={price}
             amount={amount}
             id={id}
+            images={images}
             borderBottom={products.length - 1 === index ? '' : '1px solid #ccc'}
           />
         );

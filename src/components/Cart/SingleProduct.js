@@ -11,6 +11,7 @@ const SingleProduct = ({
   amount,
   id,
   closeCart,
+  images,
   borderBottom,
 }) => {
   //logging is just for now. later it should update state in Context API
@@ -34,7 +35,7 @@ const SingleProduct = ({
         maxWidth="100px"
       >
         <Image
-          src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${name}%2F1.jpg?alt=media`}
+          src={`https://firebasestorage.googleapis.com/v0/b/team-lp-project-2.appspot.com/o/${images[0]}?alt=media`}
           alt="image"
         />
       </GridItem>
