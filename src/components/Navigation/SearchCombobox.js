@@ -83,7 +83,11 @@ const SearchCombobox = () => {
   }, [location]);
 
   return (
-    <Box {...getComboboxProps()} position="relative" w="100%">
+    <Box
+      {...getComboboxProps()}
+      position="relative"
+      w={{ base: '80%', md: '100%' }}
+    >
       <ComboboxInput
         {...getInputProps()}
         placeholder="Search for products..."
