@@ -29,13 +29,16 @@ const Cart = ({ isCartOpen, closeCart }) => {
         <CartHeader closeCart={closeCart} />
         {/* dynamically display products or  info if products array is empty */}
         {state.products.length > 0 ? (
-          <Products products={state.products} />
+          <Products closeCart={closeCart} products={state.products} />
         ) : (
-          <Flex justify="center" pt={10}>
-            <Text fontSize="3xl">The cart is empty</Text>
+          <Flex py={7} justify="center" align="center" flexDirection="column">
+            <Text fontWeight="semibold" fontSize="2xl">
+              The cart is empty!
+            </Text>
+            <Text fontSize="2xl">Go and grab some items!</Text>
           </Flex>
         )}
-        <CartSummary />
+        <CartSummary products={state.products} />
       </Box>
     </>
   );

@@ -1,28 +1,51 @@
 import React, { useContext } from 'react';
-import { Button } from '@chakra-ui/react';
+import { Button, Text, Flex } from '@chakra-ui/react';
 import { ProductContext } from '../ProductContext';
 
 function ButtonIncrement(props) {
   return (
-    <Button mx=".5rem" onClick={props.onClickFunc}>
+    <Button
+      variant="outline"
+      colorScheme="purple"
+      size="sm"
+      style={{ marginLeft: '.5rem' }}
+      onClick={props.onClickFunc}
+    >
       +
     </Button>
   );
 }
 function ButtonDecrement(props) {
   return (
-    <Button mx=".5rem" onClick={props.onClickFunc}>
+    <Button
+      variant="outline"
+      colorScheme="purple"
+      size="sm"
+      style={{ marginLeft: '.5rem' }}
+      onClick={props.onClickFunc}
+    >
       -
     </Button>
   );
 }
 function Display(props) {
-  return <label mx=".5rem">{props.message}</label>;
+  return (
+    <Flex justify="center" aling="center">
+      <Text
+        fontWeight="semibold"
+        alignSelf="center"
+        px={1}
+        style={{ marginLeft: '.5rem' }}
+      >
+        {props.message}
+      </Text>
+    </Flex>
+  );
 }
 function NumberField({ amount, id }) {
   const { dispatch } = useContext(ProductContext);
   return (
-    <div>
+    <Flex justify="center" aling="center">
       <ButtonIncrement
         onClickFunc={() =>
           dispatch({ type: 'INCREASE_PROD_AMOUNT', payload: { id: id } })
@@ -34,7 +57,7 @@ function NumberField({ amount, id }) {
           dispatch({ type: 'DECREASE_PROD_AMOUNT', payload: { id: id } })
         }
       />
-    </div>
+    </Flex>
   );
 }
 export default NumberField;

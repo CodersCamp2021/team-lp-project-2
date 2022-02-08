@@ -1,9 +1,18 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
 import { Text, Image, Grid, GridItem } from '@chakra-ui/react';
 import DeleteButton from './DeleteButton';
 import NumberField from './NumberField';
 
-const SingleProduct = ({ name, price, amount, id }) => {
+const SingleProduct = ({
+  name,
+  price,
+  amount,
+  id,
+  closeCart,
+  borderBottom,
+}) => {
   //logging is just for now. later it should update state in Context API
   const handleChangeAmount = (newValue) => {
     console.log(newValue);
@@ -15,7 +24,7 @@ const SingleProduct = ({ name, price, amount, id }) => {
       templateRows={{ base: 'repeat(4, auto)', sm: 'repeat(2, 1fr)' }}
       gap="20px"
       py="20px"
-      borderBottom="1px solid #000"
+      borderBottom={borderBottom}
     >
       <GridItem
         gridRow={{ base: '1 / 2', sm: '1 / 4' }}
@@ -29,13 +38,28 @@ const SingleProduct = ({ name, price, amount, id }) => {
           alt="image"
         />
       </GridItem>
-      <GridItem justifySelf="center">
-        <Text fontSize="sm" textAlign="center">
-          {name}
-        </Text>
+      <GridItem justifySelf="start" alignSelf="center">
+        <ChakraLink
+          onClick={() => closeCart()}
+          as={RouterLink}
+          to={`/store/product/${id}`}
+          _hover={{ color: 'purple.500' }}
+        >
+          <Text
+            pl={3}
+            fontWeight="semibold"
+            fontSize="md"
+            maxWidth="250px"
+            noOfLines={2}
+          >
+            {name}
+          </Text>
+        </ChakraLink>
       </GridItem>
-      <GridItem justifySelf="center">
-        <Text fontSize="sm">${price}</Text>
+      <GridItem alignSelf="center" justifySelf="center">
+        <Text fontWeight="bold" fontSize="lg">
+          ${parseFloat(price).toFixed(2)}
+        </Text>
       </GridItem>
       <GridItem
         justifySelf="center"
