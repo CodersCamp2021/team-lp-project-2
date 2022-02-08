@@ -1,5 +1,4 @@
 import {
-  useDisclosure,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -10,12 +9,18 @@ import {
   Button,
   Text,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
-export default function BuyConfirmation() {
-  const { isOpen, onClose } = useDisclosure();
+export default function BuyConfirmation({ isOpen, onClose }) {
+  const navigate = useNavigate();
+
+  const backToStore = () => {
+    onClose();
+    navigate('/store');
+  };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isCentered isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>Thank you!</ModalHeader>
@@ -25,10 +30,12 @@ export default function BuyConfirmation() {
         </ModalBody>
 
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Okay
+          <Button size="sm" colorScheme="purple" mr={3} onClick={onClose}>
+            Thanks!
           </Button>
-          <Button variant="ghost">Grab more items</Button>
+          <Button size="sm" variant="ghost" onClick={backToStore}>
+            Back to store
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

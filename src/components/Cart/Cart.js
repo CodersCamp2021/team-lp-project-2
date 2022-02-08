@@ -8,6 +8,7 @@ import { ProductContext } from '../ProductContext';
 
 const Cart = ({ isCartOpen, closeCart }) => {
   const { state } = useContext(ProductContext);
+
   return (
     <>
       <CartBackground isCartOpen={isCartOpen} closeCart={closeCart} />
