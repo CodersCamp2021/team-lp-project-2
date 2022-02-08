@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useCombobox } from 'downshift';
 import { AllProductsContext } from '../App';
 import { Input, List, ListItem, Box, Text } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 /* 
 Downshift useCombobox documentation: https://www.downshift-js.com/use-combobox
@@ -41,8 +41,8 @@ const ComboboxItem = React.forwardRef(
 const SearchCombobox = () => {
   const products = useContext(AllProductsContext);
   const [inputItems, setInputItems] = useState([]);
-  const [selectedState, setSelectedState] = useState('');
   const navigate = useNavigate();
+  let location = useLocation();
 
   const handleInputValueChange = ({ inputValue }) => {
     if (inputValue.length === 0) {
@@ -59,7 +59,6 @@ const SearchCombobox = () => {
   };
 
   const handleSelectedItemChange = ({ selectedItem }) => {
-    setSelectedState('');
     navigate(`/store/product/${selectedItem.id}`);
   };
 
@@ -70,13 +69,19 @@ const SearchCombobox = () => {
     getComboboxProps,
     highlightedIndex,
     getItemProps,
+    setInputValue,
   } = useCombobox({
     items: inputItems,
-    selectedItem: selectedState,
     itemToString: (item) => (item ? item.name : ''),
     onInputValueChange: handleInputValueChange,
     onSelectedItemChange: handleSelectedItemChange,
   });
+
+  useEffect(() => {
+    setInputValue('');
+    // eslint-disable-next-line
+  }, [location]);
+
   return (
     <Box {...getComboboxProps()} position="relative" w="100%">
       <ComboboxInput
