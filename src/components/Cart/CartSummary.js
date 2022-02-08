@@ -4,7 +4,7 @@ import ClearButton from './ClearButton';
 import BuyButton from './BuyButton';
 import { ProductContext } from '../../components/ProductContext';
 
-const CartSummary = ({ products }) => {
+const CartSummary = ({ products, closeCart }) => {
   const { state } = useContext(ProductContext);
 
   function calculatePrice() {
@@ -37,7 +37,7 @@ const CartSummary = ({ products }) => {
       </Flex>
       <Flex pt={5} direction="row" align="center" justify="center" gap={5}>
         <ClearButton products={products} />
-        <BuyButton products={products} />
+        <BuyButton closeCart={closeCart} products={products} />
       </Flex>
     </Box>
   );

@@ -38,7 +38,7 @@ const Cart = ({ isCartOpen, closeCart }) => {
             <Text fontSize="2xl">Go and grab some items!</Text>
           </Flex>
         )}
-        <CartSummary products={state.products} />
+        <CartSummary closeCart={closeCart} products={state.products} />
       </Box>
     </>
   );
