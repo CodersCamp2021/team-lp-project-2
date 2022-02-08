@@ -124,7 +124,6 @@ The store project is just an example of how an actual store works. It allows us 
 - Chakra UI
 - Firebase/Firestore
 - Jest (React Testing Library)
-- Cypress
 - Figma
 - Trello
 
