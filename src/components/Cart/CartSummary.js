@@ -32,7 +32,7 @@ const CartSummary = ({ products }) => {
           Total:
         </Text>
         <Text color="#777" fontSize="3xl" align="center">
-          {calculatePrice()}$
+          ${calculatePrice()}
         </Text>
       </Flex>
       <Flex pt={5} direction="row" align="center" justify="center" gap={5}>
