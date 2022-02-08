@@ -10,7 +10,6 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { IoHeart } from 'react-icons/io';
 
 export default function BuyConfirmation({ isOpen, onClose }) {
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ export default function BuyConfirmation({ isOpen, onClose }) {
     <Modal isCentered isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Thanks, Gorgeous!🛒</ModalHeader>
+        <ModalHeader>Thanks, Gorgeous! 🛒</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Text>
