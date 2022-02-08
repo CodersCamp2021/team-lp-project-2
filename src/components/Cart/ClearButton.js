@@ -3,7 +3,7 @@ import { Button } from '@chakra-ui/react';
 import { ProductContext } from '../ProductContext';
 import { FaTrashAlt } from 'react-icons/fa';
 
-function ClearButton() {
+function ClearButton({ products }) {
   function handleClearCart() {
     dispatch({ type: 'CLEAR_CART' });
   }
@@ -18,6 +18,7 @@ function ClearButton() {
       borderWidth={2}
       onClick={handleClearCart}
       size="lg"
+      disabled={products.length === 0 ? true : false}
     >
       Clear cart
     </Button>
