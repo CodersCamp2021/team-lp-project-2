@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { Button, Flex, FormControl, Input } from '@chakra-ui/react';
+import React from 'react';
+import { Button, Flex, FormControl } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
-import { AllProductsContext } from '../App';
-import SearchCombobox from './Combobox';
+import SearchCombobox from './SearchCombobox';
 
 const SearchBar = ({ isMenuOpen }) => {
-  // const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
-  // const products = useContext(AllProductsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,22 +17,6 @@ const SearchBar = ({ isMenuOpen }) => {
 
     e.target.reset();
   };
-
-  // const handleChange = (e) => {
-  //   setSearchInput(e.target.value);
-  // };
-
-  // const handleSearch = () => {
-  //   return products.filter((product) =>
-  //     product.name.toLowerCase().includes(debouncedInput.toLowerCase()),
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   if (searchInput.length > 2) {
-  //     console.log(handleSearch());
-  //   }
-  // }, [debouncedInput]);
 
   return (
     <Flex
@@ -64,13 +45,6 @@ const SearchBar = ({ isMenuOpen }) => {
           maxHeight="40px"
           align="center"
         >
-          {/* <Input
-            onChange={handleChange}
-            borderColor="blackAlpha.500"
-            focusBorderColor="blackAlpha.900"
-            borderRadius="20px"
-            placeholder="Search for products..."
-          /> */}
           <SearchCombobox />
           <Button
             placeSelf="center"
