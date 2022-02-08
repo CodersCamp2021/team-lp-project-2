@@ -11,15 +11,17 @@ import {
   ListIcon,
   Text,
   Button,
+  useToast,
 } from '@chakra-ui/react';
 import ChooseValue from './productDetails/ChooseValue';
 import { FaAngleRight, FaShoppingCart } from 'react-icons/fa';
+import { BsCheckCircleFill } from 'react-icons/bs';
 import { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { ProductContext } from './ProductContext';
 
-const ProductDisplay = ({products, setProductName}) => {
+const ProductDisplay = ({ products, setProductName }) => {
   let { productId } = useParams();
   const [productInfo, setProductInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,10 +29,30 @@ const ProductDisplay = ({products, setProductName}) => {
   const [imageURL, setImageURL] = useState('');
   const [noOfProducts, setNoOfProducts] = useState(1);
   const { dispatch } = useContext(ProductContext);
+  const toast = useToast();
+
+  const showToast = () => {
+    toast({
+      duration: 3000,
+      position: 'bottom-left',
+      render: () => (
+        <Box color="white" p={4} bg="purple.500" borderRadius="5px">
+          <Flex alignItems="center" gap="10px">
+            <BsCheckCircleFill />
+            <Text fontWeight="bold">Products added to cart!</Text>
+          </Flex>
+          <Text fontSize={{ base: '20px', md: '15px' }}>
+            Check if they have not escaped from there.
+          </Text>
+        </Box>
+      ),
+    });
+  };
+
   //getting productInfo object from firebase
   const getProduct = async (productId) => {
     const docRef = doc(db, 'products', productId);
-    console.log(productId)
+    console.log(productId);
     setIsLoading(true);
     setError(null);
 
@@ -47,12 +69,14 @@ const ProductDisplay = ({products, setProductName}) => {
 
     setIsLoading(false);
   };
-  
+
   function handleAddManyProducts() {
-    const manyIndex = products.findIndex(
-      (product) => product.id === productId,
-    );
-    dispatch({ type: 'ADD_MANY_PROD', payload: {product: products[manyIndex], count: parseInt(noOfProducts)}})
+    const manyIndex = products.findIndex((product) => product.id === productId);
+    dispatch({
+      type: 'ADD_MANY_PROD',
+      payload: { product: products[manyIndex], count: parseInt(noOfProducts) },
+    });
+    showToast();
   }
 
   useEffect(() => {

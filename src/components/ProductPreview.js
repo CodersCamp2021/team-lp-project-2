@@ -1,55 +1,51 @@
-import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
+import { Box, Flex, Text, Image, Button, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AddIcon, CheckIcon } from '@chakra-ui/icons';
 import { ProductContext } from './ProductContext';
-
-const dummyProducts = [
-  {
-    id: 'kadLxR1qP7QcNLTFHX4d',
-    name: 'Intel Core i9-9900KF',
-    price: 276.32,
-    amount: 1,
-  },
-  {
-    id: 'WDydJrOvGbKeEoro7Nyr',
-    name: 'Corsair CMW32GX4M2E3200C16',
-    price: 59.99,
-    amount: 4,
-  },
-  {
-    id: 'rctzGlVEKJXKjXxZGrOV',
-    name: 'SAMSUNG 23.5” CF396 Curved Computer Monitor',
-    price: 169.99,
-    amount: 1,
-  },
-  {
-    id: '83IBRHpRmvrTUKHod8Tu',
-    name: 'AMD Ryzen 7 5800X',
-    price: 329.78,
-    amount: 6,
-  },
-];
+import { BsCheckCircleFill } from 'react-icons/bs';
 
 const ProductPreview = ({ product }) => {
   const { id, name, price } = product;
   const navigate = useNavigate();
-
-  /**
-   * !!!!!!!!!
-   * replace dummyProducts with real products from context API
-   * !!!!!!!!!
-   */
-  const isProductInCart = dummyProducts.some((product) => product.id === id);
+  const [disabled, setDisabled] = useState(false);
+  const toast = useToast();
 
   const { dispatch } = useContext(ProductContext);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDisabled(false);
+    }, 2000);
+    return () => {
+      clearTimeout(timer);
+    };
+    //eslint-disable-next-line
+  }, [disabled]);
+
+  const showToast = () => {
+    toast({
+      duration: 3000,
+      position: 'bottom-left',
+      render: () => (
+        <Box color="white" p={4} bg="purple.500" borderRadius="5px">
+          <Flex alignItems="center" gap="10px">
+            <BsCheckCircleFill />
+            <Text fontWeight="bold">Product added to cart!</Text>
+          </Flex>
+          <Text fontSize={{ base: '20px', md: '15px' }}>
+            Check if he hasn't escaped from there.
+          </Text>
+        </Box>
+      ),
+    });
+  };
+
   const handleAddToCart = (e) => {
     e.stopPropagation();
-
-    //action for adding item to context API will be here
-    console.log(`add to cart item with id: ${id}`);
+    setDisabled(true);
     dispatch({ type: 'ADD_PROD', payload: { product: product } });
+    showToast();
   };
 
   const handleGhostClick = (e) => {
@@ -92,14 +88,11 @@ const ProductPreview = ({ product }) => {
         <Text fontWeight="bold" noOfLines={2} fontSize="md" textAlign="left">
           {name}
         </Text>
-
-        {!isProductInCart && (
+        {!disabled ? (
           <Button onClick={handleAddToCart}>
             <AddIcon />
           </Button>
-        )}
-
-        {isProductInCart && (
+        ) : (
           <Button
             bg="purple.500"
             _hover={{ bg: 'purple.500' }}
