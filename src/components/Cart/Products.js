@@ -7,7 +7,6 @@ const Products = ({ products, closeCart }) => {
     <Box px={10} color="#000" maxHeight="60%" overflowY="scroll">
       {products.map((product, index) => {
         const { id, name, price, amount, images } = product;
-        console.log(name);
         return (
           <SingleProduct
             closeCart={closeCart}
