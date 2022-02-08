@@ -34,7 +34,7 @@ const HeroProduct = ({
           aria-label="View previous item"
           fontSize="40px"
           borderRadius="50%"
-          bgGradient="linear-gradient(0deg, #DCDCDC 40%, rgba(255, 255, 255, 0.8) 100%)"
+          colorScheme="purple"
           icon={<ChevronLeftIcon />}
           onClick={decrement}
           disabled={active === 0 ? true : false}
@@ -43,7 +43,7 @@ const HeroProduct = ({
           aria-label="View next item"
           fontSize="40px"
           borderRadius="50%"
-          bgGradient="linear-gradient(0deg, #DCDCDC 40%, rgba(255, 255, 255, 0.8) 100%)"
+          colorScheme="purple"
           icon={<ChevronRightIcon />}
           onClick={increment}
           disabled={active === heroProducts.length - 1 ? true : false}

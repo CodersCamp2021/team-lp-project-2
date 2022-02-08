@@ -11,7 +11,6 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { CgDetailsMore } from 'react-icons/cg';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { useContext } from 'react';
 import { ProductContext } from '../ProductContext';
@@ -73,7 +72,6 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
           px={{ base: '20px' }}
           py={{ base: '24px' }}
           my={{ base: '20px' }}
-          rightIcon={<CgDetailsMore />}
           onClick={() => {
             navigate(
               isLoading
