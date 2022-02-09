@@ -10,38 +10,54 @@ const Categories = ({ category }) => {
   const categories = [
     {
       name: 'All products',
-      icon: <TiThSmall size="3vh" />,
+      icon: <TiThSmall size="3vh" color={category ? '#111' : '#6b46c1'} />,
       isBolded: category ? false : true,
       path: '/store',
     },
     {
       name: 'CPUs',
-      icon: <BsCpu size="3vh" />,
-      isBolded: category === 'cpu' ? true : false,
+      icon: (
+        <BsCpu size="3vh" color={category === 'cpu' ? '#6b46c1' : '#111'} />
+      ),
+      isBolded: category === 'cpu',
       path: '/store/cpu',
     },
     {
       name: 'Memory',
-      icon: <FaMemory size="3vh" />,
-      isBolded: category === 'ram' ? true : false,
+      icon: (
+        <FaMemory size="3vh" color={category === 'ram' ? '#6b46c1' : '#111'} />
+      ),
+      isBolded: category === 'ram',
       path: '/store/ram',
     },
     {
       name: 'Monitors',
-      icon: <FaDesktop size="3vh" />,
-      isBolded: category === 'monitor' ? true : false,
+      icon: (
+        <FaDesktop
+          size="3vh"
+          color={category === 'monitor' ? '#6b46c1' : '#111'}
+        />
+      ),
+      isBolded: category === 'monitor',
       path: '/store/monitor',
     },
     {
       name: 'Graphic Cards',
-      icon: <BsCpuFill size="3vh" />,
-      isBolded: category === 'gpu' ? true : false,
+      icon: (
+        <BsCpuFill size="3vh" color={category === 'gpu' ? '#6b46c1' : '#111'} />
+      ),
+      isBolded: category === 'gpu',
       path: '/store/gpu',
     },
     {
       name: 'Motherboards',
-      icon: <MdDeveloperBoard size="3vh" />,
-      isBolded: category === 'motherboard' ? true : false,
+      icon: (
+        <MdDeveloperBoard
+          size="3vh"
+          color={category === 'motherboard' ? '#6b46c1' : '#111'}
+        />
+      ),
+      isBolded: category === 'motherboard',
       path: '/store/motherboard',
     },
   ];

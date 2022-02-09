@@ -13,6 +13,7 @@ const ProductCarousel = ({ heroProducts, isLoading, active }) => {
       {!isLoading ? (
         heroProducts.map((product, index) => (
           <Image
+            draggable="false"
             boxSize={{ base: '200px', sm: '250px', md: '300px', lg: '400px' }}
             objectFit="contain"
             pb={8}

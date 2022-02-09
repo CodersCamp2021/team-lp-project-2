@@ -5,11 +5,39 @@ import {
   Button,
   SkeletonText,
   Skeleton,
+  ButtonGroup,
+  useToast,
+  Box,
+  Flex,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { BsCheckCircleFill } from 'react-icons/bs';
+import { useContext } from 'react';
+import { ProductContext } from '../ProductContext';
 
 const HeroInfo = ({ heroProducts, isLoading, active }) => {
   const navigate = useNavigate();
+  const toast = useToast();
+  const { dispatch } = useContext(ProductContext);
+
+  const showToast = () => {
+    toast({
+      duration: 3000,
+      position: 'bottom-left',
+      render: () => (
+        <Box color="white" p={4} bg="purple.500" borderRadius="5px">
+          <Flex alignItems="center" gap="10px">
+            <BsCheckCircleFill />
+            <Text fontWeight="bold">Product added to cart!</Text>
+          </Flex>
+          <Text fontSize={{ base: '20px', md: '15px' }}>
+            Check if he hasn't escaped from there.
+          </Text>
+        </Box>
+      ),
+    });
+  };
+
   return (
     <Grid
       gridArea="info"
@@ -32,26 +60,55 @@ const HeroInfo = ({ heroProducts, isLoading, active }) => {
       <SkeletonText isLoaded={!isLoading} noOfLines={6}>
         <Text fontSize="md">{heroProducts[active]?.details.description}</Text>
       </SkeletonText>
-      <Button
-        fontSize={{ base: '16px', sm: '16px', md: '20px', lg: '24px' }}
-        boxShadow="lg"
-        rounded="sm"
-        textColor="white"
-        bg="teal.600"
-        fontWeight={300}
-        alignSelf={{ base: 'center', md: 'flex-start' }}
-        justifySelf="center"
-        px={{ base: '44px' }}
-        py={{ base: '24px' }}
-        my={{ base: '20px' }}
-        onClick={() => {
-          navigate(
-            isLoading ? '/store' : `/store/product/${heroProducts[active]?.id}`,
-          );
-        }}
-      >
-        Go to the store
-      </Button>
+      <ButtonGroup justifyContent="center">
+        <Button
+          fontSize={{ base: '16px', sm: '16px', md: '20px', lg: '24px' }}
+          boxShadow="md"
+          textColor="white"
+          colorScheme="purple"
+          fontWeight={300}
+          alignSelf={{ base: 'center', md: 'flex-start' }}
+          justifySelf="center"
+          px={{ base: '20px' }}
+          py={{ base: '24px' }}
+          my={{ base: '20px' }}
+          onClick={() => {
+            navigate(
+              isLoading
+                ? '/store'
+                : `/store/product/${heroProducts[active]?.id}`,
+            );
+          }}
+        >
+          Show details
+        </Button>
+        <Button
+          fontSize={{ base: '16px', sm: '16px', md: '20px', lg: '24px' }}
+          colorScheme="purple"
+          variant="outline"
+          fontWeight={300}
+          boxShadow="md"
+          px={{ base: '20px' }}
+          py={{ base: '24px' }}
+          my={{ base: '20px' }}
+          onClick={() => {
+            navigate(
+              isLoading
+                ? '/store'
+                : `/store/product/${heroProducts[active]?.id}`,
+            );
+            if (!isLoading) {
+              dispatch({
+                type: 'ADD_PROD',
+                payload: { product: heroProducts[active] },
+              });
+              showToast();
+            }
+          }}
+        >
+          Add to cart
+        </Button>
+      </ButtonGroup>
     </Grid>
   );
 };
