@@ -8,7 +8,6 @@ import Filters from './filters/Filters';
 
 export const CategoryContext = createContext(undefined);
 
-
 const Store = () => {
   const [category, setCategory] = useState(undefined);
   const [productName, setProductName] = useState('');
@@ -18,10 +17,10 @@ const Store = () => {
   };
 
   let [searchParams] = useSearchParams();
-  
+
   const handleSearch = () => {
     let searchedName = searchParams.get('name');
-    return searchedName;
+    return `Searching phrase "${searchedName}"`;
   };
 
   const displayName = {
@@ -66,7 +65,7 @@ const Store = () => {
               ? displayName[category]
               : handleSearch()
               ? handleSearch()
-              : "All products"}
+              : 'All products'}
           </Text>
           <Divider zIndex="-1" />
         </Flex>

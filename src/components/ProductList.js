@@ -131,8 +131,8 @@ const ProductList = () => {
           <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
         </Select>
       </Flex>
-        {parseInt(applyFiltering().length) > 0?
-        (<SimpleGrid
+      {parseInt(applyFiltering().length) > 0 ? (
+        <SimpleGrid
           paddingY={5}
           minChildWidth="220px"
           justifyItems={{ base: 'center', md: 'flex-start' }}
@@ -143,7 +143,8 @@ const ProductList = () => {
         >
           {products.length > 0 ? (
             applyFiltering().map((product) => (
-              <ProductPreview key={product.id} product={product} />))
+              <ProductPreview key={product.id} product={product} />
+            ))
           ) : (
             <Flex justifyContent="center" alignItems="center" width="100%">
               <Spinner
@@ -155,12 +156,19 @@ const ProductList = () => {
               />
             </Flex>
           )}
-        </SimpleGrid>)
-        :(
-          <Flex justifyContent="center" alignItems="center" width="100%">
-            <Text fontSize='40px'>No items to display</Text>
-          </Flex>
-        )}
+        </SimpleGrid>
+      ) : (
+        <Flex justifyContent="center" alignItems="center" width="100%">
+          <Text
+            fontWeight="semibold"
+            p={7}
+            fontSize={{ base: '25px', md: '25px' }}
+            color="#ccc"
+          >
+            We are sorry but there are no results for your search
+          </Text>
+        </Flex>
+      )}
     </Flex>
   );
 };
