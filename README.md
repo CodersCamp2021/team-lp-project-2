@@ -86,7 +86,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# ![image](https://user-images.githubusercontent.com/92548480/153062115-bb1a6011-49d1-416e-a566-684a76f85173.png)
+# ![image](https://user-images.githubusercontent.com/92548480/153267884-b3836d06-ce66-4add-ba72-18394771fd31.png)
 
 ## Overview
 
@@ -100,7 +100,8 @@ One day a rift has opened in a certain part of Poland, near Wrocław. It was dis
 The amount of electronics produced (as well as the demand for them) ended up being so gigantic that all the stores couldn't handle every consumer order and a need for yet another electronics store arose. And that is how this project came to be.
 
 ## Project Assumptions
-The main assumption of the project is to create an application through the appropriate use of the React knowledge acquired during the course. 
+
+The main assumption of the project is to create an application through the appropriate use of the React knowledge acquired during the course.
 
 A six-person design group, under the guidance of a mentor, who is also a customer of the product, decided on the subject of the store. The store contains computer components.
 
@@ -112,19 +113,16 @@ The store project is just an example of how an actual store works. It allows us 
 
 ## Additional Features
 
-- user account handling,
-- personal cart service,
-- end-to-end tests,
-- login users.
+- Livechat + Chatbot in application
 
 ## Technologies
 
 - React
 - React Router
 - Chakra UI
+- Downshift
 - Firebase/Firestore
 - Jest (React Testing Library)
-- Cypress
 - Figma
 - Trello
 
@@ -132,13 +130,16 @@ The store project is just an example of how an actual store works. It allows us 
 
 ### Home view
 
-![image](https://user-images.githubusercontent.com/92548480/153063275-de56460b-0064-43c9-8fcd-e6645ebd1a5e.png)
+![image](https://user-images.githubusercontent.com/92548480/153245765-39c4fb43-d44b-4a06-9757-99d6d989cba0.png)
 
 ### Store view
 
-![image](https://user-images.githubusercontent.com/92548480/153063753-5e33c455-e248-4e88-8240-8aa2fb0639a2.png)
+![image](https://user-images.githubusercontent.com/92548480/153245980-99b7c4aa-fd38-4a1b-b51b-db5cebcf1379.png)
 
 ### Cart Component
 
-![image](https://user-images.githubusercontent.com/92548480/153064023-32b139b5-8d57-4f06-bd0a-596855a1772e.png)
+![image](https://user-images.githubusercontent.com/92548480/153246196-41c379d5-41bf-4b24-9d9b-f39c4fddd06b.png)
 
+### Chatbot
+
+![image](https://user-images.githubusercontent.com/92548480/153246719-aac9231e-8f75-4a75-8749-6ae5fcdcb250.png)
