@@ -141,9 +141,8 @@ const ProductList = () => {
           minChildWidth="220px"
           justifyItems={{ base: 'center', md: 'flex-start' }}
           alignItems="center"
-          spacing={1}
+          spacing={2}
           rowGap="30px"
-          columnGap="10px"
         >
           {!isLoading ? (
             applyFiltering().length > 0 ? (
