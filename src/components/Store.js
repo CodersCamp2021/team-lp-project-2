@@ -59,6 +59,7 @@ const Store = () => {
             alignSelf={{ base: 'center', md: 'flex-end' }}
             isTruncated
             width="100%"
+            textAlign="right"
           >
             {productName
               ? productName
