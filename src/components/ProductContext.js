@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import LocalStorage from './LocalStorage';
 
 export const ProductContext = React.createContext();
@@ -111,9 +111,6 @@ export function ProductProvider({ children }) {
           products: [],
         },
   );
-  useEffect(() => {
-    console.log(LocalStorage.get('cart'));
-  }, [state]);
 
   return (
     <ProductContext.Provider value={{ state, dispatch }}>

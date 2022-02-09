@@ -46,7 +46,7 @@ const Store = () => {
         <Categories category={category} />
         <Filters category={category} />
       </VStack>
-      <Box w={{ base: '100%', sm: '100%', md: '600px', lg: '1000px' }}>
+      <Box w={{ base: '100%', sm: '100%', md: '60%' }}>
         <Flex
           p={{ base: '20px', md: '4% 0 2% 3%' }}
           flexDirection="column"
@@ -57,6 +57,9 @@ const Store = () => {
             fontSize={{ base: '40px', md: '40px' }}
             fontWeight="bold"
             alignSelf={{ base: 'center', md: 'flex-end' }}
+            isTruncated
+            width="100%"
+            textAlign="right"
           >
             {productName
               ? productName

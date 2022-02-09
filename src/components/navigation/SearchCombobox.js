@@ -3,6 +3,15 @@ import { useCombobox } from 'downshift';
 import { AllProductsContext } from '../App';
 import { Input, List, ListItem, Box, Text } from '@chakra-ui/react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useDebouncedValue } from '../utils';
+
+const CategoryDictionary = Object.freeze({
+  cpu: 'CPUs',
+  gpu: 'GPUs',
+  monitor: 'Monitors',
+  ram: 'Memory',
+  motherboard: 'Motherboards',
+});
 
 /* 
 Downshift useCombobox documentation: https://www.downshift-js.com/use-combobox
@@ -10,6 +19,7 @@ Downshift useCombobox documentation: https://www.downshift-js.com/use-combobox
 ChakraUI + Downshift implementation based on: 
 https://codesandbox.io/s/mkvj7?file=/src/Combobox.js
 */
+
 const ComboboxInput = React.forwardRef(({ ...props }, ref) => {
   return <Input {...props} ref={ref} w="90%" />;
 });
@@ -19,21 +29,35 @@ const ComboboxList = React.forwardRef(({ isOpen, ...props }, ref) => {
 });
 
 const ComboboxItem = React.forwardRef(
-  ({ itemIndex, highlightedIndex, ...props }, ref) => {
+  ({ itemIndex, highlightedIndex, itemCategory, ...props }, ref) => {
     const isActive = itemIndex === highlightedIndex;
 
     return (
-      <ListItem
-        transition="background-color 220ms, color 220ms"
-        bg={isActive ? 'purple.100' : '#f1f1f1'}
-        px={3}
-        py={3}
-        cursor="pointer"
-        borderWidth="1px"
-        borderColor="blackAlpha.300"
-        {...props}
-        ref={ref}
-      />
+      <Box position="relative">
+        <ListItem
+          transition="background-color 220ms, color 220ms"
+          bg={isActive ? 'purple.200' : '#f1f1f1'}
+          textShadow={isActive && '0 0 1px black, 1px 0 0 black'}
+          pl={3}
+          py={4}
+          cursor="pointer"
+          borderWidth="1px"
+          borderColor="blackAlpha.300"
+          {...props}
+          ref={ref}
+        />
+        <Text
+          userSelect="none"
+          position="absolute"
+          fontSize="xs"
+          fontWeight="semibold"
+          color="blackAlpha.500"
+          right="4px"
+          bottom="2px"
+        >
+          in: "{CategoryDictionary[itemCategory]}"
+        </Text>
+      </Box>
     );
   },
 );
@@ -43,6 +67,7 @@ const SearchCombobox = () => {
   const [inputItems, setInputItems] = useState([]);
   const navigate = useNavigate();
   let location = useLocation();
+  const debouncedItems = useDebouncedValue(inputItems, 500);
 
   const handleInputValueChange = ({ inputValue }) => {
     if (inputValue.length === 0) {
@@ -52,7 +77,7 @@ const SearchCombobox = () => {
     if (inputValue.length > 2) {
       setInputItems(
         products.filter((item) =>
-          item.name.toLowerCase().includes(inputValue.toLowerCase()),
+          item.name.toLowerCase().includes(inputValue.trim().toLowerCase()),
         ),
       );
     }
@@ -95,6 +120,7 @@ const SearchCombobox = () => {
         focusBorderColor="blackAlpha.700"
         borderRadius="20px"
         maxWidth="600px"
+        maxLength="80"
       />
       <ComboboxList
         mt="1px"
@@ -106,16 +132,29 @@ const SearchCombobox = () => {
         {...getMenuProps()}
         overflowY="auto"
         borderRadius="5px"
-        borderBottom={inputItems.length > 0 ? '1px solid gray' : 'none'}
+        borderBottom={debouncedItems.length > 0 ? '1px solid gray' : 'none'}
       >
-        {inputItems.map((item, index) => (
+        {debouncedItems.map((item, index) => (
           <ComboboxItem
             {...getItemProps({ item, index })}
             itemIndex={index}
             highlightedIndex={highlightedIndex}
+            itemCategory={item.type}
             key={item.name + index}
+            display="flex"
+            justifyContent="space-between"
           >
-            <Text isTruncated>{item.name}</Text>
+            <Text isTruncated w="70%" textAlign="left">
+              {item.name}
+            </Text>
+            <Text
+              fontSize="0.95rem"
+              textShadow={index === highlightedIndex && '0 0 1px black'}
+              textAlign="right"
+              pr={2}
+            >
+              ${item.price.toFixed(2)}
+            </Text>
           </ComboboxItem>
         ))}
       </ComboboxList>
