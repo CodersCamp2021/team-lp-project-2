@@ -100,7 +100,8 @@ One day a rift has opened in a certain part of Poland, near Wrocław. It was dis
 The amount of electronics produced (as well as the demand for them) ended up being so gigantic that all the stores couldn't handle every consumer order and a need for yet another electronics store arose. And that is how this project came to be.
 
 ## Project Assumptions
-The main assumption of the project is to create an application through the appropriate use of the React knowledge acquired during the course. 
+
+The main assumption of the project is to create an application through the appropriate use of the React knowledge acquired during the course.
 
 A six-person design group, under the guidance of a mentor, who is also a customer of the product, decided on the subject of the store. The store contains computer components.
 
@@ -112,19 +113,18 @@ The store project is just an example of how an actual store works. It allows us 
 
 ## Additional Features
 
-- chatbot in application
-
+- Livechat + Chatbot in application
 
 ## Technologies
 
 - React
 - React Router
 - Chakra UI
+- Downshift
 - Firebase/Firestore
 - Jest (React Testing Library)
 - Figma
 - Trello
-- Downshift
 
 ## Aplication design
 
@@ -143,5 +143,3 @@ The store project is just an example of how an actual store works. It allows us 
 ### Chatbot
 
 ![image](https://user-images.githubusercontent.com/92548480/153246719-aac9231e-8f75-4a75-8749-6ae5fcdcb250.png)
-
-
