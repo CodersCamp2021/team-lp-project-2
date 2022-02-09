@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import App from '../App';
 import Cart from './Cart';
 import { ChakraProvider } from '@chakra-ui/react';
+import { ProductProvider } from '../ProductContext';
 
 beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -53,7 +54,11 @@ test('check if Cart gets visible after clicking cart icon', () => {
 });
 
 test('check if Cart gets closed after clicking on clone button', () => {
-  render(<Cart />);
+  render(
+    <ProductProvider>
+      <Cart />
+    </ProductProvider>,
+  );
 
   const closeCartIcon = screen.getByTestId('closeCartIcon');
   const cart = screen.getByTestId('cart');
