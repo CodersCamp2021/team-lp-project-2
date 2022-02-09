@@ -131,13 +131,18 @@ The store project is just an example of how an actual store works. It allows us 
 
 ### Home view
 
-![image](https://user-images.githubusercontent.com/92548480/153069308-dad7d889-30ad-4d51-84e3-abf357d9bd01.png)
+![image](https://user-images.githubusercontent.com/92548480/153245765-39c4fb43-d44b-4a06-9757-99d6d989cba0.png)
 
 ### Store view
 
-![image](https://user-images.githubusercontent.com/92548480/153069786-bb31a220-ac03-4df9-8a45-30e44c68916f.png)
+![image](https://user-images.githubusercontent.com/92548480/153245980-99b7c4aa-fd38-4a1b-b51b-db5cebcf1379.png)
 
 ### Cart Component
 
-![image](https://user-images.githubusercontent.com/92548480/153069624-6b3bdafc-3544-42d7-ab50-f4a319e57e4d.png)
+![image](https://user-images.githubusercontent.com/92548480/153246196-41c379d5-41bf-4b24-9d9b-f39c4fddd06b.png)
+
+### Chat Bot
+
+![image](https://user-images.githubusercontent.com/92548480/153246719-aac9231e-8f75-4a75-8749-6ae5fcdcb250.png)
+
 
