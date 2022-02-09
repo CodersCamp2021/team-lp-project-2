@@ -3,5 +3,5 @@ export const delayLoading = (loadingSetter, dependency) => {
     if (dependency) {
       loadingSetter(false);
     } else delayLoading(loadingSetter, dependency);
-  }, 600);
+  }, 200);
 };
