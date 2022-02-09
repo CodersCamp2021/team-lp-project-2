@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import ClearButton from './ClearButton';
 import BuyButton from './BuyButton';
-import { ProductContext } from '../../components/ProductContext';
+import { ProductContext } from '../ProductContext';
 
 const CartSummary = ({ products, closeCart }) => {
   const { state } = useContext(ProductContext);
