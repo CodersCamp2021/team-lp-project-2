@@ -57,6 +57,9 @@ const Store = () => {
             fontSize={{ base: '40px', md: '40px' }}
             fontWeight="bold"
             alignSelf={{ base: 'center', md: 'flex-end' }}
+            isTruncated
+            width="100%"
+            textAlign="right"
           >
             {productName
               ? productName
