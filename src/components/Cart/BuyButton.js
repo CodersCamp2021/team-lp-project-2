@@ -13,7 +13,7 @@ function BuyButton({ products, closeCart }) {
     const timer = setTimeout(() => {
       dispatch({ type: 'CLEAR_CART' });
       setLoading(false);
-    }, 1300);
+    }, 500);
     return () => {
       clearTimeout(timer);
     };
