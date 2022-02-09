@@ -37,8 +37,8 @@ const ComboboxItem = React.forwardRef(
         <ListItem
           transition="background-color 220ms, color 220ms"
           bg={isActive ? 'purple.200' : '#f1f1f1'}
-          fontWeight={isActive && 'bold'}
-          px={3}
+          textShadow={isActive && '0 0 1px black, 1px 0 0 black'}
+          pl={3}
           py={4}
           cursor="pointer"
           borderWidth="1px"
@@ -120,6 +120,7 @@ const SearchCombobox = () => {
         focusBorderColor="blackAlpha.700"
         borderRadius="20px"
         maxWidth="600px"
+        maxLength="80"
       />
       <ComboboxList
         mt="1px"
@@ -140,8 +141,20 @@ const SearchCombobox = () => {
             highlightedIndex={highlightedIndex}
             itemCategory={item.type}
             key={item.name + index}
+            display="flex"
+            justifyContent="space-between"
           >
-            <Text isTruncated>{item.name}</Text>
+            <Text isTruncated w="70%" textAlign="left">
+              {item.name}
+            </Text>
+            <Text
+              fontSize="0.95rem"
+              textShadow={index === highlightedIndex && '0 0 1px black'}
+              textAlign="right"
+              pr={2}
+            >
+              ${item.price.toFixed(2)}
+            </Text>
           </ComboboxItem>
         ))}
       </ComboboxList>
