@@ -46,7 +46,7 @@ const Store = () => {
         <Categories category={category} />
         <Filters category={category} />
       </VStack>
-      <Box w={{ base: '100%', sm: '100%', md: '600px', lg: '1000px' }}>
+      <Box w={{ base: '100%', sm: '100%', md: '60%' }}>
         <Flex
           p={{ base: '20px', md: '4% 0 2% 3%' }}
           flexDirection="column"
