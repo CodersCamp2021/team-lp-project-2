@@ -112,10 +112,8 @@ The store project is just an example of how an actual store works. It allows us 
 
 ## Additional Features
 
-- user account handling,
-- personal cart service,
-- end-to-end tests,
-- login users.
+- chatbot in application
+
 
 ## Technologies
 
@@ -126,6 +124,7 @@ The store project is just an example of how an actual store works. It allows us 
 - Jest (React Testing Library)
 - Figma
 - Trello
+- Downshift
 
 ## Aplication design
 
@@ -141,7 +140,7 @@ The store project is just an example of how an actual store works. It allows us 
 
 ![image](https://user-images.githubusercontent.com/92548480/153246196-41c379d5-41bf-4b24-9d9b-f39c4fddd06b.png)
 
-### Chat Bot
+### Chatbot
 
 ![image](https://user-images.githubusercontent.com/92548480/153246719-aac9231e-8f75-4a75-8749-6ae5fcdcb250.png)
 
