@@ -20,6 +20,7 @@ import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { ProductContext } from './ProductContext';
 import { AllProductsContext } from './App';
+import { delayLoading } from './utils';
 
 const deepFreeze = (obj) => {
   Object.keys(obj).forEach((prop) => {
@@ -56,7 +57,7 @@ const ProductDisplay = ({ setProductName }) => {
   let { productId } = useParams();
   const products = useContext(AllProductsContext);
   const [productInfo, setProductInfo] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [noOfProducts, setNoOfProducts] = useState(1);
@@ -84,7 +85,6 @@ const ProductDisplay = ({ setProductName }) => {
   //getting productInfo object from firebase
   const getProduct = async (productId) => {
     const docRef = doc(db, 'products', productId);
-    setIsLoading(true);
     setError(null);
 
     const docSnap = await getDoc(docRef);
@@ -97,8 +97,6 @@ const ProductDisplay = ({ setProductName }) => {
     } else {
       setError('Product not found');
     }
-
-    setIsLoading(false);
   };
 
   function handleAddManyProducts() {
@@ -118,19 +116,10 @@ const ProductDisplay = ({ setProductName }) => {
     //eslint-disable-next-line
   }, [productId]);
 
-  if (isLoading) {
-    return (
-      <Flex w="100%" justifyContent="center">
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="purple.500"
-          size="xl"
-        />
-      </Flex>
-    );
-  }
+  useEffect(() => {
+    const timer = delayLoading(setIsLoading, productInfo);
+    return () => clearTimeout(timer);
+  }, [productInfo]);
 
   if (error) {
     return (
@@ -145,7 +134,7 @@ const ProductDisplay = ({ setProductName }) => {
 
   return (
     <Box>
-      {productInfo && (
+      {!isLoading ? (
         <Flex flexDirection="column" flexWrap="wrap">
           <Flex
             direction={{ base: 'column', '2xl': 'row' }}
@@ -251,6 +240,16 @@ const ProductDisplay = ({ setProductName }) => {
               </Flex>
             </Flex>
           </Flex>
+        </Flex>
+      ) : (
+        <Flex w="100%" justifyContent="center">
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="purple.500"
+            size="xl"
+          />
         </Flex>
       )}
     </Box>
