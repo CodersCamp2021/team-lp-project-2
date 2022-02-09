@@ -1,5 +1,5 @@
 import { Box, Flex, VStack, Text, Divider } from '@chakra-ui/react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useSearchParams } from 'react-router-dom';
 import ProductList from './ProductList';
 import ProductDisplay from './ProductDisplay';
 import { useState, createContext } from 'react';
@@ -8,12 +8,20 @@ import Filters from './filters/Filters';
 
 export const CategoryContext = createContext(undefined);
 
+
 const Store = () => {
   const [category, setCategory] = useState(undefined);
   const [productName, setProductName] = useState('');
 
   const updateCategory = (newCategory) => {
     setCategory(newCategory);
+  };
+
+  let [searchParams] = useSearchParams();
+  const handleSearch = () => {
+    let searchedName = searchParams.get('name');
+    
+    return searchedName;
   };
 
   const displayName = {
@@ -56,7 +64,9 @@ const Store = () => {
               ? productName
               : displayName[category]
               ? displayName[category]
-              : 'All products'}
+              : handleSearch()
+              ? handleSearch()
+              : "All products"}
           </Text>
           <Divider zIndex="-1" />
         </Flex>
