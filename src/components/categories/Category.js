@@ -13,11 +13,12 @@ export default function Category({ name, icon, isBolded, path }) {
         pl="3%"
         pr="3%"
         fontWeight={isBolded ? 'bold' : 'regular'}
+        color={isBolded ? 'purple.600' : '#111'}
         to={path}
       >
         {name}
       </Link>
-      <FaAngleRight size="2vh" />
+      <FaAngleRight size="2vh" color={isBolded ? '#6b46c1' : '#111'} />
     </Flex>
   );
 }

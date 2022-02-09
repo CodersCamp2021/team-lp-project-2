@@ -4,18 +4,19 @@ import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 import { AllProductsContext } from './App';
 import ProductPreview from './ProductPreview';
+import { delayLoading } from './utils';
 
-const SortStates = {
+const SortStates = Object.freeze({
   NAME_ASC: 'name(asc)',
   NAME_DESC: 'name(desc)',
   PRICE_ASC: 'price(asc)',
   PRICE_DESC: 'price(desc)',
-};
-Object.freeze(SortStates);
+});
 
 const ProductList = () => {
   let { category } = useParams();
   const [sorting, setSorting] = useState(SortStates.NAME_ASC);
+  const [isLoading, setIsLoading] = useState(true);
   const updateCategory = useContext(CategoryContext);
   const products = useContext(AllProductsContext);
   let [searchParams] = useSearchParams();
@@ -107,7 +108,10 @@ const ProductList = () => {
 
   useEffect(() => {
     setSorting('name(asc)');
+    setIsLoading(true);
     updateCategory(category);
+    const timer = delayLoading(setIsLoading, products);
+    return () => clearTimeout(timer);
     // eslint-disable-next-line
   }, [category]);
 
@@ -131,31 +135,47 @@ const ProductList = () => {
           <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
         </Select>
       </Flex>
-      <SimpleGrid
-        paddingY={5}
-        minChildWidth="220px"
-        justifyItems={{ base: 'center', md: 'flex-start' }}
-        alignItems="center"
-        spacing={1}
-        rowGap="30px"
-        columnGap="10px"
-      >
-        {products.length > 0 ? (
-          applyFiltering().map((product) => (
-            <ProductPreview key={product.id} product={product} />
-          ))
-        ) : (
-          <Flex justifyContent="center" alignItems="center" width="100%">
-            <Spinner
-              thickness="4px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="purple.500"
-              size="xl"
-            />
-          </Flex>
-        )}
-      </SimpleGrid>
+      {
+        <SimpleGrid
+          paddingY={5}
+          minChildWidth="220px"
+          justifyItems={{ base: 'center', md: 'flex-start' }}
+          alignItems="center"
+          spacing={1}
+          rowGap="30px"
+          columnGap="10px"
+        >
+          {!isLoading ? (
+            applyFiltering().length > 0 ? (
+              applyFiltering().map((product) => (
+                <ProductPreview key={product.id} product={product} />
+              ))
+            ) : (
+              <Flex justifyContent="center" alignItems="center" width="100%">
+                <Text
+                  fontWeight="semibold"
+                  p={7}
+                  fontSize={{ base: '16px', md: '20px' }}
+                  color="#ccc"
+                >
+                  We are sorry but there are no products matching your criteria
+                  :(
+                </Text>
+              </Flex>
+            )
+          ) : (
+            <Flex justifyContent="center" alignItems="center" width="100%">
+              <Spinner
+                thickness="4px"
+                speed="0.65s"
+                emptyColor="gray.200"
+                color="purple.500"
+                size="xl"
+              />
+            </Flex>
+          )}
+        </SimpleGrid>
+      }
     </Flex>
   );
 };

@@ -6,27 +6,58 @@ import {
   Alert,
   AlertIcon,
   Flex,
-  List,
   ListItem,
-  ListIcon,
   Text,
   Button,
   useToast,
+  UnorderedList,
 } from '@chakra-ui/react';
 import ChooseValue from './productDetails/ChooseValue';
-import { FaAngleRight, FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { useEffect, useState, useContext } from 'react';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { ProductContext } from './ProductContext';
 import { AllProductsContext } from './App';
+import { delayLoading } from './utils';
+
+const deepFreeze = (obj) => {
+  Object.keys(obj).forEach((prop) => {
+    if (typeof obj[prop] === 'object' && !Object.isFrozen(obj[prop]))
+      deepFreeze(obj[prop]);
+  });
+  return Object.freeze(obj);
+};
+
+const DetailsDictionary = deepFreeze({
+  brand: 'Brand',
+  model: 'Model',
+  cpuSpeed: { name: 'CPU Speed', unit: '' },
+  cpuSocket: 'CPU Socket',
+  wattage: { name: 'Wattage', unit: 'W' },
+  cacheSize: { name: 'Cache Size', unit: 'MB' },
+  processorCount: 'Processor Count',
+  ramType: 'Graphics RAM Type',
+  ramSize: { name: 'Graphics RAM Size', unit: 'GB' },
+  memoryClockSpeed: { name: 'Memory Clock Speed', unit: 'MHz' },
+  gpuClockSpeed: { name: 'GPU Clock Speed', unit: 'MHz' },
+  ramMemoryTechnology: 'RAM Memory Technology',
+  memorySize: { name: 'Memory Size', unit: 'GB' },
+  memorySpeed: { name: 'Memory Speed', unit: 'MHz' },
+  chipsetType: 'Chipset Type',
+  series: 'Series',
+  displayMaximumResolution: 'Maximum Display Resolution',
+  resolutionStandard: 'Resolution Standard',
+  displaySize: { name: 'Display Size', unit: "''" },
+  refreshRate: { name: 'Refresh Rate', unit: 'Hz' },
+});
 
 const ProductDisplay = ({ setProductName }) => {
   let { productId } = useParams();
   const products = useContext(AllProductsContext);
   const [productInfo, setProductInfo] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [noOfProducts, setNoOfProducts] = useState(1);
@@ -54,8 +85,6 @@ const ProductDisplay = ({ setProductName }) => {
   //getting productInfo object from firebase
   const getProduct = async (productId) => {
     const docRef = doc(db, 'products', productId);
-    console.log(productId);
-    setIsLoading(true);
     setError(null);
 
     const docSnap = await getDoc(docRef);
@@ -68,8 +97,6 @@ const ProductDisplay = ({ setProductName }) => {
     } else {
       setError('Product not found');
     }
-
-    setIsLoading(false);
   };
 
   function handleAddManyProducts() {
@@ -89,19 +116,10 @@ const ProductDisplay = ({ setProductName }) => {
     //eslint-disable-next-line
   }, [productId]);
 
-  if (isLoading) {
-    return (
-      <Flex w="100%" justifyContent="center">
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="purple.500"
-          size="xl"
-        />
-      </Flex>
-    );
-  }
+  useEffect(() => {
+    const timer = delayLoading(setIsLoading, productInfo);
+    return () => clearTimeout(timer);
+  }, [productInfo]);
 
   if (error) {
     return (
@@ -116,7 +134,7 @@ const ProductDisplay = ({ setProductName }) => {
 
   return (
     <Box>
-      {productInfo && (
+      {!isLoading ? (
         <Flex flexDirection="column" flexWrap="wrap">
           <Flex
             direction={{ base: 'column', '2xl': 'row' }}
@@ -168,10 +186,20 @@ const ProductDisplay = ({ setProductName }) => {
               </Flex>
             </Flex>
             <Flex m={5} flexDirection="column" minW="=400px">
-              <Text p="40px 0 10px 35px" fontSize="25px" fontWeight="semibold">
+              <Text
+                as="div"
+                p="45px 0 10px 35px"
+                fontSize="25px"
+                fontWeight="normal"
+                display="flex"
+              >
+                <Text fontWeight="semibold">Price:</Text>
+                {`\u2002$${productInfo.price.toFixed(2)}`}
+              </Text>
+              <Text p="20px 0 10px 35px" fontSize="25px" fontWeight="semibold">
                 Details:
               </Text>
-              <List pl={10} spacing={3}>
+              <UnorderedList pl={10} spacing={3}>
                 {Object.keys(productInfo.details)
                   .filter(
                     (key) => key !== 'description' && key !== 'showOnHomepage',
@@ -179,17 +207,18 @@ const ProductDisplay = ({ setProductName }) => {
                   .map((keyName) => (
                     <ListItem key={keyName}>
                       <Flex alignItems="center">
-                        <ListIcon size={5} as={FaAngleRight} />
                         <Text fontSize="20px" fontWeight="500">
-                          {keyName}:
+                          {(DetailsDictionary[keyName]?.name ||
+                            DetailsDictionary[keyName]) + ':\u2002'}
                         </Text>
                         <Text fontSize="20px" color="gray.700">
-                          {productInfo.details[keyName]}
+                          {productInfo.details[keyName] +
+                            (DetailsDictionary[keyName]?.unit || '')}
                         </Text>
                       </Flex>
                     </ListItem>
                   ))}
-              </List>
+              </UnorderedList>
               <Flex
                 py="10%"
                 alignSelf="center"
@@ -211,6 +240,16 @@ const ProductDisplay = ({ setProductName }) => {
               </Flex>
             </Flex>
           </Flex>
+        </Flex>
+      ) : (
+        <Flex w="100%" justifyContent="center">
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="purple.500"
+            size="xl"
+          />
         </Flex>
       )}
     </Box>
