@@ -1,12 +1,15 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import MenuLinks from './MenuLinks';
 import { BrowserRouter } from 'react-router-dom';
+import { ProductProvider } from '../ProductContext';
 
 test('Render Home MenuLinks component corectly', () => {
   render(
-    <BrowserRouter>
-      <MenuLinks />
-    </BrowserRouter>,
+    <ProductProvider>
+      <BrowserRouter>
+        <MenuLinks />
+      </BrowserRouter>
+    </ProductProvider>,
   );
   const home = screen.getByText('Home');
   expect(home).toBeInTheDocument();
@@ -14,9 +17,11 @@ test('Render Home MenuLinks component corectly', () => {
 
 test('Render Store MenuLinks component corectly', () => {
   render(
-    <BrowserRouter>
-      <MenuLinks />
-    </BrowserRouter>,
+    <ProductProvider>
+      <BrowserRouter>
+        <MenuLinks />
+      </BrowserRouter>
+    </ProductProvider>,
   );
   const store = screen.getByText('Store');
   expect(store).toBeInTheDocument();
@@ -26,9 +31,11 @@ test('store Link changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
-    <BrowserRouter>
-      <MenuLinks />
-    </BrowserRouter>,
+    <ProductProvider>
+      <BrowserRouter>
+        <MenuLinks />
+      </BrowserRouter>
+    </ProductProvider>,
   );
   const store = screen.getByText('Store');
 
@@ -41,9 +48,11 @@ test('home Link changes url', () => {
   global.window = { location: { pathname: null } };
 
   render(
-    <BrowserRouter>
-      <MenuLinks />
-    </BrowserRouter>,
+    <ProductProvider>
+      <BrowserRouter>
+        <MenuLinks />
+      </BrowserRouter>
+    </ProductProvider>,
   );
   const home = screen.getByText('Home');
 
