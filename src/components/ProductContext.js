@@ -82,9 +82,6 @@ function productListReducer(state, action) {
 
 export function ProductProvider({ children }) {
   const [state, dispatch] = useReducer(productListReducer, { products: [] });
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
 
   return (
     <ProductContext.Provider value={{ state, dispatch }}>
