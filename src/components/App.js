@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import HomeMain from './HomePage/HomeMain';
+import HomeMain from './homepage/HomeMain';
 import Store from './Store';
-import Navbar from './Navigation/Navbar';
-import Cart from './Cart/Cart';
+import Navbar from './navigation/Navbar';
+import Cart from './cart/Cart';
 import { useState, useEffect, createContext } from 'react';
-import Footer from './HomePage/Footer';
+import Footer from './homepage/Footer';
 import { Grid } from '@chakra-ui/react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
