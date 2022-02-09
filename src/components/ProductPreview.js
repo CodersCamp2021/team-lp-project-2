@@ -105,7 +105,7 @@ const ProductPreview = ({ product }) => {
         )}
       </Flex>
       <Text fontSize="md" textAlign="left">
-        ${price}
+        ${parseFloat(price).toFixed(2)}
       </Text>
     </Flex>
   );

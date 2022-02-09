@@ -113,7 +113,6 @@ function Filters({ category }) {
         <Button
           w="50%"
           alignSelf="center"
-          variant="outline"
           colorScheme="purple"
           rightIcon={<BsCheckAll />}
           onClick={handleSubmit}
