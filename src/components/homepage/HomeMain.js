@@ -4,11 +4,12 @@ import HeroInfo from './HeroInfo';
 import { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase';
+import { delayLoading } from '../utils';
 
 const HomeMain = () => {
   const [activeItem, setActiveItem] = useState(0);
   const [heroProducts, setHeroProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getHeroProducts = async () => {
     let fetchedProducts = [];
@@ -16,7 +17,6 @@ const HomeMain = () => {
       collection(db, 'products'),
       where('details.showOnHomepage', '==', true),
     );
-    setIsLoading(true);
     const snapshot = await getDocs(productsQuery);
 
     snapshot.docs.forEach((doc) => {
@@ -24,7 +24,6 @@ const HomeMain = () => {
       fetchedProducts.push({ ...data, id: doc.id });
     });
     setHeroProducts(fetchedProducts);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -33,7 +32,13 @@ const HomeMain = () => {
     } catch (error) {
       console.error(error);
     }
+    //eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    const timer = delayLoading(setIsLoading, heroProducts);
+    return () => clearTimeout(timer);
+  }, [heroProducts]);
 
   const handleIncrement = () => {
     setActiveItem((active) =>
