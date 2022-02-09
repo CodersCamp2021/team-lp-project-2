@@ -131,7 +131,7 @@ const ProductList = () => {
           <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
         </Select>
       </Flex>
-      {parseInt(applyFiltering().length) > 0 ? (
+      {
         <SimpleGrid
           paddingY={5}
           minChildWidth="220px"
@@ -142,9 +142,22 @@ const ProductList = () => {
           columnGap="10px"
         >
           {products.length > 0 ? (
-            applyFiltering().map((product) => (
-              <ProductPreview key={product.id} product={product} />
-            ))
+            applyFiltering().length > 0 ? (
+              applyFiltering().map((product) => (
+                <ProductPreview key={product.id} product={product} />
+              ))
+            ) : (
+              <Flex justifyContent="center" alignItems="center" width="100%">
+                <Text
+                  fontWeight="semibold"
+                  p={7}
+                  fontSize={{ base: '16px', md: '20px' }}
+                  color="#ccc"
+                >
+                  We are sorry but there are no results for your search
+                </Text>
+              </Flex>
+            )
           ) : (
             <Flex justifyContent="center" alignItems="center" width="100%">
               <Spinner
@@ -157,18 +170,7 @@ const ProductList = () => {
             </Flex>
           )}
         </SimpleGrid>
-      ) : (
-        <Flex justifyContent="center" alignItems="center" width="100%">
-          <Text
-            fontWeight="semibold"
-            p={7}
-            fontSize={{ base: '16px', md: '20px' }}
-            color="#ccc"
-          >
-            We are sorry but there are no results for your search
-          </Text>
-        </Flex>
-      )}
+      }
     </Flex>
   );
 };
