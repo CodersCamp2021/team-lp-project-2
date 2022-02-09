@@ -56,7 +56,9 @@ test('check if Cart gets visible after clicking cart icon', () => {
 test('check if Cart gets closed after clicking on clone button', () => {
   render(
     <ProductProvider>
-      <Cart />
+      <BrowserRouter>
+        <Cart />
+      </BrowserRouter>
     </ProductProvider>,
   );
 
