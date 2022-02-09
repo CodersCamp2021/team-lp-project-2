@@ -2,6 +2,7 @@ import HomeMain from './HomeMain';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
+import { ProductProvider } from '../ProductContext';
 
 beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -23,7 +24,9 @@ test('Render HomeMain component corectly', () => {
   render(
     <ChakraProvider>
       <BrowserRouter>
-        <HomeMain />
+        <ProductProvider>
+          <HomeMain />
+        </ProductProvider>
       </BrowserRouter>
     </ChakraProvider>,
   );
