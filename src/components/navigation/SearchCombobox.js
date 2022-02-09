@@ -3,6 +3,7 @@ import { useCombobox } from 'downshift';
 import { AllProductsContext } from '../App';
 import { Input, List, ListItem, Box, Text } from '@chakra-ui/react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useDebouncedValue } from '../utils';
 
 /* 
 Downshift useCombobox documentation: https://www.downshift-js.com/use-combobox
@@ -10,6 +11,7 @@ Downshift useCombobox documentation: https://www.downshift-js.com/use-combobox
 ChakraUI + Downshift implementation based on: 
 https://codesandbox.io/s/mkvj7?file=/src/Combobox.js
 */
+
 const ComboboxInput = React.forwardRef(({ ...props }, ref) => {
   return <Input {...props} ref={ref} w="90%" />;
 });
@@ -43,6 +45,7 @@ const SearchCombobox = () => {
   const [inputItems, setInputItems] = useState([]);
   const navigate = useNavigate();
   let location = useLocation();
+  const debouncedItems = useDebouncedValue(inputItems, 500);
 
   const handleInputValueChange = ({ inputValue }) => {
     if (inputValue.length === 0) {
@@ -52,7 +55,7 @@ const SearchCombobox = () => {
     if (inputValue.length > 2) {
       setInputItems(
         products.filter((item) =>
-          item.name.toLowerCase().includes(inputValue.toLowerCase()),
+          item.name.toLowerCase().includes(inputValue.trim().toLowerCase()),
         ),
       );
     }
@@ -106,9 +109,9 @@ const SearchCombobox = () => {
         {...getMenuProps()}
         overflowY="auto"
         borderRadius="5px"
-        borderBottom={inputItems.length > 0 ? '1px solid gray' : 'none'}
+        borderBottom={debouncedItems.length > 0 ? '1px solid gray' : 'none'}
       >
-        {inputItems.map((item, index) => (
+        {debouncedItems.map((item, index) => (
           <ComboboxItem
             {...getItemProps({ item, index })}
             itemIndex={index}
