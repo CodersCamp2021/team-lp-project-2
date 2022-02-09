@@ -162,7 +162,7 @@ const ProductList = () => {
           <Text
             fontWeight="semibold"
             p={7}
-            fontSize={{ base: '25px', md: '25px' }}
+            fontSize={{ base: '16px', md: '20px' }}
             color="#ccc"
           >
             We are sorry but there are no results for your search
