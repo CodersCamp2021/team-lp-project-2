@@ -8,14 +8,15 @@ function BuyButton({ products, closeCart }) {
   const [loading, setLoading] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { dispatch } = useContext(ProductContext);
+  const [clearTimer, setClearTimer] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch({ type: 'CLEAR_CART' });
       setLoading(false);
     }, 500);
     return () => {
       clearTimeout(timer);
+      clearTimeout(clearTimer);
     };
     //eslint-disable-next-line
   }, [loading]);
@@ -24,6 +25,11 @@ function BuyButton({ products, closeCart }) {
     setLoading(true);
     closeCart();
     onOpen();
+    setClearTimer(
+      setTimeout(() => {
+        dispatch({ type: 'CLEAR_CART' });
+      }, 500),
+    );
   }
 
   return (
