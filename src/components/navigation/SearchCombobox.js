@@ -5,6 +5,14 @@ import { Input, List, ListItem, Box, Text } from '@chakra-ui/react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDebouncedValue } from '../utils';
 
+const CategoryDictionary = Object.freeze({
+  cpu: 'CPUs',
+  gpu: 'GPUs',
+  monitor: 'Monitors',
+  ram: 'Memory',
+  motherboard: 'Motherboards',
+});
+
 /* 
 Downshift useCombobox documentation: https://www.downshift-js.com/use-combobox
 
@@ -21,21 +29,35 @@ const ComboboxList = React.forwardRef(({ isOpen, ...props }, ref) => {
 });
 
 const ComboboxItem = React.forwardRef(
-  ({ itemIndex, highlightedIndex, ...props }, ref) => {
+  ({ itemIndex, highlightedIndex, itemCategory, ...props }, ref) => {
     const isActive = itemIndex === highlightedIndex;
 
     return (
-      <ListItem
-        transition="background-color 220ms, color 220ms"
-        bg={isActive ? 'purple.100' : '#f1f1f1'}
-        px={3}
-        py={3}
-        cursor="pointer"
-        borderWidth="1px"
-        borderColor="blackAlpha.300"
-        {...props}
-        ref={ref}
-      />
+      <Box position="relative">
+        <ListItem
+          transition="background-color 220ms, color 220ms"
+          bg={isActive ? 'purple.200' : '#f1f1f1'}
+          fontWeight={isActive && 'bold'}
+          px={3}
+          py={4}
+          cursor="pointer"
+          borderWidth="1px"
+          borderColor="blackAlpha.300"
+          {...props}
+          ref={ref}
+        />
+        <Text
+          userSelect="none"
+          position="absolute"
+          fontSize="xs"
+          fontWeight="semibold"
+          color="blackAlpha.500"
+          right="4px"
+          bottom="2px"
+        >
+          in: "{CategoryDictionary[itemCategory]}"
+        </Text>
+      </Box>
     );
   },
 );
@@ -116,6 +138,7 @@ const SearchCombobox = () => {
             {...getItemProps({ item, index })}
             itemIndex={index}
             highlightedIndex={highlightedIndex}
+            itemCategory={item.type}
             key={item.name + index}
           >
             <Text isTruncated>{item.name}</Text>
