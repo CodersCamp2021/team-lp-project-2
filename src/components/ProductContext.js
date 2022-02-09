@@ -105,7 +105,7 @@ function productListReducer(state, action) {
 export function ProductProvider({ children }) {
   const [state, dispatch] = useReducer(
     productListReducer,
-    LocalStorage.get('cart') !== null
+    LocalStorage.get('cart')
       ? LocalStorage.get('cart')
       : {
           products: [],
