@@ -154,7 +154,8 @@ const ProductList = () => {
                   fontSize={{ base: '16px', md: '20px' }}
                   color="#ccc"
                 >
-                  We are sorry but there are no results for your search
+                  We are sorry but there are no products matching your criteria
+                  :(
                 </Text>
               </Flex>
             )

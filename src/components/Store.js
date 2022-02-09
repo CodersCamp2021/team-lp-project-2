@@ -19,8 +19,7 @@ const Store = () => {
   let [searchParams] = useSearchParams();
 
   const handleSearch = () => {
-    let searchedName = searchParams.get('name');
-    return `Searching phrase "${searchedName}"`;
+    return searchParams.get('name');
   };
 
   const displayName = {
@@ -61,10 +60,10 @@ const Store = () => {
           >
             {productName
               ? productName
+              : handleSearch()
+              ? `Search results for: "${handleSearch()}"`
               : displayName[category]
               ? displayName[category]
-              : handleSearch()
-              ? handleSearch()
               : 'All products'}
           </Text>
           <Divider zIndex="-1" />
