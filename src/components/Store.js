@@ -18,9 +18,9 @@ const Store = () => {
   };
 
   let [searchParams] = useSearchParams();
+  
   const handleSearch = () => {
     let searchedName = searchParams.get('name');
-    
     return searchedName;
   };
 
