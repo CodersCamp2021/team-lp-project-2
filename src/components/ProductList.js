@@ -143,8 +143,8 @@ const ProductList = () => {
               gridTemplateColumns="repeat(auto-fill, minmax(220px, 1fr))"
               justifyItems={{ base: 'center', md: 'flex-start' }}
               alignItems="center"
-              spacing={2}
               rowGap="30px"
+              columnGap={2}
             >
               {applyFiltering().map((product) => (
                 <ProductPreview key={product.id} product={product} />
