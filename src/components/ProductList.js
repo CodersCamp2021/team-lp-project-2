@@ -110,10 +110,10 @@ const ProductList = () => {
     setSorting('name(asc)');
     setIsLoading(true);
     updateCategory(category);
-    const timer = delayLoading(setIsLoading, products);
+    const timer = delayLoading(setIsLoading, products.length);
     return () => clearTimeout(timer);
     // eslint-disable-next-line
-  }, [category]);
+  }, [category, products]);
 
   return (
     <Flex justifyContent="center" flexDirection="column">
