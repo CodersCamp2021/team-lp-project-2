@@ -34,7 +34,7 @@ const ProductPreview = ({ product }) => {
             <Text fontWeight="bold">Product added to cart!</Text>
           </Flex>
           <Text fontSize={{ base: '20px', md: '15px' }}>
-            Check if he hasn't escaped from there.
+            Check if it hasn't escaped from there.
           </Text>
         </Box>
       ),
