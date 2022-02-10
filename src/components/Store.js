@@ -60,6 +60,8 @@ const Store = () => {
             isTruncated
             width="100%"
             textAlign="right"
+            whiteSpace="normal"
+            overflowWrap="anywhere"
           >
             {productName
               ? productName
