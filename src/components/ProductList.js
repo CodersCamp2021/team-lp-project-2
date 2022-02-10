@@ -1,5 +1,5 @@
 import { useParams, useSearchParams } from 'react-router-dom';
-import { SimpleGrid, Text, Flex, Select, Spinner } from '@chakra-ui/react';
+import { Grid, Text, Flex, Select, Spinner, Box } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import { CategoryContext } from './Store';
 import { AllProductsContext } from './App';
@@ -135,46 +135,45 @@ const ProductList = () => {
           <option value={SortStates.PRICE_DESC}>Price: High to Low</option>
         </Select>
       </Flex>
-      {
-        <SimpleGrid
-          paddingY={5}
-          minChildWidth="220px"
-          justifyItems={{ base: 'center', md: 'flex-start' }}
-          alignItems="center"
-          spacing={2}
-          rowGap="30px"
-        >
-          {!isLoading ? (
-            applyFiltering().length > 0 ? (
-              applyFiltering().map((product) => (
+      {!isLoading ? (
+        <Box>
+          {applyFiltering().length > 0 ? (
+            <Grid
+              paddingY={5}
+              gridTemplateColumns="repeat(auto-fill, minmax(220px, 1fr))"
+              justifyItems={{ base: 'center', md: 'flex-start' }}
+              alignItems="center"
+              spacing={2}
+              rowGap="30px"
+            >
+              {applyFiltering().map((product) => (
                 <ProductPreview key={product.id} product={product} />
-              ))
-            ) : (
-              <Flex justifyContent="center" alignItems="center" width="100%">
-                <Text
-                  fontWeight="semibold"
-                  p={7}
-                  fontSize={{ base: '16px', md: '20px' }}
-                  color="#ccc"
-                >
-                  We are sorry but there are no products matching your criteria
-                  :(
-                </Text>
-              </Flex>
-            )
+              ))}
+            </Grid>
           ) : (
             <Flex justifyContent="center" alignItems="center" width="100%">
-              <Spinner
-                thickness="4px"
-                speed="0.65s"
-                emptyColor="gray.200"
-                color="purple.500"
-                size="xl"
-              />
+              <Text
+                fontWeight="semibold"
+                p={7}
+                fontSize={{ base: '16px', md: '20px' }}
+                color="#ccc"
+              >
+                We are sorry but there are no products matching your criteria :(
+              </Text>
             </Flex>
           )}
-        </SimpleGrid>
-      }
+        </Box>
+      ) : (
+        <Flex justifyContent="center" alignItems="center" width="100%">
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="purple.500"
+            size="xl"
+          />
+        </Flex>
+      )}
     </Flex>
   );
 };
