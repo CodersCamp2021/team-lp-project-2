@@ -36,7 +36,7 @@ const HomeMain = () => {
   }, []);
 
   useEffect(() => {
-    const timer = delayLoading(setIsLoading, heroProducts);
+    const timer = delayLoading(setIsLoading, heroProducts.length);
     return () => clearTimeout(timer);
   }, [heroProducts]);
 
