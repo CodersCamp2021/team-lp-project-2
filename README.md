@@ -13,13 +13,21 @@
 - [Krzysztof Prońko](https://github.com/Ruud1990)
 - [Paweł Stępień](https://github.com/pastepi)
 
+### Project deployed on Netlify: https://wizardly-mayer-ab1861.netlify.app/
+
 # How to Use
+
+### Please be aware - app is not going to have any products and/or working functions related to them if ran locally without .env.local file with DB access (with appropriate product data)!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Installs dependencies required to run the app.
 
 ### `npm start`
 
